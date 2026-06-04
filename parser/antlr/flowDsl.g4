@@ -3,6 +3,8 @@ options { tokenVocab=flowDslLexer; }
 
 flows: flow+ EOF;
 
+imports: IMPORT LBRACE (STRING SEMI)+ RBRACE;
+
 flow: FLOW ID LBRACE statement+ RBRACE;
 
 statement:

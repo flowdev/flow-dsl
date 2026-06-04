@@ -1,5 +1,7 @@
 lexer grammar flowDslLexer;
 
+IMPORT: 'import';
+
 FLOW: 'flow';
 
 LBRACE: '{' -> pushMode(F);
@@ -15,7 +17,7 @@ WS:
 
 
 //
-// mode F (for parsing flows)
+// mode F (for parsing flows and imports)
 
 mode F;
 
@@ -24,6 +26,8 @@ ARROW: '->';
 SEMI: ';';
 
 COLON: ':';
+
+STRING: '"' .*? '"';
 
 NAME: [a-z] [a-zA-Z0-9]*;
 

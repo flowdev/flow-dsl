@@ -1,0 +1,1931 @@
+# width values:
+# 1550 (no break at all)
+# 50 (break everywhere, pathetic case)
+# 350 (break almost everywhere, smallest sane number)
+# 750 (break short after bigMerge and long after Split1 and short after Split2)
+# 850 (break long after bigMerge)
+# 1150 (break before Split1 and Split2)
+# 1250 (break after Split1 and before Split2)
+# 1350 (break long and short before lastMerge)
+#
+# draw the BigTestFlowData and compare the resulting SVG with the expected one:
+drawBigTestFlowData false false 1550
+cmp markdown-false-false-1550.actual markdown-false-false-1550.expected
+cmp flowdev/flow-bigTestFlow1550.svg flowdev/flow-bigTestFlow1550.expected
+# draw the BigTestFlowData split up in many SVGs and in dark mode:
+drawBigTestFlowData true true 350
+cmp markdown-true-true-350.actual markdown-true-true-350.expected
+cmp flowdev/flow-bigTestFlow1550.svg flowdev/flow-bigTestFlow1550.expected
+cmp flowdev/flow-bigTestFlow350-0-11-sequel.svg flowdev/flow-bigTestFlow350-0-11-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-17-sequel.svg flowdev/flow-bigTestFlow350-0-17-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-1-port-in.svg flowdev/flow-bigTestFlow350-0-1-port-in.expected
+cmp flowdev/flow-bigTestFlow350-0-22-sequel.svg flowdev/flow-bigTestFlow350-0-22-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-24-sequel.svg flowdev/flow-bigTestFlow350-0-24-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-25-sequel.svg flowdev/flow-bigTestFlow350-0-25-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-27-sequel.svg flowdev/flow-bigTestFlow350-0-27-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-29-sequel.svg flowdev/flow-bigTestFlow350-0-29-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-30-sequel.svg flowdev/flow-bigTestFlow350-0-30-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-34-sequel.svg flowdev/flow-bigTestFlow350-0-34-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-36-sequel.svg flowdev/flow-bigTestFlow350-0-36-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-37-sequel.svg flowdev/flow-bigTestFlow350-0-37-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-39-sequel.svg flowdev/flow-bigTestFlow350-0-39-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-43-port-in3.svg flowdev/flow-bigTestFlow350-0-43-port-in3.expected
+cmp flowdev/flow-bigTestFlow350-0-45-sequel.svg flowdev/flow-bigTestFlow350-0-45-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-49-sequel.svg flowdev/flow-bigTestFlow350-0-49-sequel.expected
+cmp flowdev/flow-bigTestFlow350-0-5-port-in2.svg flowdev/flow-bigTestFlow350-0-5-port-in2.expected
+cmp flowdev/flow-bigTestFlow350-1-0-arrow.svg flowdev/flow-bigTestFlow350-1-0-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-10-megaParser.svg flowdev/flow-bigTestFlow350-1-10-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-1-11-arrow.svg flowdev/flow-bigTestFlow350-1-11-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-12-To.svg flowdev/flow-bigTestFlow350-1-12-To.expected
+cmp flowdev/flow-bigTestFlow350-1-13-To.svg flowdev/flow-bigTestFlow350-1-13-To.expected
+cmp flowdev/flow-bigTestFlow350-1-14-To.svg flowdev/flow-bigTestFlow350-1-14-To.expected
+cmp flowdev/flow-bigTestFlow350-1-15-To.svg flowdev/flow-bigTestFlow350-1-15-To.expected
+cmp flowdev/flow-bigTestFlow350-1-16-To.svg flowdev/flow-bigTestFlow350-1-16-To.expected
+cmp flowdev/flow-bigTestFlow350-1-17-arrow.svg flowdev/flow-bigTestFlow350-1-17-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-18-Mla.svg flowdev/flow-bigTestFlow350-1-18-Mla.expected
+cmp flowdev/flow-bigTestFlow350-1-19-arrow.svg flowdev/flow-bigTestFlow350-1-19-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-1-arrow.svg flowdev/flow-bigTestFlow350-1-1-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-20-arrow.svg flowdev/flow-bigTestFlow350-1-20-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-21-arrow.svg flowdev/flow-bigTestFlow350-1-21-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-22-arrow.svg flowdev/flow-bigTestFlow350-1-22-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-23-arrow.svg flowdev/flow-bigTestFlow350-1-23-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-24-arrow.svg flowdev/flow-bigTestFlow350-1-24-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-25-arrow.svg flowdev/flow-bigTestFlow350-1-25-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-26-bla2.svg flowdev/flow-bigTestFlow350-1-26-bla2.expected
+cmp flowdev/flow-bigTestFlow350-1-27-arrow.svg flowdev/flow-bigTestFlow350-1-27-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-28-arrow.svg flowdev/flow-bigTestFlow350-1-28-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-29-arrow.svg flowdev/flow-bigTestFlow350-1-29-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-2-Xa.svg flowdev/flow-bigTestFlow350-1-2-Xa.expected
+cmp flowdev/flow-bigTestFlow350-1-30-arrow.svg flowdev/flow-bigTestFlow350-1-30-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-31-postMerge.svg flowdev/flow-bigTestFlow350-1-31-postMerge.expected
+cmp flowdev/flow-bigTestFlow350-1-32-postMerge.svg flowdev/flow-bigTestFlow350-1-32-postMerge.expected
+cmp flowdev/flow-bigTestFlow350-1-33-postMerge.svg flowdev/flow-bigTestFlow350-1-33-postMerge.expected
+cmp flowdev/flow-bigTestFlow350-1-34-arrow.svg flowdev/flow-bigTestFlow350-1-34-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-35-Split1.svg flowdev/flow-bigTestFlow350-1-35-Split1.expected
+cmp flowdev/flow-bigTestFlow350-1-36-arrow.svg flowdev/flow-bigTestFlow350-1-36-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-37-arrow.svg flowdev/flow-bigTestFlow350-1-37-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-38-arrow.svg flowdev/flow-bigTestFlow350-1-38-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-39-arrow.svg flowdev/flow-bigTestFlow350-1-39-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-3-Xa.svg flowdev/flow-bigTestFlow350-1-3-Xa.expected
+cmp flowdev/flow-bigTestFlow350-1-40-arrow.svg flowdev/flow-bigTestFlow350-1-40-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-41-arrow.svg flowdev/flow-bigTestFlow350-1-41-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-42-arrow.svg flowdev/flow-bigTestFlow350-1-42-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-43-arrow.svg flowdev/flow-bigTestFlow350-1-43-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-44-arrow.svg flowdev/flow-bigTestFlow350-1-44-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-45-arrow.svg flowdev/flow-bigTestFlow350-1-45-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-46-arrow.svg flowdev/flow-bigTestFlow350-1-46-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-47-arrow.svg flowdev/flow-bigTestFlow350-1-47-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-48-arrow.svg flowdev/flow-bigTestFlow350-1-48-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-49-arrow.svg flowdev/flow-bigTestFlow350-1-49-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-4-arrow.svg flowdev/flow-bigTestFlow350-1-4-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-5-arrow.svg flowdev/flow-bigTestFlow350-1-5-arrow.expected
+cmp flowdev/flow-bigTestFlow350-1-6-megaParser.svg flowdev/flow-bigTestFlow350-1-6-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-1-7-megaParser.svg flowdev/flow-bigTestFlow350-1-7-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-1-8-megaParser.svg flowdev/flow-bigTestFlow350-1-8-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-1-9-megaParser.svg flowdev/flow-bigTestFlow350-1-9-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-2-0-Xa.svg flowdev/flow-bigTestFlow350-2-0-Xa.expected
+cmp flowdev/flow-bigTestFlow350-2-11-To.svg flowdev/flow-bigTestFlow350-2-11-To.expected
+cmp flowdev/flow-bigTestFlow350-2-17-Mla.svg flowdev/flow-bigTestFlow350-2-17-Mla.expected
+cmp flowdev/flow-bigTestFlow350-2-18-arrow.svg flowdev/flow-bigTestFlow350-2-18-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-1-Xa.svg flowdev/flow-bigTestFlow350-2-1-Xa.expected
+cmp flowdev/flow-bigTestFlow350-2-22-sequel.svg flowdev/flow-bigTestFlow350-2-22-sequel.expected
+cmp flowdev/flow-bigTestFlow350-2-23-bigMerge.svg flowdev/flow-bigTestFlow350-2-23-bigMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-24-bigMerge.svg flowdev/flow-bigTestFlow350-2-24-bigMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-25-bla2.svg flowdev/flow-bigTestFlow350-2-25-bla2.expected
+cmp flowdev/flow-bigTestFlow350-2-26-arrow.svg flowdev/flow-bigTestFlow350-2-26-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-27-bigMerge.svg flowdev/flow-bigTestFlow350-2-27-bigMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-29-sequel.svg flowdev/flow-bigTestFlow350-2-29-sequel.expected
+cmp flowdev/flow-bigTestFlow350-2-2-arrow.svg flowdev/flow-bigTestFlow350-2-2-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-30-postMerge.svg flowdev/flow-bigTestFlow350-2-30-postMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-31-arrow.svg flowdev/flow-bigTestFlow350-2-31-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-32-arrow.svg flowdev/flow-bigTestFlow350-2-32-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-33-arrow.svg flowdev/flow-bigTestFlow350-2-33-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-34-Split1.svg flowdev/flow-bigTestFlow350-2-34-Split1.expected
+cmp flowdev/flow-bigTestFlow350-2-35-arrow.svg flowdev/flow-bigTestFlow350-2-35-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-36-Split2.svg flowdev/flow-bigTestFlow350-2-36-Split2.expected
+cmp flowdev/flow-bigTestFlow350-2-37-lastMerge.svg flowdev/flow-bigTestFlow350-2-37-lastMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-38-lastMerge.svg flowdev/flow-bigTestFlow350-2-38-lastMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-39-lastMerge.svg flowdev/flow-bigTestFlow350-2-39-lastMerge.expected
+cmp flowdev/flow-bigTestFlow350-2-3-arrow.svg flowdev/flow-bigTestFlow350-2-3-arrow.expected
+cmp flowdev/flow-bigTestFlow350-2-40-recursive.svg flowdev/flow-bigTestFlow350-2-40-recursive.expected
+cmp flowdev/flow-bigTestFlow350-2-41-recursive.svg flowdev/flow-bigTestFlow350-2-41-recursive.expected
+cmp flowdev/flow-bigTestFlow350-2-42-recursive.svg flowdev/flow-bigTestFlow350-2-42-recursive.expected
+cmp flowdev/flow-bigTestFlow350-2-43-recursive.svg flowdev/flow-bigTestFlow350-2-43-recursive.expected
+cmp flowdev/flow-bigTestFlow350-2-44-secondOp.svg flowdev/flow-bigTestFlow350-2-44-secondOp.expected
+cmp flowdev/flow-bigTestFlow350-2-45-secondOp.svg flowdev/flow-bigTestFlow350-2-45-secondOp.expected
+cmp flowdev/flow-bigTestFlow350-2-49-loop.svg flowdev/flow-bigTestFlow350-2-49-loop.expected
+cmp flowdev/flow-bigTestFlow350-2-4-megaParser.svg flowdev/flow-bigTestFlow350-2-4-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-2-5-megaParser.svg flowdev/flow-bigTestFlow350-2-5-megaParser.expected
+cmp flowdev/flow-bigTestFlow350-3-0-arrow.svg flowdev/flow-bigTestFlow350-3-0-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-11-arrow.svg flowdev/flow-bigTestFlow350-3-11-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-17-arrow.svg flowdev/flow-bigTestFlow350-3-17-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-18-sequel.svg flowdev/flow-bigTestFlow350-3-18-sequel.expected
+cmp flowdev/flow-bigTestFlow350-3-1-arrow.svg flowdev/flow-bigTestFlow350-3-1-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-23-arrow.svg flowdev/flow-bigTestFlow350-3-23-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-25-arrow.svg flowdev/flow-bigTestFlow350-3-25-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-26-bigMerge.svg flowdev/flow-bigTestFlow350-3-26-bigMerge.expected
+cmp flowdev/flow-bigTestFlow350-3-30-arrow.svg flowdev/flow-bigTestFlow350-3-30-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-31-sequel.svg flowdev/flow-bigTestFlow350-3-31-sequel.expected
+cmp flowdev/flow-bigTestFlow350-3-33-sequel.svg flowdev/flow-bigTestFlow350-3-33-sequel.expected
+cmp flowdev/flow-bigTestFlow350-3-34-arrow.svg flowdev/flow-bigTestFlow350-3-34-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-35-sequel.svg flowdev/flow-bigTestFlow350-3-35-sequel.expected
+cmp flowdev/flow-bigTestFlow350-3-36-arrow.svg flowdev/flow-bigTestFlow350-3-36-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-37-arrow.svg flowdev/flow-bigTestFlow350-3-37-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-3-sequel.svg flowdev/flow-bigTestFlow350-3-3-sequel.expected
+cmp flowdev/flow-bigTestFlow350-3-40-arrow.svg flowdev/flow-bigTestFlow350-3-40-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-44-arrow.svg flowdev/flow-bigTestFlow350-3-44-arrow.expected
+cmp flowdev/flow-bigTestFlow350-3-4-arrow.svg flowdev/flow-bigTestFlow350-3-4-arrow.expected
+cmp flowdev/flow-bigTestFlow350-4-11-sequel.svg flowdev/flow-bigTestFlow350-4-11-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-1-sequel.svg flowdev/flow-bigTestFlow350-4-1-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-23-sequel.svg flowdev/flow-bigTestFlow350-4-23-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-25-bigMerge.svg flowdev/flow-bigTestFlow350-4-25-bigMerge.expected
+cmp flowdev/flow-bigTestFlow350-4-36-sequel.svg flowdev/flow-bigTestFlow350-4-36-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-37-port-error.svg flowdev/flow-bigTestFlow350-4-37-port-error.expected
+cmp flowdev/flow-bigTestFlow350-4-40-sequel.svg flowdev/flow-bigTestFlow350-4-40-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-44-sequel.svg flowdev/flow-bigTestFlow350-4-44-sequel.expected
+cmp flowdev/flow-bigTestFlow350-4-4-sequel.svg flowdev/flow-bigTestFlow350-4-4-sequel.expected
+cmp flowdev/flow-bigTestFlow350-filler-101-24.svg flowdev/flow-bigTestFlow350-filler-101-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-104-24.svg flowdev/flow-bigTestFlow350-filler-104-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-110-24.svg flowdev/flow-bigTestFlow350-filler-110-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-111-24.svg flowdev/flow-bigTestFlow350-filler-111-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-11-24.svg flowdev/flow-bigTestFlow350-filler-11-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-128-24.svg flowdev/flow-bigTestFlow350-filler-128-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-130-24.svg flowdev/flow-bigTestFlow350-filler-130-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-146-24.svg flowdev/flow-bigTestFlow350-filler-146-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-152-24.svg flowdev/flow-bigTestFlow350-filler-152-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-15-24.svg flowdev/flow-bigTestFlow350-filler-15-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-160-24.svg flowdev/flow-bigTestFlow350-filler-160-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-16-24.svg flowdev/flow-bigTestFlow350-filler-16-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-166-24.svg flowdev/flow-bigTestFlow350-filler-166-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-178-24.svg flowdev/flow-bigTestFlow350-filler-178-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-18-24.svg flowdev/flow-bigTestFlow350-filler-18-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-190-24.svg flowdev/flow-bigTestFlow350-filler-190-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-198-24.svg flowdev/flow-bigTestFlow350-filler-198-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-20-24.svg flowdev/flow-bigTestFlow350-filler-20-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-24-24.svg flowdev/flow-bigTestFlow350-filler-24-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-28-24.svg flowdev/flow-bigTestFlow350-filler-28-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-29-24.svg flowdev/flow-bigTestFlow350-filler-29-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-33-24.svg flowdev/flow-bigTestFlow350-filler-33-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-42-24.svg flowdev/flow-bigTestFlow350-filler-42-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-43-24.svg flowdev/flow-bigTestFlow350-filler-43-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-44-24.svg flowdev/flow-bigTestFlow350-filler-44-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-49-24.svg flowdev/flow-bigTestFlow350-filler-49-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-62-24.svg flowdev/flow-bigTestFlow350-filler-62-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-69-24.svg flowdev/flow-bigTestFlow350-filler-69-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-70-24.svg flowdev/flow-bigTestFlow350-filler-70-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-73-24.svg flowdev/flow-bigTestFlow350-filler-73-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-78-24.svg flowdev/flow-bigTestFlow350-filler-78-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-82-24.svg flowdev/flow-bigTestFlow350-filler-82-24.expected
+cmp flowdev/flow-bigTestFlow350-filler-84-24.svg flowdev/flow-bigTestFlow350-filler-84-24.expected
+
+
+-- markdown-false-false-1550.expected --
+![bigTestFlow1550](flowdev/flow-bigTestFlow1550.svg)
+
+-- markdown-true-true-350.expected --
+![filler](flowdev/flow-bigTestFlow350-filler-16-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-0-arrow.svg)](https://google.com?q=Data)[![Xa](flowdev/flow-bigTestFlow350-2-0-Xa.svg)](https://google.com?q=Data)[![arrow](flowdev/flow-bigTestFlow350-3-0-arrow.svg)](https://google.com?q=Data)![filler](flowdev/flow-bigTestFlow350-filler-62-24.svg)\
+![port-in](flowdev/flow-bigTestFlow350-0-1-port-in.svg)![arrow](flowdev/flow-bigTestFlow350-1-1-arrow.svg)[![Xa](flowdev/flow-bigTestFlow350-2-1-Xa.svg)](https://google.com?q=Data)![arrow](flowdev/flow-bigTestFlow350-3-1-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-1-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-42-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-128-24.svg)[![Xa](flowdev/flow-bigTestFlow350-1-2-Xa.svg)](https://google.com?q=Data)[![arrow](flowdev/flow-bigTestFlow350-2-2-arrow.svg)](https://google.com?q=Data)![filler](flowdev/flow-bigTestFlow350-filler-62-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-128-24.svg)[![Xa](flowdev/flow-bigTestFlow350-1-3-Xa.svg)](https://google.com?q=Data)![arrow](flowdev/flow-bigTestFlow350-2-3-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-3-3-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-42-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-24-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-4-arrow.svg)](https://google.com?q=Data3)[![megaParser](flowdev/flow-bigTestFlow350-2-4-megaParser.svg)](https://google.com?q=MegaParser)![arrow](flowdev/flow-bigTestFlow350-3-4-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-4-sequel.svg)\
+![port-in2](flowdev/flow-bigTestFlow350-0-5-port-in2.svg)![arrow](flowdev/flow-bigTestFlow350-1-5-arrow.svg)[![megaParser](flowdev/flow-bigTestFlow350-2-5-megaParser.svg)](https://google.com?q=MegaParser)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-152-24.svg)[![megaParser](flowdev/flow-bigTestFlow350-1-6-megaParser.svg)](https://google.com?q=MegaParser)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-152-24.svg)[![megaParser](flowdev/flow-bigTestFlow350-1-7-megaParser.svg)](https://google.com?q=TextSemantics)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-152-24.svg)[![megaParser](flowdev/flow-bigTestFlow350-1-8-megaParser.svg)](https://google.com?q=MegaParser)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-152-24.svg)[![megaParser](flowdev/flow-bigTestFlow350-1-9-megaParser.svg)](https://google.com?q=LiteralParser)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-152-24.svg)[![megaParser](flowdev/flow-bigTestFlow350-1-10-megaParser.svg)](https://google.com?q=NaturalParser)![filler](flowdev/flow-bigTestFlow350-filler-78-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-11-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-11-arrow.svg)[![To](flowdev/flow-bigTestFlow350-2-11-To.svg)](https://google.com?q=To)![arrow](flowdev/flow-bigTestFlow350-3-11-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-11-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-82-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![To](flowdev/flow-bigTestFlow350-1-12-To.svg)](https://google.com?q=To)![filler](flowdev/flow-bigTestFlow350-filler-160-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![To](flowdev/flow-bigTestFlow350-1-13-To.svg)](https://google.com?q=TextSemantics)![filler](flowdev/flow-bigTestFlow350-filler-160-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![To](flowdev/flow-bigTestFlow350-1-14-To.svg)](https://google.com?q=To)![filler](flowdev/flow-bigTestFlow350-filler-160-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![To](flowdev/flow-bigTestFlow350-1-15-To.svg)](https://google.com?q=LiteralParser)![filler](flowdev/flow-bigTestFlow350-filler-160-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![To](flowdev/flow-bigTestFlow350-1-16-To.svg)](https://google.com?q=NaturalParser)![filler](flowdev/flow-bigTestFlow350-filler-160-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-17-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-17-arrow.svg)[![Mla](flowdev/flow-bigTestFlow350-2-17-Mla.svg)](https://google.com?q=Blue)[![arrow](flowdev/flow-bigTestFlow350-3-17-arrow.svg)](https://google.com?q=Data2)![filler](flowdev/flow-bigTestFlow350-filler-104-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![Mla](flowdev/flow-bigTestFlow350-1-18-Mla.svg)](https://google.com?q=Blue)![arrow](flowdev/flow-bigTestFlow350-2-18-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-3-18-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-84-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-20-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-19-arrow.svg)](https://google.com?q=Data)![filler](flowdev/flow-bigTestFlow350-filler-198-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-20-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-20-arrow.svg)](https://google.com?q=Data2)![filler](flowdev/flow-bigTestFlow350-filler-198-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-20-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-21-arrow.svg)](https://google.com?q=Data3)![filler](flowdev/flow-bigTestFlow350-filler-198-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-22-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-22-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-2-22-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-178-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-20-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-23-arrow.svg)](https://google.com?q=BigDataType)[![bigMerge](flowdev/flow-bigTestFlow350-2-23-bigMerge.svg)](https://google.com?q=bigMerge)![arrow](flowdev/flow-bigTestFlow350-3-23-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-23-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-11-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-24-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-24-arrow.svg)[![bigMerge](flowdev/flow-bigTestFlow350-2-24-bigMerge.svg)](https://google.com?q=bigMerge)![filler](flowdev/flow-bigTestFlow350-filler-44-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-25-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-25-arrow.svg)[![bla2](flowdev/flow-bigTestFlow350-2-25-bla2.svg)](https://google.com?q=Blue)[![arrow](flowdev/flow-bigTestFlow350-3-25-arrow.svg)](https://google.com?q=Data)[![bigMerge](flowdev/flow-bigTestFlow350-4-25-bigMerge.svg)](https://google.com?q=bigMerge)![filler](flowdev/flow-bigTestFlow350-filler-44-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-70-24.svg)[![bla2](flowdev/flow-bigTestFlow350-1-26-bla2.svg)](https://google.com?q=Blue)![arrow](flowdev/flow-bigTestFlow350-2-26-arrow.svg)[![bigMerge](flowdev/flow-bigTestFlow350-3-26-bigMerge.svg)](https://google.com?q=bigMerge)![filler](flowdev/flow-bigTestFlow350-filler-44-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-27-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-27-arrow.svg)[![bigMerge](flowdev/flow-bigTestFlow350-2-27-bigMerge.svg)](https://google.com?q=bigMerge)![filler](flowdev/flow-bigTestFlow350-filler-44-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-20-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-28-arrow.svg)](https://google.com?q=MergedData)![filler](flowdev/flow-bigTestFlow350-filler-166-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-29-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-29-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-2-29-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-146-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-30-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-30-arrow.svg)[![postMerge](flowdev/flow-bigTestFlow350-2-30-postMerge.svg)](https://google.com?q=PostMerge)[![arrow](flowdev/flow-bigTestFlow350-3-30-arrow.svg)](https://google.com?q=MergedData)![filler](flowdev/flow-bigTestFlow350-filler-69-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-33-24.svg)[![postMerge](flowdev/flow-bigTestFlow350-1-31-postMerge.svg)](https://google.com?q=PostMerge)![arrow](flowdev/flow-bigTestFlow350-2-31-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-3-31-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-49-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-33-24.svg)[![postMerge](flowdev/flow-bigTestFlow350-1-32-postMerge.svg)](https://google.com?q=PostMerge)[![arrow](flowdev/flow-bigTestFlow350-2-32-arrow.svg)](https://google.com?q=MergedData)![filler](flowdev/flow-bigTestFlow350-filler-43-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-33-24.svg)[![postMerge](flowdev/flow-bigTestFlow350-1-33-postMerge.svg)](https://google.com?q=PostMerge)![arrow](flowdev/flow-bigTestFlow350-2-33-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-3-33-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-15-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-34-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-34-arrow.svg)[![Split1](flowdev/flow-bigTestFlow350-2-34-Split1.svg)](https://google.com?q=Split1)[![arrow](flowdev/flow-bigTestFlow350-3-34-arrow.svg)](https://google.com?q=MergedData)![filler](flowdev/flow-bigTestFlow350-filler-101-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-33-24.svg)[![Split1](flowdev/flow-bigTestFlow350-1-35-Split1.svg)](https://google.com?q=Split1)![arrow](flowdev/flow-bigTestFlow350-2-35-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-3-35-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-73-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-36-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-36-arrow.svg)[![Split2](flowdev/flow-bigTestFlow350-2-36-Split2.svg)](https://google.com?q=Split2)![arrow](flowdev/flow-bigTestFlow350-3-36-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-36-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-111-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-37-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-37-arrow.svg)[![lastMerge](flowdev/flow-bigTestFlow350-2-37-lastMerge.svg)](https://google.com?q=lastMerge)![arrow](flowdev/flow-bigTestFlow350-3-37-arrow.svg)![port-error](flowdev/flow-bigTestFlow350-4-37-port-error.svg)![filler](flowdev/flow-bigTestFlow350-filler-29-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-28-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-38-arrow.svg)](https://google.com?q=MergedData)[![lastMerge](flowdev/flow-bigTestFlow350-2-38-lastMerge.svg)](https://google.com?q=lastMerge)![filler](flowdev/flow-bigTestFlow350-filler-82-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-39-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-39-arrow.svg)[![lastMerge](flowdev/flow-bigTestFlow350-2-39-lastMerge.svg)](https://google.com?q=lastMerge)![filler](flowdev/flow-bigTestFlow350-filler-82-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-24-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-40-arrow.svg)](https://google.com?q=Data)[![recursive](flowdev/flow-bigTestFlow350-2-40-recursive.svg)](https://google.com?q=recursive)![arrow](flowdev/flow-bigTestFlow350-3-40-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-40-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-69-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-24-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-41-arrow.svg)](https://google.com?q=data2)[![recursive](flowdev/flow-bigTestFlow350-2-41-recursive.svg)](https://google.com?q=recursive)![filler](flowdev/flow-bigTestFlow350-filler-110-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-24-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-42-arrow.svg)](https://google.com?q=Data3)[![recursive](flowdev/flow-bigTestFlow350-2-42-recursive.svg)](https://google.com?q=recursive)![filler](flowdev/flow-bigTestFlow350-filler-110-24.svg)\
+![port-in3](flowdev/flow-bigTestFlow350-0-43-port-in3.svg)![arrow](flowdev/flow-bigTestFlow350-1-43-arrow.svg)[![recursive](flowdev/flow-bigTestFlow350-2-43-recursive.svg)](https://google.com?q=recursive)![filler](flowdev/flow-bigTestFlow350-filler-110-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-28-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-44-arrow.svg)](https://google.com?q=Data)[![secondOp](flowdev/flow-bigTestFlow350-2-44-secondOp.svg)](https://google.com?q=secondOp)![arrow](flowdev/flow-bigTestFlow350-3-44-arrow.svg)![sequel](flowdev/flow-bigTestFlow350-4-44-sequel.svg)![filler](flowdev/flow-bigTestFlow350-filler-44-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-45-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-45-arrow.svg)[![secondOp](flowdev/flow-bigTestFlow350-2-45-secondOp.svg)](https://google.com?q=secondOp)![filler](flowdev/flow-bigTestFlow350-filler-130-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-28-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-46-arrow.svg)](https://google.com?q=Data)![filler](flowdev/flow-bigTestFlow350-filler-190-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-28-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-47-arrow.svg)](https://google.com?q=data2)![filler](flowdev/flow-bigTestFlow350-filler-190-24.svg)\
+![filler](flowdev/flow-bigTestFlow350-filler-28-24.svg)[![arrow](flowdev/flow-bigTestFlow350-1-48-arrow.svg)](https://google.com?q=Data3)![filler](flowdev/flow-bigTestFlow350-filler-190-24.svg)\
+![sequel](flowdev/flow-bigTestFlow350-0-49-sequel.svg)![arrow](flowdev/flow-bigTestFlow350-1-49-arrow.svg)[![loop](flowdev/flow-bigTestFlow350-2-49-loop.svg)](https://google.com?q=recursive)![filler](flowdev/flow-bigTestFlow350-filler-18-24.svg)
+
+-- flowdev/flow-bigTestFlow1550.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 488" width="1540px" height="488px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(255,255,255)" fill-opacity="1" width="1540" height="488" x="0" y="0"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1486" y1="8" x2="1499" y2="8"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1491" y1="0" x2="1499" y2="8"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1491" y1="16" x2="1499" y2="8"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="16" y1="32" x2="128" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="120" y1="24" x2="128" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="120" y1="40" x2="128" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="32" x2="284" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="24" x2="284" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="40" x2="284" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="400" y1="32" x2="612" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="24" x2="612" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="40" x2="612" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="688" y1="32" x2="848" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="840" y1="24" x2="848" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="840" y1="40" x2="848" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="932" y1="32" x2="1092" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1084" y1="24" x2="1092" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1084" y1="40" x2="1092" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1152" y1="32" x2="1402" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1394" y1="24" x2="1402" y2="32"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1394" y1="40" x2="1402" y2="32"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="932" y1="88" x2="1190" y2="88"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1182" y1="80" x2="1190" y2="88"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1182" y1="96" x2="1190" y2="88"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1250" y1="88" x2="1402" y2="88"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1394" y1="80" x2="1402" y2="88"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="1394" y1="96" x2="1402" y2="88"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="184" x2="284" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="176" x2="284" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="192" x2="284" y2="184"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="328" y1="184" x2="456" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="448" y1="176" x2="456" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="448" y1="192" x2="456" y2="184"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="500" y1="184" x2="612" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="176" x2="612" y2="184"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="192" x2="612" y2="184"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="24" y1="240" x2="152" y2="240"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="232" x2="152" y2="240"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="248" x2="152" y2="240"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="268" y1="288" x2="612" y2="288"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="280" x2="612" y2="288"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="604" y1="296" x2="612" y2="288"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="236" y1="424" x2="348" y2="424"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="340" y1="416" x2="348" y2="424"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="340" y1="432" x2="348" y2="424"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="24" y1="472" x2="152" y2="472"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="464" x2="152" y2="472"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="480" x2="152" y2="472"/>
+
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="424" y1="472" x2="552" y2="472"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="544" y1="464" x2="552" y2="472"/>
+    <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="544" y1="480" x2="552" y2="472"/>
+
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="44" height="198" x="128" y="1" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="284" y="1" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="76" height="302" x="612" y="1" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="84" height="102" x="848" y="1" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="60" height="46" x="1092" y="1" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="84" height="102" x="1402" y="1" rx="10"/>
+    <rect fill="rgb(224,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="284" y="25" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="284" y="48" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="60" height="46" x="1190" y="57" rx="10"/>
+    <rect fill="rgb(224,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="284" y="73" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="284" y="96" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="284" y="120" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="284" y="153" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="456" y="153" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="209" rx="10"/>
+    <rect fill="rgb(224,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="152" y="257" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="280" rx="10"/>
+    <rect fill="rgb(224,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="152" y="305" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="328" rx="10"/>
+    <rect fill="rgb(32,224,32)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="352" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="152" y="393" rx="10"/>
+    <rect fill="rgb(96,192,255)" fill-opacity="1.0" stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" width="76" height="94" x="348" y="393" rx="10"/>
+
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="24" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="30" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="70" y="18" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="134" y="18" textLength="16" lengthAdjust="spacingAndGlyphs">Xa</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="180" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="186" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="226" y="18" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="18" textLength="16" lengthAdjust="spacingAndGlyphs">To</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="418" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="424" y="18" textLength="56" lengthAdjust="spacingAndGlyphs">bigData</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="488" y="18" textLength="94" lengthAdjust="spacingAndGlyphs">BigDataType)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="618" y="18" textLength="64" lengthAdjust="spacingAndGlyphs">bigMerge</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="696" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="702" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="742" y="18" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="854" y="18" textLength="72" lengthAdjust="spacingAndGlyphs">postMerge</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="940" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="946" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="986" y="18" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1098" y="18" textLength="48" lengthAdjust="spacingAndGlyphs">Split1</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1209" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1215" y="18" textLength="24" lengthAdjust="spacingAndGlyphs">md1</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1247" y="18" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1408" y="18" textLength="72" lengthAdjust="spacingAndGlyphs">lastMerge</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1499" y="13" textLength="40" lengthAdjust="spacingAndGlyphs">error</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="0" y="37" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="134" y="42" textLength="32" lengthAdjust="spacingAndGlyphs">MiSo</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="178" y="44" textLength="56" lengthAdjust="spacingAndGlyphs">special</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="256" y="44" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="290" y="42" textLength="80" lengthAdjust="spacingAndGlyphs">semantics:</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="406" y="44" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="576" y="44" textLength="24" lengthAdjust="spacingAndGlyphs">in1</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="854" y="42" textLength="72" lengthAdjust="spacingAndGlyphs">PostMerge</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="66" textLength="104" lengthAdjust="spacingAndGlyphs">TextSemantics</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="989" y="74" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="995" y="74" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1035" y="74" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1196" y="74" textLength="48" lengthAdjust="spacingAndGlyphs">Split2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1258" y="74" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1264" y="74" textLength="24" lengthAdjust="spacingAndGlyphs">md2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1296" y="74" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="290" y="90" textLength="80" lengthAdjust="spacingAndGlyphs">subParser:</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="938" y="100" textLength="152" lengthAdjust="spacingAndGlyphs">longNamedOutputPort</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="1106" y="100" textLength="72" lengthAdjust="spacingAndGlyphs">inputPort</text>
+    <text fill="rgb(0,96,0)" fill-opacity="1.0" font-size="16" x="290" y="114" textLength="104" lengthAdjust="spacingAndGlyphs">LiteralParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="138" textLength="104" lengthAdjust="spacingAndGlyphs">NaturalParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="180" y="170" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="186" y="170" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="226" y="170" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="170" textLength="24" lengthAdjust="spacingAndGlyphs">Mla</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="336" y="170" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="342" y="170" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="390" y="170" textLength="46" lengthAdjust="spacingAndGlyphs">Data2)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="462" y="170" textLength="32" lengthAdjust="spacingAndGlyphs">bla2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="508" y="170" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="514" y="170" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="554" y="170" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="178" y="196" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="256" y="196" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="194" textLength="32" lengthAdjust="spacingAndGlyphs">Blue</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="428" y="196" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="462" y="194" textLength="32" lengthAdjust="spacingAndGlyphs">Blue</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="506" y="196" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="576" y="196" textLength="24" lengthAdjust="spacingAndGlyphs">in2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="32" y="226" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="38" y="226" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="86" y="226" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="158" y="226" textLength="80" lengthAdjust="spacingAndGlyphs">megaParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="384" y="226" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="390" y="226" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="226" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="0" y="245" textLength="24" lengthAdjust="spacingAndGlyphs">in2</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="124" y="252" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="158" y="250" textLength="80" lengthAdjust="spacingAndGlyphs">MegaParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="390" y="250" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="250" textLength="40" lengthAdjust="spacingAndGlyphs">Data2</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="158" y="274" textLength="80" lengthAdjust="spacingAndGlyphs">semantics:</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="390" y="274" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="274" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="158" y="298" textLength="104" lengthAdjust="spacingAndGlyphs">TextSemantics</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="274" y="300" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="576" y="300" textLength="24" lengthAdjust="spacingAndGlyphs">in3</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="158" y="322" textLength="80" lengthAdjust="spacingAndGlyphs">subParser:</text>
+    <text fill="rgb(0,96,0)" fill-opacity="1.0" font-size="16" x="158" y="346" textLength="104" lengthAdjust="spacingAndGlyphs">LiteralParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="158" y="370" textLength="104" lengthAdjust="spacingAndGlyphs">NaturalParser</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="32" y="410" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="38" y="410" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="86" y="410" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="158" y="410" textLength="72" lengthAdjust="spacingAndGlyphs">recursive</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="244" y="410" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="250" y="410" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="290" y="410" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="354" y="410" textLength="64" lengthAdjust="spacingAndGlyphs">secondOp</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="432" y="410" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="410" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="486" y="410" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="38" y="434" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="86" y="434" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="434" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="486" y="434" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="38" y="458" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="86" y="458" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="438" y="458" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="486" y="458" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="0" y="477" textLength="24" lengthAdjust="spacingAndGlyphs">in3</text>
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="430" y="484" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="552" y="477" textLength="172" lengthAdjust="spacingAndGlyphs">…back to: recursive:in3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-11-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 264 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="264"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="277" textLength="20" lengthAdjust="spacingAndGlyphs">…1</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-17-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 408 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="408"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="421" textLength="20" lengthAdjust="spacingAndGlyphs">…2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-1-port-in.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 16 24" width="16px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="16" height="24" x="0" y="24"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="37" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-22-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 528 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="528"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="541" textLength="20" lengthAdjust="spacingAndGlyphs">…3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-24-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 576 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="576"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="589" textLength="20" lengthAdjust="spacingAndGlyphs">…4</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-25-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 600 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="600"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="613" textLength="20" lengthAdjust="spacingAndGlyphs">…5</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-27-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 648 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="648"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="661" textLength="20" lengthAdjust="spacingAndGlyphs">…6</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-29-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 696 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="696"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="709" textLength="20" lengthAdjust="spacingAndGlyphs">…7</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-30-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 720 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="720"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="733" textLength="20" lengthAdjust="spacingAndGlyphs">…8</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-34-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 816 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="816"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="829" textLength="20" lengthAdjust="spacingAndGlyphs">…9</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-36-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 864 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="864"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="877" textLength="28" lengthAdjust="spacingAndGlyphs">…10</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-37-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 888 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="888"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="901" textLength="28" lengthAdjust="spacingAndGlyphs">…11</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-39-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 936 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="936"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="949" textLength="28" lengthAdjust="spacingAndGlyphs">…12</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-43-port-in3.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 1032 24 24" width="24px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="24" height="24" x="0" y="1032"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="1045" textLength="24" lengthAdjust="spacingAndGlyphs">in3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-45-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 1080 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="1080"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="1093" textLength="28" lengthAdjust="spacingAndGlyphs">…13</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-49-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 1176 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="1176"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="1189" textLength="28" lengthAdjust="spacingAndGlyphs">…14</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-0-5-port-in2.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 120 24 24" width="24px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="24" height="24" x="0" y="120"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="0" y="133" textLength="24" lengthAdjust="spacingAndGlyphs">in2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-0-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="16 0 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="16" y="0"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="24" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="30" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="70" y="18" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-10-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 240 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="240"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="152" y="193" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="240" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="158" y="258" textLength="104" lengthAdjust="spacingAndGlyphs">NaturalParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-11-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 264 50 24" width="50px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="50" height="24" x="20" y="264"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="272" x2="70" y2="272"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="264" x2="70" y2="272"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="280" x2="70" y2="272"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="42" y="284" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-12-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 288 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="288"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="70" y="289" rx="10"/>
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="76" y="306" textLength="80" lengthAdjust="spacingAndGlyphs">semantics:</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-13-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 312 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="312"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="70" y="289" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="70" y="312" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="330" textLength="104" lengthAdjust="spacingAndGlyphs">TextSemantics</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-14-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 336 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="336"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="70" y="337" rx="10"/>
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="76" y="354" textLength="80" lengthAdjust="spacingAndGlyphs">subParser:</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-15-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 360 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="360"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="70" y="337" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="70" y="360" rx="10"/>
+
+    <text fill="rgb(32,224,32)" fill-opacity="1.0" font-size="16" x="76" y="378" textLength="104" lengthAdjust="spacingAndGlyphs">LiteralParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-16-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 384 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="384"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="70" y="337" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="70" y="384" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="402" textLength="104" lengthAdjust="spacingAndGlyphs">NaturalParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-17-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 408 50 24" width="50px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="50" height="24" x="20" y="408"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="416" x2="70" y2="416"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="408" x2="70" y2="416"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="424" x2="70" y2="416"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="42" y="428" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-18-Mla.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 432 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="70" y="432"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="70" y="409" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="450" textLength="32" lengthAdjust="spacingAndGlyphs">Blue</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-19-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 456 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="20" y="456"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="28" y="474" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="34" y="474" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="82" y="474" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-1-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="16 24 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="16" y="24"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="16" y1="32" x2="128" y2="32"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="120" y1="24" x2="128" y2="32"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="120" y1="40" x2="128" y2="32"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-20-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 480 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="20" y="480"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="34" y="498" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="82" y="498" textLength="40" lengthAdjust="spacingAndGlyphs">Data2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-21-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 504 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="20" y="504"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="34" y="522" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="82" y="522" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-22-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 528 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="20" y="528"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="536" x2="148" y2="536"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="140" y1="528" x2="148" y2="536"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="140" y1="544" x2="148" y2="536"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-23-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 552 206 24" width="206px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="206" height="24" x="20" y="552"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="35" y="570" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="41" y="570" textLength="56" lengthAdjust="spacingAndGlyphs">bigData</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="105" y="570" textLength="94" lengthAdjust="spacingAndGlyphs">BigDataType)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-24-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 576 206 24" width="206px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="206" height="24" x="20" y="576"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="584" x2="226" y2="584"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="576" x2="226" y2="584"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="592" x2="226" y2="584"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="190" y="596" textLength="24" lengthAdjust="spacingAndGlyphs">in1</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-25-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 600 50 24" width="50px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="50" height="24" x="20" y="600"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="608" x2="70" y2="608"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="600" x2="70" y2="608"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="62" y1="616" x2="70" y2="608"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="42" y="620" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-26-bla2.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 624 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="70" y="624"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="70" y="601" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="642" textLength="32" lengthAdjust="spacingAndGlyphs">Blue</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-27-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 648 206 24" width="206px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="206" height="24" x="20" y="648"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="656" x2="226" y2="656"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="648" x2="226" y2="656"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="664" x2="226" y2="656"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="190" y="668" textLength="24" lengthAdjust="spacingAndGlyphs">in3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-28-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 672 160 24" width="160px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="160" height="24" x="20" y="672"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="28" y="690" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="34" y="690" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="74" y="690" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-29-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 696 160 24" width="160px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="160" height="24" x="20" y="696"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="704" x2="180" y2="704"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="696" x2="180" y2="704"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="712" x2="180" y2="704"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-2-Xa.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="128 48 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="128" y="48"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="94" x="128" y="1" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-30-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 720 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="20" y="720"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="728" x2="33" y2="728"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="25" y1="720" x2="33" y2="728"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="25" y1="736" x2="33" y2="728"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-31-postMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 744 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="33" y="744"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="33" y="721" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="39" y="762" textLength="72" lengthAdjust="spacingAndGlyphs">PostMerge</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-32-postMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 768 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="33" y="768"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="33" y="721" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-33-postMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 792 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="33" y="792"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="33" y="721" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-34-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="20 816 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="20" y="816"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="20" y1="824" x2="33" y2="824"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="25" y1="816" x2="33" y2="824"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="25" y1="832" x2="33" y2="824"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-35-Split1.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 840 60 24" width="60px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="60" height="24" x="33" y="840"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="60" height="46" x="33" y="817" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-36-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 864 106 24" width="106px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="106" height="24" x="28" y="864"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="28" y1="872" x2="134" y2="872"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="126" y1="864" x2="134" y2="872"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="126" y1="880" x2="134" y2="872"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="50" y="884" textLength="72" lengthAdjust="spacingAndGlyphs">inputPort</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-37-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 888 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="28" y="888"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="28" y1="896" x2="180" y2="896"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="888" x2="180" y2="896"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="904" x2="180" y2="896"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-38-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 912 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="28" y="912"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="36" y="930" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="42" y="930" textLength="24" lengthAdjust="spacingAndGlyphs">md2</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="74" y="930" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-39-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 936 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="28" y="936"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="28" y1="944" x2="180" y2="944"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="936" x2="180" y2="944"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="952" x2="180" y2="944"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-3-Xa.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="128 72 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="128" y="72"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="94" x="128" y="1" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-40-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 960 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="960"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="32" y="978" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="38" y="978" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="86" y="978" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-41-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 984 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="984"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="38" y="1002" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="86" y="1002" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-42-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 1008 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="1008"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="38" y="1026" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="86" y="1026" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-43-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 1032 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="1032"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="24" y1="1040" x2="152" y2="1040"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="1032" x2="152" y2="1040"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="1048" x2="152" y2="1040"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-44-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1056 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="28" y="1056"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="36" y="1074" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="42" y="1074" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="82" y="1074" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-45-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1080 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="28" y="1080"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="28" y1="1088" x2="140" y2="1088"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="132" y1="1080" x2="140" y2="1088"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="132" y1="1096" x2="140" y2="1088"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-46-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1104 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="28" y="1104"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="36" y="1122" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="42" y="1122" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="90" y="1122" textLength="32" lengthAdjust="spacingAndGlyphs">Data</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-47-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1128 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="28" y="1128"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="42" y="1146" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="90" y="1146" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-48-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1152 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="28" y="1152"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="42" y="1170" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="90" y="1170" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-49-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 1176 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="28" y="1176"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="28" y1="1184" x2="156" y2="1184"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="148" y1="1176" x2="156" y2="1184"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="148" y1="1192" x2="156" y2="1184"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-4-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 96 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="96"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="32" y="114" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="38" y="114" textLength="40" lengthAdjust="spacingAndGlyphs">data3</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="86" y="114" textLength="46" lengthAdjust="spacingAndGlyphs">Data3)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-5-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="24 120 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="24" y="120"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="24" y1="128" x2="152" y2="128"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="120" x2="152" y2="128"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="144" y1="136" x2="152" y2="128"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="124" y="140" textLength="16" lengthAdjust="spacingAndGlyphs">in</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-6-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 144 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="144"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="152" y="145" rx="10"/>
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="158" y="162" textLength="80" lengthAdjust="spacingAndGlyphs">semantics:</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-7-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 168 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="168"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="46" x="152" y="145" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="168" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="158" y="186" textLength="104" lengthAdjust="spacingAndGlyphs">TextSemantics</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-8-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 192 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="192"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="152" y="193" rx="10"/>
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="158" y="210" textLength="80" lengthAdjust="spacingAndGlyphs">subParser:</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-1-9-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 216 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="216"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+    <rect fill="rgb(96,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="70" x="152" y="193" rx="10"/>
+    <rect fill="rgb(0,96,0)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="1" width="116" height="23" x="152" y="216" rx="10"/>
+
+    <text fill="rgb(32,224,32)" fill-opacity="1.0" font-size="16" x="158" y="234" textLength="104" lengthAdjust="spacingAndGlyphs">LiteralParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-0-Xa.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="128 0 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="128" y="0"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="94" x="128" y="1" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="134" y="18" textLength="16" lengthAdjust="spacingAndGlyphs">Xa</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-11-To.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 264 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="70" y="264"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="142" x="70" y="265" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="282" textLength="16" lengthAdjust="spacingAndGlyphs">To</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-17-Mla.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 408 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="70" y="408"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="70" y="409" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="426" textLength="24" lengthAdjust="spacingAndGlyphs">Mla</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-18-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="114 432 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="114" y="432"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="114" y1="440" x2="242" y2="440"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="234" y1="432" x2="242" y2="440"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="234" y1="448" x2="242" y2="440"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-1-Xa.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="128 24 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="128" y="24"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="94" x="128" y="1" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="134" y="42" textLength="32" lengthAdjust="spacingAndGlyphs">MiSo</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-22-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="148 528 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="148" y="528"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="148" y="541" textLength="20" lengthAdjust="spacingAndGlyphs">…6</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-23-bigMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="226 552 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="226" y="552"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="118" x="226" y="553" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="232" y="570" textLength="64" lengthAdjust="spacingAndGlyphs">bigMerge</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-24-bigMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="226 576 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="226" y="576"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="118" x="226" y="553" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-25-bla2.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="70 600 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="70" y="600"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="44" height="46" x="70" y="601" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="76" y="618" textLength="32" lengthAdjust="spacingAndGlyphs">bla2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-26-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="114 624 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="114" y="624"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="114" y1="632" x2="226" y2="632"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="624" x2="226" y2="632"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="218" y1="640" x2="226" y2="632"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="120" y="644" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="190" y="644" textLength="24" lengthAdjust="spacingAndGlyphs">in2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-27-bigMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="226 648 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="226" y="648"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="118" x="226" y="553" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-29-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="180 696 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="180" y="696"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="180" y="709" textLength="20" lengthAdjust="spacingAndGlyphs">…8</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-2-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="172 48 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="172" y="48"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="180" y="66" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="186" y="66" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="226" y="66" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-30-postMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 720 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="33" y="720"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="33" y="721" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="39" y="738" textLength="72" lengthAdjust="spacingAndGlyphs">postMerge</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-31-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="117 744 160 24" width="160px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="160" height="24" x="117" y="744"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="117" y1="752" x2="277" y2="752"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="269" y1="744" x2="277" y2="752"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="269" y1="760" x2="277" y2="752"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-32-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="117 768 186 24" width="186px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="186" height="24" x="117" y="768"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="138" y="786" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="144" y="786" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="184" y="786" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-33-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="117 792 186 24" width="186px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="186" height="24" x="117" y="792"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="117" y1="800" x2="303" y2="800"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="295" y1="792" x2="303" y2="800"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="295" y1="808" x2="303" y2="800"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="123" y="812" textLength="152" lengthAdjust="spacingAndGlyphs">longNamedOutputPort</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-34-Split1.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="33 816 60 24" width="60px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="60" height="24" x="33" y="816"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="60" height="46" x="33" y="817" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="39" y="834" textLength="48" lengthAdjust="spacingAndGlyphs">Split1</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-35-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="93 840 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="93" y="840"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="93" y1="848" x2="245" y2="848"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="237" y1="840" x2="245" y2="848"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="237" y1="856" x2="245" y2="848"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-36-Split2.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="134 864 60 24" width="60px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="60" height="24" x="134" y="864"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="60" height="22" x="134" y="865" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="140" y="882" textLength="48" lengthAdjust="spacingAndGlyphs">Split2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-37-lastMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="180 888 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="180" y="888"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="70" x="180" y="889" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="186" y="906" textLength="72" lengthAdjust="spacingAndGlyphs">lastMerge</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-38-lastMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="180 912 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="180" y="912"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="70" x="180" y="889" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-39-lastMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="180 936 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="180" y="936"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="70" x="180" y="889" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-3-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="172 72 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="172" y="72"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="80" x2="284" y2="80"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="72" x2="284" y2="80"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="88" x2="284" y2="80"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="178" y="92" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-40-recursive.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 960 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="152" y="960"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="152" y="961" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="158" y="978" textLength="72" lengthAdjust="spacingAndGlyphs">recursive</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-41-recursive.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 984 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="152" y="984"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="152" y="961" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-42-recursive.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 1008 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="152" y="1008"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="152" y="961" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-43-recursive.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 1032 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="152" y="1032"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="84" height="94" x="152" y="961" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-44-secondOp.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="140 1056 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="140" y="1056"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="46" x="140" y="1057" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="146" y="1074" textLength="64" lengthAdjust="spacingAndGlyphs">secondOp</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-45-secondOp.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="140 1080 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="140" y="1080"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="46" x="140" y="1057" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-49-loop.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="156 1176 172 24" width="172px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="172" height="24" x="156" y="1176"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="156" y="1189" textLength="172" lengthAdjust="spacingAndGlyphs">…back to: recursive:in3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-4-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 96 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="96"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="158" y="114" textLength="80" lengthAdjust="spacingAndGlyphs">megaParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-2-5-megaParser.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="152 120 116 24" width="116px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="116" height="24" x="152" y="120"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="116" height="166" x="152" y="97" rx="10"/>
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="158" y="138" textLength="80" lengthAdjust="spacingAndGlyphs">MegaParser</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-0-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="172 0 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="172" y="0"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="180" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="186" y="18" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="226" y="18" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-11-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="186 264 58 24" width="58px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="58" height="24" x="186" y="264"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="186" y1="272" x2="244" y2="272"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="236" y1="264" x2="244" y2="272"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="236" y1="280" x2="244" y2="272"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="192" y="284" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-17-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="114 408 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="114" y="408"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="122" y="426" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="128" y="426" textLength="40" lengthAdjust="spacingAndGlyphs">data2</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="176" y="426" textLength="46" lengthAdjust="spacingAndGlyphs">Data2)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-18-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="242 432 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="242" y="432"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="242" y="445" textLength="20" lengthAdjust="spacingAndGlyphs">…5</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-1-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="172 24 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="172" y="24"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="172" y1="32" x2="284" y2="32"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="24" x2="284" y2="32"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="276" y1="40" x2="284" y2="32"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="178" y="44" textLength="56" lengthAdjust="spacingAndGlyphs">special</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-23-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="302 552 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="302" y="552"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="302" y1="560" x2="315" y2="560"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="307" y1="552" x2="315" y2="560"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="307" y1="568" x2="315" y2="560"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-25-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="114 600 112 24" width="112px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="112" height="24" x="114" y="600"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="122" y="618" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="128" y="618" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="168" y="618" textLength="38" lengthAdjust="spacingAndGlyphs">Data)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-26-bigMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="226 624 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="226" y="624"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="118" x="226" y="553" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-30-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="117 720 160 24" width="160px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="160" height="24" x="117" y="720"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="125" y="738" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="131" y="738" textLength="32" lengthAdjust="spacingAndGlyphs">data</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="171" y="738" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-31-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="277 744 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="277" y="744"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="277" y="757" textLength="20" lengthAdjust="spacingAndGlyphs">…9</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-33-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="303 792 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="303" y="792"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="303" y="805" textLength="28" lengthAdjust="spacingAndGlyphs">…10</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-34-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="93 816 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="93" y="816"/>
+
+
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="101" y="834" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="107" y="834" textLength="24" lengthAdjust="spacingAndGlyphs">md1</text>
+    <text fill="rgb(96,192,255)" fill-opacity="1.0" font-size="16" x="139" y="834" textLength="86" lengthAdjust="spacingAndGlyphs">MergedData)</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-35-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="245 840 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="245" y="840"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="245" y="853" textLength="28" lengthAdjust="spacingAndGlyphs">…11</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-36-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="194 864 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="194" y="864"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="194" y1="872" x2="207" y2="872"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="199" y1="864" x2="207" y2="872"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="199" y1="880" x2="207" y2="872"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-37-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="264 888 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="264" y="888"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="264" y1="896" x2="277" y2="896"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="269" y1="888" x2="277" y2="896"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="269" y1="904" x2="277" y2="896"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-3-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="284 72 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="284" y="72"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="284" y="85" textLength="20" lengthAdjust="spacingAndGlyphs">…2</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-40-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="236 960 13 24" width="13px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="13" height="24" x="236" y="960"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="236" y1="968" x2="249" y2="968"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="241" y1="960" x2="249" y2="968"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="241" y1="976" x2="249" y2="968"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-44-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="216 1056 58 24" width="58px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="58" height="24" x="216" y="1056"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="216" y1="1064" x2="274" y2="1064"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="266" y1="1056" x2="274" y2="1064"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="266" y1="1072" x2="274" y2="1064"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="222" y="1076" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-3-4-arrow.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="268 96 58 24" width="58px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="58" height="24" x="268" y="96"/>
+
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="268" y1="104" x2="326" y2="104"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="318" y1="96" x2="326" y2="104"/>
+    <line stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" x1="318" y1="112" x2="326" y2="104"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="14" x="274" y="116" textLength="24" lengthAdjust="spacingAndGlyphs">out</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-11-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="244 264 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="244" y="264"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="244" y="277" textLength="20" lengthAdjust="spacingAndGlyphs">…4</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-1-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="284 24 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="284" y="24"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="284" y="37" textLength="20" lengthAdjust="spacingAndGlyphs">…1</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-23-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="315 552 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="315" y="552"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="315" y="565" textLength="20" lengthAdjust="spacingAndGlyphs">…7</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-25-bigMerge.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="226 600 76 24" width="76px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="76" height="24" x="226" y="600"/>
+
+    <rect fill="rgb(32,48,128)" fill-opacity="1.0" stroke="rgb(201,209,217)" stroke-opacity="1.0" stroke-width="2" width="76" height="118" x="226" y="553" rx="10"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-36-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="207 864 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="207" y="864"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="207" y="877" textLength="28" lengthAdjust="spacingAndGlyphs">…12</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-37-port-error.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="277 888 40 24" width="40px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="40" height="24" x="277" y="888"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="277" y="901" textLength="40" lengthAdjust="spacingAndGlyphs">error</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-40-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="249 960 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="249" y="960"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="249" y="973" textLength="28" lengthAdjust="spacingAndGlyphs">…13</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-44-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="274 1056 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="274" y="1056"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="274" y="1069" textLength="28" lengthAdjust="spacingAndGlyphs">…14</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-4-4-sequel.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="326 96 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="326" y="96"/>
+
+
+    <text fill="rgb(201,209,217)" fill-opacity="1.0" font-size="16" x="326" y="109" textLength="20" lengthAdjust="spacingAndGlyphs">…3</text>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-101-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101 24" width="101px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="101" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-104-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 24" width="104px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="104" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-110-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 24" width="110px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="110" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-111-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 24" width="111px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="111" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-11-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 24" width="11px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="11" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-128-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 24" width="128px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="128" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-130-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 24" width="130px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="130" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-146-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 24" width="146px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="146" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-152-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 24" width="152px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="152" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-15-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 24" width="15px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="15" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-160-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 24" width="160px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="160" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-16-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 24" width="16px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="16" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-166-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 24" width="166px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="166" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-178-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 24" width="178px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="178" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-18-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 24" width="18px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="18" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-190-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 24" width="190px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="190" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-198-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 24" width="198px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="198" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-20-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 24" width="20px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="20" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-24-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="24" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-28-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 24" width="28px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="28" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-29-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 24" width="29px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="29" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-33-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 24" width="33px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="33" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-42-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 24" width="42px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="42" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-43-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 24" width="43px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="43" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-44-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 24" width="44px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="44" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-49-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 24" width="49px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="49" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-62-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 24" width="62px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="62" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-69-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69 24" width="69px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="69" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-70-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 24" width="70px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="70" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-73-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 24" width="73px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="73" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-78-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 24" width="78px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="78" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-82-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 24" width="82px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="82" height="24" x="0" y="0"/>
+</svg>
+-- flowdev/flow-bigTestFlow350-filler-84-24.expected --
+<?xml version="1.0" ?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 24" width="84px" height="24px">
+    <!-- Generated by FlowDev tool. -->
+    <rect fill="rgb(13,17,23)" fill-opacity="1" width="84" height="24" x="0" y="0"/>
+</svg>

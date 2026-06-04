@@ -27,8 +27,6 @@ COLON: ':';
 
 NAME: [a-z] [a-zA-Z0-9]*;
 
-CONTINUATION: '...' [0-9]+;
-
 INT: [0-9]+;
 
 LPAREN: '(' -> pushMode(I);

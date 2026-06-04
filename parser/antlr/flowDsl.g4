@@ -14,10 +14,9 @@ statementMiddle:
 	component (port? data? ARROW port? component)*?;
 
 statementStart:
-	port data ARROW port?
-	| CONTINUATION data? ARROW port?;
+	port data ARROW port?;
 
-statementEnd: port? data? ARROW (port | CONTINUATION) SEMI;
+statementEnd: port? data? ARROW port SEMI;
 
 component: LBRACK componentTypeName plugin? RBRACK;
 

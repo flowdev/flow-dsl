@@ -33,17 +33,16 @@ var FlowDslParserStaticData struct {
 func flowdslParserInit() {
 	staticData := &FlowDslParserStaticData
 	staticData.LiteralNames = []string{
-		"", "'flow'", "'{'", "", "", "", "", "'->'", "';'", "':'", "", "", "",
-		"'('", "", "'}'", "", "", "", "", "", "", "')'", "", "", "", "", "",
-		"", "'='",
+		"", "'flow'", "'{'", "", "", "", "", "'->'", "';'", "':'", "", "", "'('",
+		"", "'}'", "", "", "", "", "", "", "')'", "", "", "", "", "", "", "'='",
 	}
 	staticData.SymbolicNames = []string{
 		"", "FLOW", "LBRACE", "ID", "BLOCK_COMMENT", "LINE_COMMENT", "WS", "ARROW",
-		"SEMI", "COLON", "NAME", "CONTINUATION", "INT", "LPAREN", "LBRACK",
-		"RBRACE", "BLOCK_COMMENTF", "LINE_COMMENTF", "WSF", "COMMA", "PIPE",
-		"DOTI", "RPAREN", "LBRACKI", "RBRACK", "IDI", "BLOCK_COMMENTI", "LINE_COMMENTI",
-		"WSI", "ASSIGN", "COMMAP", "DOTP", "PIPEP", "RBRACKP", "IDP", "BLOCK_COMMENTP",
-		"LINE_COMMENTP", "WSP",
+		"SEMI", "COLON", "NAME", "INT", "LPAREN", "LBRACK", "RBRACE", "BLOCK_COMMENTF",
+		"LINE_COMMENTF", "WSF", "COMMA", "PIPE", "DOTI", "RPAREN", "LBRACKI",
+		"RBRACK", "IDI", "BLOCK_COMMENTI", "LINE_COMMENTI", "WSI", "ASSIGN",
+		"COMMAP", "DOTP", "PIPEP", "RBRACKP", "IDP", "BLOCK_COMMENTP", "LINE_COMMENTP",
+		"WSP",
 	}
 	staticData.RuleNames = []string{
 		"flows", "flow", "statement", "statementMiddle", "statementStart", "statementEnd",
@@ -52,79 +51,72 @@ func flowdslParserInit() {
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 37, 172, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 36, 159, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 1, 0, 4, 0,
 		32, 8, 0, 11, 0, 12, 0, 33, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 42,
 		8, 1, 11, 1, 12, 1, 43, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
 		1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 59, 8, 2, 1, 3, 1, 3, 3, 3, 63, 8,
 		3, 1, 3, 3, 3, 66, 8, 3, 1, 3, 1, 3, 3, 3, 70, 8, 3, 1, 3, 5, 3, 73, 8,
-		3, 10, 3, 12, 3, 76, 9, 3, 1, 4, 1, 4, 1, 4, 1, 4, 3, 4, 82, 8, 4, 1, 4,
-		1, 4, 3, 4, 86, 8, 4, 1, 4, 1, 4, 3, 4, 90, 8, 4, 3, 4, 92, 8, 4, 1, 5,
-		3, 5, 95, 8, 5, 1, 5, 3, 5, 98, 8, 5, 1, 5, 1, 5, 1, 5, 3, 5, 103, 8, 5,
-		1, 5, 1, 5, 1, 6, 1, 6, 1, 6, 3, 6, 110, 8, 6, 1, 6, 1, 6, 1, 7, 3, 7,
-		115, 8, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 8, 5, 8, 123, 8, 8, 10, 8,
-		12, 8, 126, 9, 8, 1, 8, 1, 8, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 5, 9,
-		136, 8, 9, 10, 9, 12, 9, 139, 9, 9, 3, 9, 141, 8, 9, 1, 10, 1, 10, 1, 10,
-		1, 10, 1, 10, 5, 10, 148, 8, 10, 10, 10, 12, 10, 151, 9, 10, 1, 10, 1,
-		10, 1, 11, 1, 11, 1, 11, 3, 11, 158, 8, 11, 1, 12, 1, 12, 1, 12, 3, 12,
-		163, 8, 12, 1, 13, 1, 13, 1, 13, 3, 13, 168, 8, 13, 1, 14, 1, 14, 1, 14,
-		1, 74, 0, 15, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 0,
-		1, 1, 0, 19, 20, 180, 0, 31, 1, 0, 0, 0, 2, 37, 1, 0, 0, 0, 4, 58, 1, 0,
-		0, 0, 6, 60, 1, 0, 0, 0, 8, 91, 1, 0, 0, 0, 10, 94, 1, 0, 0, 0, 12, 106,
-		1, 0, 0, 0, 14, 114, 1, 0, 0, 0, 16, 118, 1, 0, 0, 0, 18, 140, 1, 0, 0,
-		0, 20, 142, 1, 0, 0, 0, 22, 154, 1, 0, 0, 0, 24, 159, 1, 0, 0, 0, 26, 164,
-		1, 0, 0, 0, 28, 169, 1, 0, 0, 0, 30, 32, 3, 2, 1, 0, 31, 30, 1, 0, 0, 0,
-		32, 33, 1, 0, 0, 0, 33, 31, 1, 0, 0, 0, 33, 34, 1, 0, 0, 0, 34, 35, 1,
-		0, 0, 0, 35, 36, 5, 0, 0, 1, 36, 1, 1, 0, 0, 0, 37, 38, 5, 1, 0, 0, 38,
-		39, 5, 3, 0, 0, 39, 41, 5, 2, 0, 0, 40, 42, 3, 4, 2, 0, 41, 40, 1, 0, 0,
-		0, 42, 43, 1, 0, 0, 0, 43, 41, 1, 0, 0, 0, 43, 44, 1, 0, 0, 0, 44, 45,
-		1, 0, 0, 0, 45, 46, 5, 15, 0, 0, 46, 3, 1, 0, 0, 0, 47, 48, 3, 8, 4, 0,
-		48, 49, 3, 6, 3, 0, 49, 50, 3, 10, 5, 0, 50, 59, 1, 0, 0, 0, 51, 52, 3,
-		8, 4, 0, 52, 53, 3, 6, 3, 0, 53, 54, 5, 8, 0, 0, 54, 59, 1, 0, 0, 0, 55,
-		56, 3, 6, 3, 0, 56, 57, 3, 10, 5, 0, 57, 59, 1, 0, 0, 0, 58, 47, 1, 0,
-		0, 0, 58, 51, 1, 0, 0, 0, 58, 55, 1, 0, 0, 0, 59, 5, 1, 0, 0, 0, 60, 74,
-		3, 12, 6, 0, 61, 63, 3, 26, 13, 0, 62, 61, 1, 0, 0, 0, 62, 63, 1, 0, 0,
-		0, 63, 65, 1, 0, 0, 0, 64, 66, 3, 20, 10, 0, 65, 64, 1, 0, 0, 0, 65, 66,
-		1, 0, 0, 0, 66, 67, 1, 0, 0, 0, 67, 69, 5, 7, 0, 0, 68, 70, 3, 26, 13,
-		0, 69, 68, 1, 0, 0, 0, 69, 70, 1, 0, 0, 0, 70, 71, 1, 0, 0, 0, 71, 73,
-		3, 12, 6, 0, 72, 62, 1, 0, 0, 0, 73, 76, 1, 0, 0, 0, 74, 75, 1, 0, 0, 0,
-		74, 72, 1, 0, 0, 0, 75, 7, 1, 0, 0, 0, 76, 74, 1, 0, 0, 0, 77, 78, 3, 26,
-		13, 0, 78, 79, 3, 20, 10, 0, 79, 81, 5, 7, 0, 0, 80, 82, 3, 26, 13, 0,
-		81, 80, 1, 0, 0, 0, 81, 82, 1, 0, 0, 0, 82, 92, 1, 0, 0, 0, 83, 85, 5,
-		11, 0, 0, 84, 86, 3, 20, 10, 0, 85, 84, 1, 0, 0, 0, 85, 86, 1, 0, 0, 0,
-		86, 87, 1, 0, 0, 0, 87, 89, 5, 7, 0, 0, 88, 90, 3, 26, 13, 0, 89, 88, 1,
-		0, 0, 0, 89, 90, 1, 0, 0, 0, 90, 92, 1, 0, 0, 0, 91, 77, 1, 0, 0, 0, 91,
-		83, 1, 0, 0, 0, 92, 9, 1, 0, 0, 0, 93, 95, 3, 26, 13, 0, 94, 93, 1, 0,
-		0, 0, 94, 95, 1, 0, 0, 0, 95, 97, 1, 0, 0, 0, 96, 98, 3, 20, 10, 0, 97,
-		96, 1, 0, 0, 0, 97, 98, 1, 0, 0, 0, 98, 99, 1, 0, 0, 0, 99, 102, 5, 7,
-		0, 0, 100, 103, 3, 26, 13, 0, 101, 103, 5, 11, 0, 0, 102, 100, 1, 0, 0,
-		0, 102, 101, 1, 0, 0, 0, 103, 104, 1, 0, 0, 0, 104, 105, 5, 8, 0, 0, 105,
-		11, 1, 0, 0, 0, 106, 107, 5, 14, 0, 0, 107, 109, 3, 14, 7, 0, 108, 110,
-		3, 16, 8, 0, 109, 108, 1, 0, 0, 0, 109, 110, 1, 0, 0, 0, 110, 111, 1, 0,
-		0, 0, 111, 112, 5, 24, 0, 0, 112, 13, 1, 0, 0, 0, 113, 115, 5, 25, 0, 0,
-		114, 113, 1, 0, 0, 0, 114, 115, 1, 0, 0, 0, 115, 116, 1, 0, 0, 0, 116,
-		117, 3, 22, 11, 0, 117, 15, 1, 0, 0, 0, 118, 119, 5, 23, 0, 0, 119, 124,
-		3, 18, 9, 0, 120, 121, 5, 32, 0, 0, 121, 123, 3, 18, 9, 0, 122, 120, 1,
-		0, 0, 0, 123, 126, 1, 0, 0, 0, 124, 122, 1, 0, 0, 0, 124, 125, 1, 0, 0,
-		0, 125, 127, 1, 0, 0, 0, 126, 124, 1, 0, 0, 0, 127, 128, 5, 33, 0, 0, 128,
-		17, 1, 0, 0, 0, 129, 141, 3, 24, 12, 0, 130, 131, 3, 24, 12, 0, 131, 132,
-		5, 29, 0, 0, 132, 137, 3, 24, 12, 0, 133, 134, 5, 30, 0, 0, 134, 136, 3,
-		24, 12, 0, 135, 133, 1, 0, 0, 0, 136, 139, 1, 0, 0, 0, 137, 135, 1, 0,
-		0, 0, 137, 138, 1, 0, 0, 0, 138, 141, 1, 0, 0, 0, 139, 137, 1, 0, 0, 0,
-		140, 129, 1, 0, 0, 0, 140, 130, 1, 0, 0, 0, 141, 19, 1, 0, 0, 0, 142, 143,
-		5, 13, 0, 0, 143, 149, 3, 22, 11, 0, 144, 145, 3, 28, 14, 0, 145, 146,
-		3, 22, 11, 0, 146, 148, 1, 0, 0, 0, 147, 144, 1, 0, 0, 0, 148, 151, 1,
-		0, 0, 0, 149, 147, 1, 0, 0, 0, 149, 150, 1, 0, 0, 0, 150, 152, 1, 0, 0,
-		0, 151, 149, 1, 0, 0, 0, 152, 153, 5, 22, 0, 0, 153, 21, 1, 0, 0, 0, 154,
-		157, 5, 25, 0, 0, 155, 156, 5, 21, 0, 0, 156, 158, 5, 25, 0, 0, 157, 155,
-		1, 0, 0, 0, 157, 158, 1, 0, 0, 0, 158, 23, 1, 0, 0, 0, 159, 162, 5, 34,
-		0, 0, 160, 161, 5, 31, 0, 0, 161, 163, 5, 34, 0, 0, 162, 160, 1, 0, 0,
-		0, 162, 163, 1, 0, 0, 0, 163, 25, 1, 0, 0, 0, 164, 167, 5, 10, 0, 0, 165,
-		166, 5, 9, 0, 0, 166, 168, 5, 12, 0, 0, 167, 165, 1, 0, 0, 0, 167, 168,
-		1, 0, 0, 0, 168, 27, 1, 0, 0, 0, 169, 170, 7, 0, 0, 0, 170, 29, 1, 0, 0,
-		0, 23, 33, 43, 58, 62, 65, 69, 74, 81, 85, 89, 91, 94, 97, 102, 109, 114,
-		124, 137, 140, 149, 157, 162, 167,
+		3, 10, 3, 12, 3, 76, 9, 3, 1, 4, 1, 4, 1, 4, 1, 4, 3, 4, 82, 8, 4, 1, 5,
+		3, 5, 85, 8, 5, 1, 5, 3, 5, 88, 8, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 6, 1,
+		6, 1, 6, 3, 6, 97, 8, 6, 1, 6, 1, 6, 1, 7, 3, 7, 102, 8, 7, 1, 7, 1, 7,
+		1, 8, 1, 8, 1, 8, 1, 8, 5, 8, 110, 8, 8, 10, 8, 12, 8, 113, 9, 8, 1, 8,
+		1, 8, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 5, 9, 123, 8, 9, 10, 9, 12, 9,
+		126, 9, 9, 3, 9, 128, 8, 9, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 5, 10, 135,
+		8, 10, 10, 10, 12, 10, 138, 9, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 11, 3,
+		11, 145, 8, 11, 1, 12, 1, 12, 1, 12, 3, 12, 150, 8, 12, 1, 13, 1, 13, 1,
+		13, 3, 13, 155, 8, 13, 1, 14, 1, 14, 1, 14, 1, 74, 0, 15, 0, 2, 4, 6, 8,
+		10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 0, 1, 1, 0, 18, 19, 163, 0, 31,
+		1, 0, 0, 0, 2, 37, 1, 0, 0, 0, 4, 58, 1, 0, 0, 0, 6, 60, 1, 0, 0, 0, 8,
+		77, 1, 0, 0, 0, 10, 84, 1, 0, 0, 0, 12, 93, 1, 0, 0, 0, 14, 101, 1, 0,
+		0, 0, 16, 105, 1, 0, 0, 0, 18, 127, 1, 0, 0, 0, 20, 129, 1, 0, 0, 0, 22,
+		141, 1, 0, 0, 0, 24, 146, 1, 0, 0, 0, 26, 151, 1, 0, 0, 0, 28, 156, 1,
+		0, 0, 0, 30, 32, 3, 2, 1, 0, 31, 30, 1, 0, 0, 0, 32, 33, 1, 0, 0, 0, 33,
+		31, 1, 0, 0, 0, 33, 34, 1, 0, 0, 0, 34, 35, 1, 0, 0, 0, 35, 36, 5, 0, 0,
+		1, 36, 1, 1, 0, 0, 0, 37, 38, 5, 1, 0, 0, 38, 39, 5, 3, 0, 0, 39, 41, 5,
+		2, 0, 0, 40, 42, 3, 4, 2, 0, 41, 40, 1, 0, 0, 0, 42, 43, 1, 0, 0, 0, 43,
+		41, 1, 0, 0, 0, 43, 44, 1, 0, 0, 0, 44, 45, 1, 0, 0, 0, 45, 46, 5, 14,
+		0, 0, 46, 3, 1, 0, 0, 0, 47, 48, 3, 8, 4, 0, 48, 49, 3, 6, 3, 0, 49, 50,
+		3, 10, 5, 0, 50, 59, 1, 0, 0, 0, 51, 52, 3, 8, 4, 0, 52, 53, 3, 6, 3, 0,
+		53, 54, 5, 8, 0, 0, 54, 59, 1, 0, 0, 0, 55, 56, 3, 6, 3, 0, 56, 57, 3,
+		10, 5, 0, 57, 59, 1, 0, 0, 0, 58, 47, 1, 0, 0, 0, 58, 51, 1, 0, 0, 0, 58,
+		55, 1, 0, 0, 0, 59, 5, 1, 0, 0, 0, 60, 74, 3, 12, 6, 0, 61, 63, 3, 26,
+		13, 0, 62, 61, 1, 0, 0, 0, 62, 63, 1, 0, 0, 0, 63, 65, 1, 0, 0, 0, 64,
+		66, 3, 20, 10, 0, 65, 64, 1, 0, 0, 0, 65, 66, 1, 0, 0, 0, 66, 67, 1, 0,
+		0, 0, 67, 69, 5, 7, 0, 0, 68, 70, 3, 26, 13, 0, 69, 68, 1, 0, 0, 0, 69,
+		70, 1, 0, 0, 0, 70, 71, 1, 0, 0, 0, 71, 73, 3, 12, 6, 0, 72, 62, 1, 0,
+		0, 0, 73, 76, 1, 0, 0, 0, 74, 75, 1, 0, 0, 0, 74, 72, 1, 0, 0, 0, 75, 7,
+		1, 0, 0, 0, 76, 74, 1, 0, 0, 0, 77, 78, 3, 26, 13, 0, 78, 79, 3, 20, 10,
+		0, 79, 81, 5, 7, 0, 0, 80, 82, 3, 26, 13, 0, 81, 80, 1, 0, 0, 0, 81, 82,
+		1, 0, 0, 0, 82, 9, 1, 0, 0, 0, 83, 85, 3, 26, 13, 0, 84, 83, 1, 0, 0, 0,
+		84, 85, 1, 0, 0, 0, 85, 87, 1, 0, 0, 0, 86, 88, 3, 20, 10, 0, 87, 86, 1,
+		0, 0, 0, 87, 88, 1, 0, 0, 0, 88, 89, 1, 0, 0, 0, 89, 90, 5, 7, 0, 0, 90,
+		91, 3, 26, 13, 0, 91, 92, 5, 8, 0, 0, 92, 11, 1, 0, 0, 0, 93, 94, 5, 13,
+		0, 0, 94, 96, 3, 14, 7, 0, 95, 97, 3, 16, 8, 0, 96, 95, 1, 0, 0, 0, 96,
+		97, 1, 0, 0, 0, 97, 98, 1, 0, 0, 0, 98, 99, 5, 23, 0, 0, 99, 13, 1, 0,
+		0, 0, 100, 102, 5, 24, 0, 0, 101, 100, 1, 0, 0, 0, 101, 102, 1, 0, 0, 0,
+		102, 103, 1, 0, 0, 0, 103, 104, 3, 22, 11, 0, 104, 15, 1, 0, 0, 0, 105,
+		106, 5, 22, 0, 0, 106, 111, 3, 18, 9, 0, 107, 108, 5, 31, 0, 0, 108, 110,
+		3, 18, 9, 0, 109, 107, 1, 0, 0, 0, 110, 113, 1, 0, 0, 0, 111, 109, 1, 0,
+		0, 0, 111, 112, 1, 0, 0, 0, 112, 114, 1, 0, 0, 0, 113, 111, 1, 0, 0, 0,
+		114, 115, 5, 32, 0, 0, 115, 17, 1, 0, 0, 0, 116, 128, 3, 24, 12, 0, 117,
+		118, 3, 24, 12, 0, 118, 119, 5, 28, 0, 0, 119, 124, 3, 24, 12, 0, 120,
+		121, 5, 29, 0, 0, 121, 123, 3, 24, 12, 0, 122, 120, 1, 0, 0, 0, 123, 126,
+		1, 0, 0, 0, 124, 122, 1, 0, 0, 0, 124, 125, 1, 0, 0, 0, 125, 128, 1, 0,
+		0, 0, 126, 124, 1, 0, 0, 0, 127, 116, 1, 0, 0, 0, 127, 117, 1, 0, 0, 0,
+		128, 19, 1, 0, 0, 0, 129, 130, 5, 12, 0, 0, 130, 136, 3, 22, 11, 0, 131,
+		132, 3, 28, 14, 0, 132, 133, 3, 22, 11, 0, 133, 135, 1, 0, 0, 0, 134, 131,
+		1, 0, 0, 0, 135, 138, 1, 0, 0, 0, 136, 134, 1, 0, 0, 0, 136, 137, 1, 0,
+		0, 0, 137, 139, 1, 0, 0, 0, 138, 136, 1, 0, 0, 0, 139, 140, 5, 21, 0, 0,
+		140, 21, 1, 0, 0, 0, 141, 144, 5, 24, 0, 0, 142, 143, 5, 20, 0, 0, 143,
+		145, 5, 24, 0, 0, 144, 142, 1, 0, 0, 0, 144, 145, 1, 0, 0, 0, 145, 23,
+		1, 0, 0, 0, 146, 149, 5, 33, 0, 0, 147, 148, 5, 30, 0, 0, 148, 150, 5,
+		33, 0, 0, 149, 147, 1, 0, 0, 0, 149, 150, 1, 0, 0, 0, 150, 25, 1, 0, 0,
+		0, 151, 154, 5, 10, 0, 0, 152, 153, 5, 9, 0, 0, 153, 155, 5, 11, 0, 0,
+		154, 152, 1, 0, 0, 0, 154, 155, 1, 0, 0, 0, 155, 27, 1, 0, 0, 0, 156, 157,
+		7, 0, 0, 0, 157, 29, 1, 0, 0, 0, 19, 33, 43, 58, 62, 65, 69, 74, 81, 84,
+		87, 96, 101, 111, 124, 127, 136, 144, 149, 154,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -173,33 +165,32 @@ const (
 	flowDslParserSEMI           = 8
 	flowDslParserCOLON          = 9
 	flowDslParserNAME           = 10
-	flowDslParserCONTINUATION   = 11
-	flowDslParserINT            = 12
-	flowDslParserLPAREN         = 13
-	flowDslParserLBRACK         = 14
-	flowDslParserRBRACE         = 15
-	flowDslParserBLOCK_COMMENTF = 16
-	flowDslParserLINE_COMMENTF  = 17
-	flowDslParserWSF            = 18
-	flowDslParserCOMMA          = 19
-	flowDslParserPIPE           = 20
-	flowDslParserDOTI           = 21
-	flowDslParserRPAREN         = 22
-	flowDslParserLBRACKI        = 23
-	flowDslParserRBRACK         = 24
-	flowDslParserIDI            = 25
-	flowDslParserBLOCK_COMMENTI = 26
-	flowDslParserLINE_COMMENTI  = 27
-	flowDslParserWSI            = 28
-	flowDslParserASSIGN         = 29
-	flowDslParserCOMMAP         = 30
-	flowDslParserDOTP           = 31
-	flowDslParserPIPEP          = 32
-	flowDslParserRBRACKP        = 33
-	flowDslParserIDP            = 34
-	flowDslParserBLOCK_COMMENTP = 35
-	flowDslParserLINE_COMMENTP  = 36
-	flowDslParserWSP            = 37
+	flowDslParserINT            = 11
+	flowDslParserLPAREN         = 12
+	flowDslParserLBRACK         = 13
+	flowDslParserRBRACE         = 14
+	flowDslParserBLOCK_COMMENTF = 15
+	flowDslParserLINE_COMMENTF  = 16
+	flowDslParserWSF            = 17
+	flowDslParserCOMMA          = 18
+	flowDslParserPIPE           = 19
+	flowDslParserDOTI           = 20
+	flowDslParserRPAREN         = 21
+	flowDslParserLBRACKI        = 22
+	flowDslParserRBRACK         = 23
+	flowDslParserIDI            = 24
+	flowDslParserBLOCK_COMMENTI = 25
+	flowDslParserLINE_COMMENTI  = 26
+	flowDslParserWSI            = 27
+	flowDslParserASSIGN         = 28
+	flowDslParserCOMMAP         = 29
+	flowDslParserDOTP           = 30
+	flowDslParserPIPEP          = 31
+	flowDslParserRBRACKP        = 32
+	flowDslParserIDP            = 33
+	flowDslParserBLOCK_COMMENTP = 34
+	flowDslParserLINE_COMMENTP  = 35
+	flowDslParserWSP            = 36
 )
 
 // flowDslParser rules.
@@ -523,7 +514,7 @@ func (p *flowDslParser) Flow() (localctx IFlowContext) {
 	}
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = ((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&19456) != 0) {
+	for ok := true; ok; ok = _la == flowDslParserNAME || _la == flowDslParserLBRACK {
 		{
 			p.SetState(40)
 			p.Statement()
@@ -1046,7 +1037,6 @@ type IStatementStartContext interface {
 	Port(i int) IPortContext
 	Data() IDataContext
 	ARROW() antlr.TerminalNode
-	CONTINUATION() antlr.TerminalNode
 
 	// IsStatementStartContext differentiates from other interfaces.
 	IsStatementStartContext()
@@ -1145,10 +1135,6 @@ func (s *StatementStartContext) ARROW() antlr.TerminalNode {
 	return s.GetToken(flowDslParserARROW, 0)
 }
 
-func (s *StatementStartContext) CONTINUATION() antlr.TerminalNode {
-	return s.GetToken(flowDslParserCONTINUATION, 0)
-}
-
 func (s *StatementStartContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1162,96 +1148,36 @@ func (p *flowDslParser) StatementStart() (localctx IStatementStartContext) {
 	p.EnterRule(localctx, 8, flowDslParserRULE_statementStart)
 	var _la int
 
-	p.SetState(91)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(77)
+		p.Port()
+	}
+	{
+		p.SetState(78)
+		p.Data()
+	}
+	{
+		p.SetState(79)
+		p.Match(flowDslParserARROW)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	p.SetState(81)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
+	_la = p.GetTokenStream().LA(1)
 
-	switch p.GetTokenStream().LA(1) {
-	case flowDslParserNAME:
-		p.EnterOuterAlt(localctx, 1)
+	if _la == flowDslParserNAME {
 		{
-			p.SetState(77)
+			p.SetState(80)
 			p.Port()
 		}
-		{
-			p.SetState(78)
-			p.Data()
-		}
-		{
-			p.SetState(79)
-			p.Match(flowDslParserARROW)
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
-		}
-		p.SetState(81)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
 
-		if _la == flowDslParserNAME {
-			{
-				p.SetState(80)
-				p.Port()
-			}
-
-		}
-
-	case flowDslParserCONTINUATION:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(83)
-			p.Match(flowDslParserCONTINUATION)
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
-		}
-		p.SetState(85)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
-
-		if _la == flowDslParserLPAREN {
-			{
-				p.SetState(84)
-				p.Data()
-			}
-
-		}
-		{
-			p.SetState(87)
-			p.Match(flowDslParserARROW)
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
-		}
-		p.SetState(89)
-		p.GetErrorHandler().Sync(p)
-		if p.HasError() {
-			goto errorExit
-		}
-		_la = p.GetTokenStream().LA(1)
-
-		if _la == flowDslParserNAME {
-			{
-				p.SetState(88)
-				p.Port()
-			}
-
-		}
-
-	default:
-		p.SetError(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
-		goto errorExit
 	}
 
 errorExit:
@@ -1276,10 +1202,9 @@ type IStatementEndContext interface {
 
 	// Getter signatures
 	ARROW() antlr.TerminalNode
-	SEMI() antlr.TerminalNode
 	AllPort() []IPortContext
 	Port(i int) IPortContext
-	CONTINUATION() antlr.TerminalNode
+	SEMI() antlr.TerminalNode
 	Data() IDataContext
 
 	// IsStatementEndContext differentiates from other interfaces.
@@ -1320,10 +1245,6 @@ func (s *StatementEndContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *StatementEndContext) ARROW() antlr.TerminalNode {
 	return s.GetToken(flowDslParserARROW, 0)
-}
-
-func (s *StatementEndContext) SEMI() antlr.TerminalNode {
-	return s.GetToken(flowDslParserSEMI, 0)
 }
 
 func (s *StatementEndContext) AllPort() []IPortContext {
@@ -1367,8 +1288,8 @@ func (s *StatementEndContext) Port(i int) IPortContext {
 	return t.(IPortContext)
 }
 
-func (s *StatementEndContext) CONTINUATION() antlr.TerminalNode {
-	return s.GetToken(flowDslParserCONTINUATION, 0)
+func (s *StatementEndContext) SEMI() antlr.TerminalNode {
+	return s.GetToken(flowDslParserSEMI, 0)
 }
 
 func (s *StatementEndContext) Data() IDataContext {
@@ -1401,7 +1322,7 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(94)
+	p.SetState(84)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1410,12 +1331,12 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 
 	if _la == flowDslParserNAME {
 		{
-			p.SetState(93)
+			p.SetState(83)
 			p.Port()
 		}
 
 	}
-	p.SetState(97)
+	p.SetState(87)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1424,48 +1345,25 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 
 	if _la == flowDslParserLPAREN {
 		{
-			p.SetState(96)
+			p.SetState(86)
 			p.Data()
 		}
 
 	}
 	{
-		p.SetState(99)
+		p.SetState(89)
 		p.Match(flowDslParserARROW)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(102)
-	p.GetErrorHandler().Sync(p)
-	if p.HasError() {
-		goto errorExit
-	}
-
-	switch p.GetTokenStream().LA(1) {
-	case flowDslParserNAME:
-		{
-			p.SetState(100)
-			p.Port()
-		}
-
-	case flowDslParserCONTINUATION:
-		{
-			p.SetState(101)
-			p.Match(flowDslParserCONTINUATION)
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
-		}
-
-	default:
-		p.SetError(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
-		goto errorExit
+	{
+		p.SetState(90)
+		p.Port()
 	}
 	{
-		p.SetState(104)
+		p.SetState(91)
 		p.Match(flowDslParserSEMI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1590,7 +1488,7 @@ func (p *flowDslParser) Component() (localctx IComponentContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(106)
+		p.SetState(93)
 		p.Match(flowDslParserLBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1598,10 +1496,10 @@ func (p *flowDslParser) Component() (localctx IComponentContext) {
 		}
 	}
 	{
-		p.SetState(107)
+		p.SetState(94)
 		p.ComponentTypeName()
 	}
-	p.SetState(109)
+	p.SetState(96)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1610,13 +1508,13 @@ func (p *flowDslParser) Component() (localctx IComponentContext) {
 
 	if _la == flowDslParserLBRACKI {
 		{
-			p.SetState(108)
+			p.SetState(95)
 			p.Plugin()
 		}
 
 	}
 	{
-		p.SetState(111)
+		p.SetState(98)
 		p.Match(flowDslParserRBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1716,12 +1614,12 @@ func (p *flowDslParser) ComponentTypeName() (localctx IComponentTypeNameContext)
 	localctx = NewComponentTypeNameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 14, flowDslParserRULE_componentTypeName)
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(114)
+	p.SetState(101)
 	p.GetErrorHandler().Sync(p)
 
-	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 15, p.GetParserRuleContext()) == 1 {
+	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 11, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(113)
+			p.SetState(100)
 			p.Match(flowDslParserIDI)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1733,7 +1631,7 @@ func (p *flowDslParser) ComponentTypeName() (localctx IComponentTypeNameContext)
 		goto errorExit
 	}
 	{
-		p.SetState(116)
+		p.SetState(103)
 		p.PackageIDI()
 	}
 
@@ -1873,7 +1771,7 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(118)
+		p.SetState(105)
 		p.Match(flowDslParserLBRACKI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1881,10 +1779,10 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 		}
 	}
 	{
-		p.SetState(119)
+		p.SetState(106)
 		p.PluginPart()
 	}
-	p.SetState(124)
+	p.SetState(111)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1893,7 +1791,7 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 
 	for _la == flowDslParserPIPEP {
 		{
-			p.SetState(120)
+			p.SetState(107)
 			p.Match(flowDslParserPIPEP)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1901,11 +1799,11 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 			}
 		}
 		{
-			p.SetState(121)
+			p.SetState(108)
 			p.PluginPart()
 		}
 
-		p.SetState(126)
+		p.SetState(113)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1913,7 +1811,7 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(127)
+		p.SetState(114)
 		p.Match(flowDslParserRBRACKP)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2050,28 +1948,28 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 	p.EnterRule(localctx, 18, flowDslParserRULE_pluginPart)
 	var _la int
 
-	p.SetState(140)
+	p.SetState(127)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 18, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 14, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(129)
+			p.SetState(116)
 			p.PackageIDP()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(130)
+			p.SetState(117)
 			p.PackageIDP()
 		}
 		{
-			p.SetState(131)
+			p.SetState(118)
 			p.Match(flowDslParserASSIGN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2079,10 +1977,10 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 			}
 		}
 		{
-			p.SetState(132)
+			p.SetState(119)
 			p.PackageIDP()
 		}
-		p.SetState(137)
+		p.SetState(124)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2091,7 +1989,7 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 
 		for _la == flowDslParserCOMMAP {
 			{
-				p.SetState(133)
+				p.SetState(120)
 				p.Match(flowDslParserCOMMAP)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -2099,11 +1997,11 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 				}
 			}
 			{
-				p.SetState(134)
+				p.SetState(121)
 				p.PackageIDP()
 			}
 
-			p.SetState(139)
+			p.SetState(126)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -2284,7 +2182,7 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(142)
+		p.SetState(129)
 		p.Match(flowDslParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2292,10 +2190,10 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 		}
 	}
 	{
-		p.SetState(143)
+		p.SetState(130)
 		p.PackageIDI()
 	}
-	p.SetState(149)
+	p.SetState(136)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2304,15 +2202,15 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 
 	for _la == flowDslParserCOMMA || _la == flowDslParserPIPE {
 		{
-			p.SetState(144)
+			p.SetState(131)
 			p.DataSep()
 		}
 		{
-			p.SetState(145)
+			p.SetState(132)
 			p.PackageIDI()
 		}
 
-		p.SetState(151)
+		p.SetState(138)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2320,7 +2218,7 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(152)
+		p.SetState(139)
 		p.Match(flowDslParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2416,14 +2314,14 @@ func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(154)
+		p.SetState(141)
 		p.Match(flowDslParserIDI)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(157)
+	p.SetState(144)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2432,7 +2330,7 @@ func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 
 	if _la == flowDslParserDOTI {
 		{
-			p.SetState(155)
+			p.SetState(142)
 			p.Match(flowDslParserDOTI)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2440,7 +2338,7 @@ func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 			}
 		}
 		{
-			p.SetState(156)
+			p.SetState(143)
 			p.Match(flowDslParserIDI)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2538,14 +2436,14 @@ func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(159)
+		p.SetState(146)
 		p.Match(flowDslParserIDP)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(162)
+	p.SetState(149)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2554,7 +2452,7 @@ func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 
 	if _la == flowDslParserDOTP {
 		{
-			p.SetState(160)
+			p.SetState(147)
 			p.Match(flowDslParserDOTP)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2562,7 +2460,7 @@ func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 			}
 		}
 		{
-			p.SetState(161)
+			p.SetState(148)
 			p.Match(flowDslParserIDP)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2660,14 +2558,14 @@ func (p *flowDslParser) Port() (localctx IPortContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(164)
+		p.SetState(151)
 		p.Match(flowDslParserNAME)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(167)
+	p.SetState(154)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2676,7 +2574,7 @@ func (p *flowDslParser) Port() (localctx IPortContext) {
 
 	if _la == flowDslParserCOLON {
 		{
-			p.SetState(165)
+			p.SetState(152)
 			p.Match(flowDslParserCOLON)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2684,7 +2582,7 @@ func (p *flowDslParser) Port() (localctx IPortContext) {
 			}
 		}
 		{
-			p.SetState(166)
+			p.SetState(153)
 			p.Match(flowDslParserINT)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2777,7 +2675,7 @@ func (p *flowDslParser) DataSep() (localctx IDataSepContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(169)
+		p.SetState(156)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == flowDslParserCOMMA || _la == flowDslParserPIPE) {

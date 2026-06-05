@@ -1,28 +1,24 @@
 grammar flowDsl;
 options { tokenVocab=flowDslLexer; }
 
-flows: Import=imp? Flows+=flow+ EOF;
+flowFile: AllImports=imports? Flows+=flow+ EOF;
 
-imp: IMPORT LBRACE (Imports+=STRING SEMI)+ RBRACE;
+imports: IMPORT LBRACE (Imports+=STRING SEMI)+ RBRACE;
 
 flow: FLOW Name=ID LBRACE (Statements+=statement)+ RBRACE;
 
 statement:
-	statementStart? statementMiddle statementEnd? SEMI;
-//	statementStart statementMiddle statementEnd
-//	| statementStart statementMiddle SEMI
-//	| statementMiddle statementEnd
-//	| statementMiddle SEMI;
+	statementStart? statementMiddle statementEnd? SEMIF;
+
+statementStart:
+	StartPort=PORT AllArrData=allData ARROW DstPort=PORT?;
 
 statementMiddle:
 	FirstComponent=component ArrowComponents+=arrowComponent*?;
 
-statementStart:
-	StartPort=port AllArrData=allData ARROW DstPort=port?;
+statementEnd: SrcPort=PORT? AllArrData=allData? ARROW EndPort=PORT;
 
-statementEnd: SrcPort=port? AllArrData=allData? ARROW EndPort=port; // SEMI;
-
-arrowComponent: SrcPort=port? AllArrData=allData? ARROW DstPort=port? DstComponent=component;
+arrowComponent: SrcPort=PORT? AllArrData=allData? ARROW DstPort=PORT? DstComponent=component;
 
 component: LBRACK Core=componentTypeName AllPlugins=plugin? RBRACK;
 
@@ -41,5 +37,3 @@ data: Name=IDI TypPack=IDI (DOTI TypName=IDI)?;
 packageIDI: ID1=IDI;
 
 packageIDP: ID1=IDP (DOTP ID2=IDP)?;
-
-port: Name=NAME (COLON Num=INT)?;

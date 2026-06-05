@@ -46,15 +46,15 @@ func (dc *drawConverter) convertArrowToDraw(arr *data.Arrow) *draw.Arrow {
 		drawArr.AddDataType(dt.Name, dt.Typ, dt.Link)
 	}
 	switch {
-	case arr.EndComp.LoopName != "":
-		return drawArr.AddDestination(dc.convertLoopToDraw(arr.EndComp.LoopName, arr.EndComp.LoopPort, arr.EndComp.LoopLink))
-	case arr.EndComp.Comp != nil:
-		return drawArr.AddDestination(dc.convertCompToDraw(arr.EndComp.Comp))
-	case arr.EndComp.PortName != "":
+	case arr.DstComp.LoopName != "":
+		return drawArr.AddDestination(dc.convertLoopToDraw(arr.DstComp.LoopName, arr.DstComp.LoopPort, arr.DstComp.LoopLink))
+	case arr.DstComp.Comp != nil:
+		return drawArr.AddDestination(dc.convertCompToDraw(arr.DstComp.Comp))
+	case arr.DstComp.PortName != "":
 		if arr.DstPort != "" { // arr.DstPort MUST BE "" because we have got an EndPort
-			panic(fmt.Sprintf("arrow MUST NOT have a destination port '%s', if it has an end port '%s'", arr.DstPort, arr.EndComp.PortName))
+			panic(fmt.Sprintf("arrow MUST NOT have a destination port '%s', if it has an end port '%s'", arr.DstPort, arr.DstComp.PortName))
 		}
-		return drawArr.AddDestination(dc.convertEndPortToDraw(arr.EndComp.PortName))
+		return drawArr.AddDestination(dc.convertEndPortToDraw(arr.DstComp.PortName))
 	default:
 		panic("unsupported type of arrow destination (neiter Component nor EndPort nor Loop)")
 	}

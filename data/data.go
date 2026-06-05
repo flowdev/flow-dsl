@@ -1,5 +1,10 @@
 package data
 
+type FlowFile struct {
+	Imports []string
+	Flows   []*Flow
+}
+
 type Flow struct {
 	Name            string
 	StatementStarts []*StartComp
@@ -15,8 +20,8 @@ type Arrow struct {
 	DataTypes []DataType
 	SrcPort   string
 	DstPort   string
-	StartComp *StartComp
-	EndComp   *EndComp
+	SrcComp   *StartComp
+	DstComp   *EndComp
 }
 
 // Shapes:

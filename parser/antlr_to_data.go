@@ -82,7 +82,28 @@ func (dc *dataConverter) convertStatementStartToData(antlrStatementStart IStatem
 }
 
 func (dc *dataConverter) convertStatementMiddleToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp) (dataEndComp *data.EndComp) {
-	panic("unimplemented")
+	dataComp := dc.convertComponentToData(antlrMidComp.GetFirstComponent())
+	dataStartComp.Comp = dataComp
+	dataEndComp = &data.EndComp{Comp: dataComp}
+	dataStartComp.Arrow.DstComp = dataEndComp
+	antlrArrComps := antlrMidComp.GetArrowComponents()
+	for _, antlrArrComp := range antlrArrComps {
+		dataEndComp = dc.convertArrowComponent(dataEndComp, antlrArrComp)
+	}
+	return dataEndComp
+}
+
+func (dc *dataConverter) convertArrowComponent(dataSrcComp *data.EndComp, antlrArrComp IArrowComponentContext) *data.EndComp {
+	dataArrow := &data.Arrow{}
+	dataArrow.SrcComp = &data.StartComp{Comp: dataSrcComp.Comp}
+	dataSrcComp.Comp.Outputs = append(dataSrcComp.Comp.Outputs, dataArrow)
+	dataArrow.SrcPort = antlrArrComp.GetSrcPort().GetText()
+	dataArrow.DataTypes = dc.convertArrowDataToData(antlrArrComp.GetAllArrData())
+	dataArrow.DstPort = antlrArrComp.GetDstPort().GetText()
+	dataDstComp := dc.convertComponentToData(antlrArrComp.Component())
+	dataArrow.DstComp = &data.EndComp{Comp: dataDstComp}
+	dataDstComp.Inputs = append(dataDstComp.Inputs, dataArrow)
+	return dataArrow.DstComp
 }
 
 func (dc *dataConverter) convertStatementEndToData(antlrStatementEnd IStatementEndContext, dataEndComp *data.EndComp) {
@@ -98,6 +119,10 @@ func (dc *dataConverter) convertStatementEndToData(antlrStatementEnd IStatementE
 		dataEndComp.Arrow = dataArrow
 		dataLastComp.Outputs = append(dataLastComp.Outputs, dataArrow)
 	}
+}
+
+func (dc *dataConverter) convertComponentToData(context IComponentContext) *data.Comp {
+	panic("unimplemented")
 }
 
 func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) []data.DataType {

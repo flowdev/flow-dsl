@@ -15,18 +15,18 @@ statement:
 //	| statementMiddle SEMI;
 
 statementMiddle:
-	Component=component ArrowComponents+=arrowComponent*?;
+	FirstComponent=component ArrowComponents+=arrowComponent*?;
 
 statementStart:
-	StartPort=port AllStartData=data ARROW DstPort=port?;
+	StartPort=port AllArrData=allData ARROW DstPort=port?;
 
-statementEnd: SrcPort=port? AllEndData=data? ARROW EndPort=port; // SEMI;
+statementEnd: SrcPort=port? AllArrData=allData? ARROW EndPort=port; // SEMI;
 
-arrowComponent: SrcPort=port? AllData=data? ARROW DstPort=port? DstComponent=component;
+arrowComponent: SrcPort=port? AllArrData=allData? ARROW DstPort=port? DstComponent=component;
 
 component: LBRACK Core=componentTypeName AllPlugins=plugin? RBRACK;
 
-componentTypeName: Name=IDI? Typ=packageIDI;
+componentTypeName: Name=IDI TypPack=IDI? (DOTI TypName=IDI)?;
 
 plugin: LBRACKI PluginGroups+=pluginPart (PIPEP PluginGroups+=pluginPart)* RBRACKP;
 
@@ -34,12 +34,12 @@ pluginPart:
 	Interface=packageIDP
 	| Interface=packageIDP ASSIGN Plugins+=packageIDP (COMMAP Plugins+=packageIDP)*;
 
-data: LPAREN Datas+=packageIDI? (dataSep Datas+=packageIDI)* RPAREN;
+allData: LPAREN Datas+=data? (COMMA Datas+=data)* RPAREN;
 
-packageIDI: ID1=IDI (DOTI ID2=IDI)?;
+data: Name=IDI TypPack=IDI (DOTI TypName=IDI)?;
+
+packageIDI: ID1=IDI;
 
 packageIDP: ID1=IDP (DOTP ID2=IDP)?;
 
 port: Name=NAME (COLON Num=INT)?;
-
-dataSep: PIPE | COMMA;

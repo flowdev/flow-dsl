@@ -31,10 +31,10 @@ func convertFlowToDraw(flow data.Flow) *draw.Flow {
 
 func (dc *drawConverter) convertStatementStartToDraw(startComp *data.StartComp) draw.StartComp {
 	switch {
+	case startComp.PortName != "":
+		return dc.convertStartPortToDraw(startComp.PortName, startComp.Arrow)
 	case startComp.Comp != nil:
 		return dc.convertCompToDraw(startComp.Comp)
-	case startComp.PortName != "":
-		return dc.convertStartPortToDraw(startComp.PortName, startComp.Output)
 	default:
 		panic("unsupported type of start component (neiter Component nor StartPort)")
 	}
@@ -48,13 +48,13 @@ func (dc *drawConverter) convertArrowToDraw(arr *data.Arrow) *draw.Arrow {
 	switch {
 	case arr.DstComp.LoopName != "":
 		return drawArr.AddDestination(dc.convertLoopToDraw(arr.DstComp.LoopName, arr.DstComp.LoopPort, arr.DstComp.LoopLink))
-	case arr.DstComp.Comp != nil:
-		return drawArr.AddDestination(dc.convertCompToDraw(arr.DstComp.Comp))
 	case arr.DstComp.PortName != "":
 		if arr.DstPort != "" { // arr.DstPort MUST BE "" because we have got an EndPort
 			panic(fmt.Sprintf("arrow MUST NOT have a destination port '%s', if it has an end port '%s'", arr.DstPort, arr.DstComp.PortName))
 		}
 		return drawArr.AddDestination(dc.convertEndPortToDraw(arr.DstComp.PortName))
+	case arr.DstComp.Comp != nil:
+		return drawArr.AddDestination(dc.convertCompToDraw(arr.DstComp.Comp))
 	default:
 		panic("unsupported type of arrow destination (neiter Component nor EndPort nor Loop)")
 	}

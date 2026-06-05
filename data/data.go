@@ -38,7 +38,7 @@ type Arrow struct {
 
 type StartComp struct {
 	PortName string
-	Output   *Arrow
+	Arrow    *Arrow
 	Comp     *Comp
 }
 
@@ -47,7 +47,7 @@ type EndComp struct {
 	LoopPort string
 	LoopLink string
 	PortName string
-	Input    *Arrow
+	Arrow    *Arrow
 	Comp     *Comp
 }
 

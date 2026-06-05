@@ -65,23 +65,39 @@ func (dc *dataConverter) convertFlowNameToData(antlrFlowName antlr.Token) string
 func (dc *dataConverter) convertStatementToData(antlrStatement IStatementContext, stmtIdx int) *data.StartComp {
 	dc.compLinkTable[stmtIdx] = make([]*compLink, 0, 32)
 	dataStartComp := &data.StartComp{}
-	dc.convertStartPortToData(antlrStatement.StatementStart(), dataStartComp)
-	dc.convertMidCompToData(antlrStatement.StatementMiddle(), dataStartComp)
+	dc.convertStatementStartToData(antlrStatement.StatementStart(), dataStartComp)
+	dataEndComp := dc.convertStatementMiddleToData(antlrStatement.StatementMiddle(), dataStartComp)
+	dc.convertStatementEndToData(antlrStatement.StatementEnd(), dataEndComp)
 	return dataStartComp
 }
 
-func (dc *dataConverter) convertStartPortToData(antlrStatementStart IStatementStartContext, dataStartComp *data.StartComp) {
+func (dc *dataConverter) convertStatementStartToData(antlrStatementStart IStatementStartContext, dataStartComp *data.StartComp) {
 	if antlrStatementStart != nil {
 		dataStartComp.PortName = antlrStatementStart.GetStartPort().GetText()
 		dataArrow := &data.Arrow{}
 		dataArrow.DstPort = antlrStatementStart.GetDstPort().GetText()
 		dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementStart.GetAllArrData())
-		dataStartComp.Output = dataArrow
+		dataStartComp.Arrow = dataArrow
 	}
 }
 
-func (dc *dataConverter) convertMidCompToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp) {
+func (dc *dataConverter) convertStatementMiddleToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp) (dataEndComp *data.EndComp) {
 	panic("unimplemented")
+}
+
+func (dc *dataConverter) convertStatementEndToData(antlrStatementEnd IStatementEndContext, dataEndComp *data.EndComp) {
+	if antlrStatementEnd != nil {
+		dataLastComp := dataEndComp.Comp
+		dataEndComp = &data.EndComp{} // we create a new end
+		dataEndComp.PortName = antlrStatementEnd.GetEndPort().GetText()
+		dataArrow := &data.Arrow{}
+		dataArrow.SrcPort = antlrStatementEnd.GetSrcPort().GetText()
+		dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementEnd.GetAllArrData())
+		dataArrow.SrcComp = &data.StartComp{Comp: dataLastComp}
+		dataArrow.DstComp = dataEndComp
+		dataEndComp.Arrow = dataArrow
+		dataLastComp.Outputs = append(dataLastComp.Outputs, dataArrow)
+	}
 }
 
 func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) []data.DataType {

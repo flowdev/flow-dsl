@@ -46,84 +46,87 @@ func flowdslParserInit() {
 		"LINE_COMMENTP", "WSP",
 	}
 	staticData.RuleNames = []string{
-		"flows", "imports", "flow", "statement", "statementMiddle", "statementStart",
-		"statementEnd", "component", "componentTypeName", "plugin", "pluginPart",
-		"data", "packageIDI", "packageIDP", "port", "dataSep",
+		"flows", "imp", "flow", "statement", "statementMiddle", "statementStart",
+		"statementEnd", "arrowComponent", "component", "componentTypeName",
+		"plugin", "pluginPart", "data", "packageIDI", "packageIDP", "port",
+		"dataSep",
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 38, 171, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 38, 175, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7, 15,
-		1, 0, 4, 0, 34, 8, 0, 11, 0, 12, 0, 35, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1,
-		1, 4, 1, 44, 8, 1, 11, 1, 12, 1, 45, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2,
-		4, 2, 54, 8, 2, 11, 2, 12, 2, 55, 1, 2, 1, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1,
-		3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 3, 3, 71, 8, 3, 1, 4, 1, 4, 3, 4,
-		75, 8, 4, 1, 4, 3, 4, 78, 8, 4, 1, 4, 1, 4, 3, 4, 82, 8, 4, 1, 4, 5, 4,
-		85, 8, 4, 10, 4, 12, 4, 88, 9, 4, 1, 5, 1, 5, 1, 5, 1, 5, 3, 5, 94, 8,
-		5, 1, 6, 3, 6, 97, 8, 6, 1, 6, 3, 6, 100, 8, 6, 1, 6, 1, 6, 1, 6, 1, 6,
-		1, 7, 1, 7, 1, 7, 3, 7, 109, 8, 7, 1, 7, 1, 7, 1, 8, 3, 8, 114, 8, 8, 1,
-		8, 1, 8, 1, 9, 1, 9, 1, 9, 1, 9, 5, 9, 122, 8, 9, 10, 9, 12, 9, 125, 9,
-		9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 5, 10, 135, 8,
-		10, 10, 10, 12, 10, 138, 9, 10, 3, 10, 140, 8, 10, 1, 11, 1, 11, 1, 11,
-		1, 11, 1, 11, 5, 11, 147, 8, 11, 10, 11, 12, 11, 150, 9, 11, 1, 11, 1,
-		11, 1, 12, 1, 12, 1, 12, 3, 12, 157, 8, 12, 1, 13, 1, 13, 1, 13, 3, 13,
-		162, 8, 13, 1, 14, 1, 14, 1, 14, 3, 14, 167, 8, 14, 1, 15, 1, 15, 1, 15,
-		1, 86, 0, 16, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30,
-		0, 1, 1, 0, 20, 21, 175, 0, 33, 1, 0, 0, 0, 2, 39, 1, 0, 0, 0, 4, 49, 1,
-		0, 0, 0, 6, 70, 1, 0, 0, 0, 8, 72, 1, 0, 0, 0, 10, 89, 1, 0, 0, 0, 12,
-		96, 1, 0, 0, 0, 14, 105, 1, 0, 0, 0, 16, 113, 1, 0, 0, 0, 18, 117, 1, 0,
-		0, 0, 20, 139, 1, 0, 0, 0, 22, 141, 1, 0, 0, 0, 24, 153, 1, 0, 0, 0, 26,
-		158, 1, 0, 0, 0, 28, 163, 1, 0, 0, 0, 30, 168, 1, 0, 0, 0, 32, 34, 3, 4,
-		2, 0, 33, 32, 1, 0, 0, 0, 34, 35, 1, 0, 0, 0, 35, 33, 1, 0, 0, 0, 35, 36,
-		1, 0, 0, 0, 36, 37, 1, 0, 0, 0, 37, 38, 5, 0, 0, 1, 38, 1, 1, 0, 0, 0,
-		39, 40, 5, 1, 0, 0, 40, 43, 5, 3, 0, 0, 41, 42, 5, 11, 0, 0, 42, 44, 5,
-		9, 0, 0, 43, 41, 1, 0, 0, 0, 44, 45, 1, 0, 0, 0, 45, 43, 1, 0, 0, 0, 45,
-		46, 1, 0, 0, 0, 46, 47, 1, 0, 0, 0, 47, 48, 5, 16, 0, 0, 48, 3, 1, 0, 0,
-		0, 49, 50, 5, 2, 0, 0, 50, 51, 5, 4, 0, 0, 51, 53, 5, 3, 0, 0, 52, 54,
-		3, 6, 3, 0, 53, 52, 1, 0, 0, 0, 54, 55, 1, 0, 0, 0, 55, 53, 1, 0, 0, 0,
-		55, 56, 1, 0, 0, 0, 56, 57, 1, 0, 0, 0, 57, 58, 5, 16, 0, 0, 58, 5, 1,
-		0, 0, 0, 59, 60, 3, 10, 5, 0, 60, 61, 3, 8, 4, 0, 61, 62, 3, 12, 6, 0,
-		62, 71, 1, 0, 0, 0, 63, 64, 3, 10, 5, 0, 64, 65, 3, 8, 4, 0, 65, 66, 5,
-		9, 0, 0, 66, 71, 1, 0, 0, 0, 67, 68, 3, 8, 4, 0, 68, 69, 3, 12, 6, 0, 69,
-		71, 1, 0, 0, 0, 70, 59, 1, 0, 0, 0, 70, 63, 1, 0, 0, 0, 70, 67, 1, 0, 0,
-		0, 71, 7, 1, 0, 0, 0, 72, 86, 3, 14, 7, 0, 73, 75, 3, 28, 14, 0, 74, 73,
-		1, 0, 0, 0, 74, 75, 1, 0, 0, 0, 75, 77, 1, 0, 0, 0, 76, 78, 3, 22, 11,
-		0, 77, 76, 1, 0, 0, 0, 77, 78, 1, 0, 0, 0, 78, 79, 1, 0, 0, 0, 79, 81,
-		5, 8, 0, 0, 80, 82, 3, 28, 14, 0, 81, 80, 1, 0, 0, 0, 81, 82, 1, 0, 0,
-		0, 82, 83, 1, 0, 0, 0, 83, 85, 3, 14, 7, 0, 84, 74, 1, 0, 0, 0, 85, 88,
-		1, 0, 0, 0, 86, 87, 1, 0, 0, 0, 86, 84, 1, 0, 0, 0, 87, 9, 1, 0, 0, 0,
-		88, 86, 1, 0, 0, 0, 89, 90, 3, 28, 14, 0, 90, 91, 3, 22, 11, 0, 91, 93,
-		5, 8, 0, 0, 92, 94, 3, 28, 14, 0, 93, 92, 1, 0, 0, 0, 93, 94, 1, 0, 0,
-		0, 94, 11, 1, 0, 0, 0, 95, 97, 3, 28, 14, 0, 96, 95, 1, 0, 0, 0, 96, 97,
-		1, 0, 0, 0, 97, 99, 1, 0, 0, 0, 98, 100, 3, 22, 11, 0, 99, 98, 1, 0, 0,
-		0, 99, 100, 1, 0, 0, 0, 100, 101, 1, 0, 0, 0, 101, 102, 5, 8, 0, 0, 102,
-		103, 3, 28, 14, 0, 103, 104, 5, 9, 0, 0, 104, 13, 1, 0, 0, 0, 105, 106,
-		5, 15, 0, 0, 106, 108, 3, 16, 8, 0, 107, 109, 3, 18, 9, 0, 108, 107, 1,
-		0, 0, 0, 108, 109, 1, 0, 0, 0, 109, 110, 1, 0, 0, 0, 110, 111, 5, 25, 0,
-		0, 111, 15, 1, 0, 0, 0, 112, 114, 5, 26, 0, 0, 113, 112, 1, 0, 0, 0, 113,
-		114, 1, 0, 0, 0, 114, 115, 1, 0, 0, 0, 115, 116, 3, 24, 12, 0, 116, 17,
-		1, 0, 0, 0, 117, 118, 5, 24, 0, 0, 118, 123, 3, 20, 10, 0, 119, 120, 5,
-		33, 0, 0, 120, 122, 3, 20, 10, 0, 121, 119, 1, 0, 0, 0, 122, 125, 1, 0,
-		0, 0, 123, 121, 1, 0, 0, 0, 123, 124, 1, 0, 0, 0, 124, 126, 1, 0, 0, 0,
-		125, 123, 1, 0, 0, 0, 126, 127, 5, 34, 0, 0, 127, 19, 1, 0, 0, 0, 128,
-		140, 3, 26, 13, 0, 129, 130, 3, 26, 13, 0, 130, 131, 5, 30, 0, 0, 131,
-		136, 3, 26, 13, 0, 132, 133, 5, 31, 0, 0, 133, 135, 3, 26, 13, 0, 134,
-		132, 1, 0, 0, 0, 135, 138, 1, 0, 0, 0, 136, 134, 1, 0, 0, 0, 136, 137,
-		1, 0, 0, 0, 137, 140, 1, 0, 0, 0, 138, 136, 1, 0, 0, 0, 139, 128, 1, 0,
-		0, 0, 139, 129, 1, 0, 0, 0, 140, 21, 1, 0, 0, 0, 141, 142, 5, 14, 0, 0,
-		142, 148, 3, 24, 12, 0, 143, 144, 3, 30, 15, 0, 144, 145, 3, 24, 12, 0,
-		145, 147, 1, 0, 0, 0, 146, 143, 1, 0, 0, 0, 147, 150, 1, 0, 0, 0, 148,
-		146, 1, 0, 0, 0, 148, 149, 1, 0, 0, 0, 149, 151, 1, 0, 0, 0, 150, 148,
-		1, 0, 0, 0, 151, 152, 5, 23, 0, 0, 152, 23, 1, 0, 0, 0, 153, 156, 5, 26,
-		0, 0, 154, 155, 5, 22, 0, 0, 155, 157, 5, 26, 0, 0, 156, 154, 1, 0, 0,
-		0, 156, 157, 1, 0, 0, 0, 157, 25, 1, 0, 0, 0, 158, 161, 5, 35, 0, 0, 159,
-		160, 5, 32, 0, 0, 160, 162, 5, 35, 0, 0, 161, 159, 1, 0, 0, 0, 161, 162,
-		1, 0, 0, 0, 162, 27, 1, 0, 0, 0, 163, 166, 5, 12, 0, 0, 164, 165, 5, 10,
-		0, 0, 165, 167, 5, 13, 0, 0, 166, 164, 1, 0, 0, 0, 166, 167, 1, 0, 0, 0,
-		167, 29, 1, 0, 0, 0, 168, 169, 7, 0, 0, 0, 169, 31, 1, 0, 0, 0, 20, 35,
-		45, 55, 70, 74, 77, 81, 86, 93, 96, 99, 108, 113, 123, 136, 139, 148, 156,
-		161, 166,
+		2, 16, 7, 16, 1, 0, 3, 0, 36, 8, 0, 1, 0, 4, 0, 39, 8, 0, 11, 0, 12, 0,
+		40, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 49, 8, 1, 11, 1, 12, 1, 50,
+		1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 4, 2, 59, 8, 2, 11, 2, 12, 2, 60, 1,
+		2, 1, 2, 1, 3, 3, 3, 66, 8, 3, 1, 3, 1, 3, 3, 3, 70, 8, 3, 1, 3, 1, 3,
+		1, 4, 1, 4, 5, 4, 76, 8, 4, 10, 4, 12, 4, 79, 9, 4, 1, 5, 1, 5, 1, 5, 1,
+		5, 3, 5, 85, 8, 5, 1, 6, 3, 6, 88, 8, 6, 1, 6, 3, 6, 91, 8, 6, 1, 6, 1,
+		6, 1, 6, 1, 7, 3, 7, 97, 8, 7, 1, 7, 3, 7, 100, 8, 7, 1, 7, 1, 7, 3, 7,
+		104, 8, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 3, 8, 111, 8, 8, 1, 8, 1, 8, 1,
+		9, 3, 9, 116, 8, 9, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10, 1, 10, 5, 10, 124,
+		8, 10, 10, 10, 12, 10, 127, 9, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 11, 1,
+		11, 1, 11, 1, 11, 5, 11, 137, 8, 11, 10, 11, 12, 11, 140, 9, 11, 3, 11,
+		142, 8, 11, 1, 12, 1, 12, 3, 12, 146, 8, 12, 1, 12, 1, 12, 1, 12, 5, 12,
+		151, 8, 12, 10, 12, 12, 12, 154, 9, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1,
+		13, 3, 13, 161, 8, 13, 1, 14, 1, 14, 1, 14, 3, 14, 166, 8, 14, 1, 15, 1,
+		15, 1, 15, 3, 15, 171, 8, 15, 1, 16, 1, 16, 1, 16, 1, 77, 0, 17, 0, 2,
+		4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 0, 1, 1, 0, 20,
+		21, 180, 0, 35, 1, 0, 0, 0, 2, 44, 1, 0, 0, 0, 4, 54, 1, 0, 0, 0, 6, 65,
+		1, 0, 0, 0, 8, 73, 1, 0, 0, 0, 10, 80, 1, 0, 0, 0, 12, 87, 1, 0, 0, 0,
+		14, 96, 1, 0, 0, 0, 16, 107, 1, 0, 0, 0, 18, 115, 1, 0, 0, 0, 20, 119,
+		1, 0, 0, 0, 22, 141, 1, 0, 0, 0, 24, 143, 1, 0, 0, 0, 26, 157, 1, 0, 0,
+		0, 28, 162, 1, 0, 0, 0, 30, 167, 1, 0, 0, 0, 32, 172, 1, 0, 0, 0, 34, 36,
+		3, 2, 1, 0, 35, 34, 1, 0, 0, 0, 35, 36, 1, 0, 0, 0, 36, 38, 1, 0, 0, 0,
+		37, 39, 3, 4, 2, 0, 38, 37, 1, 0, 0, 0, 39, 40, 1, 0, 0, 0, 40, 38, 1,
+		0, 0, 0, 40, 41, 1, 0, 0, 0, 41, 42, 1, 0, 0, 0, 42, 43, 5, 0, 0, 1, 43,
+		1, 1, 0, 0, 0, 44, 45, 5, 1, 0, 0, 45, 48, 5, 3, 0, 0, 46, 47, 5, 11, 0,
+		0, 47, 49, 5, 9, 0, 0, 48, 46, 1, 0, 0, 0, 49, 50, 1, 0, 0, 0, 50, 48,
+		1, 0, 0, 0, 50, 51, 1, 0, 0, 0, 51, 52, 1, 0, 0, 0, 52, 53, 5, 16, 0, 0,
+		53, 3, 1, 0, 0, 0, 54, 55, 5, 2, 0, 0, 55, 56, 5, 4, 0, 0, 56, 58, 5, 3,
+		0, 0, 57, 59, 3, 6, 3, 0, 58, 57, 1, 0, 0, 0, 59, 60, 1, 0, 0, 0, 60, 58,
+		1, 0, 0, 0, 60, 61, 1, 0, 0, 0, 61, 62, 1, 0, 0, 0, 62, 63, 5, 16, 0, 0,
+		63, 5, 1, 0, 0, 0, 64, 66, 3, 10, 5, 0, 65, 64, 1, 0, 0, 0, 65, 66, 1,
+		0, 0, 0, 66, 67, 1, 0, 0, 0, 67, 69, 3, 8, 4, 0, 68, 70, 3, 12, 6, 0, 69,
+		68, 1, 0, 0, 0, 69, 70, 1, 0, 0, 0, 70, 71, 1, 0, 0, 0, 71, 72, 5, 9, 0,
+		0, 72, 7, 1, 0, 0, 0, 73, 77, 3, 16, 8, 0, 74, 76, 3, 14, 7, 0, 75, 74,
+		1, 0, 0, 0, 76, 79, 1, 0, 0, 0, 77, 78, 1, 0, 0, 0, 77, 75, 1, 0, 0, 0,
+		78, 9, 1, 0, 0, 0, 79, 77, 1, 0, 0, 0, 80, 81, 3, 30, 15, 0, 81, 82, 3,
+		24, 12, 0, 82, 84, 5, 8, 0, 0, 83, 85, 3, 30, 15, 0, 84, 83, 1, 0, 0, 0,
+		84, 85, 1, 0, 0, 0, 85, 11, 1, 0, 0, 0, 86, 88, 3, 30, 15, 0, 87, 86, 1,
+		0, 0, 0, 87, 88, 1, 0, 0, 0, 88, 90, 1, 0, 0, 0, 89, 91, 3, 24, 12, 0,
+		90, 89, 1, 0, 0, 0, 90, 91, 1, 0, 0, 0, 91, 92, 1, 0, 0, 0, 92, 93, 5,
+		8, 0, 0, 93, 94, 3, 30, 15, 0, 94, 13, 1, 0, 0, 0, 95, 97, 3, 30, 15, 0,
+		96, 95, 1, 0, 0, 0, 96, 97, 1, 0, 0, 0, 97, 99, 1, 0, 0, 0, 98, 100, 3,
+		24, 12, 0, 99, 98, 1, 0, 0, 0, 99, 100, 1, 0, 0, 0, 100, 101, 1, 0, 0,
+		0, 101, 103, 5, 8, 0, 0, 102, 104, 3, 30, 15, 0, 103, 102, 1, 0, 0, 0,
+		103, 104, 1, 0, 0, 0, 104, 105, 1, 0, 0, 0, 105, 106, 3, 16, 8, 0, 106,
+		15, 1, 0, 0, 0, 107, 108, 5, 15, 0, 0, 108, 110, 3, 18, 9, 0, 109, 111,
+		3, 20, 10, 0, 110, 109, 1, 0, 0, 0, 110, 111, 1, 0, 0, 0, 111, 112, 1,
+		0, 0, 0, 112, 113, 5, 25, 0, 0, 113, 17, 1, 0, 0, 0, 114, 116, 5, 26, 0,
+		0, 115, 114, 1, 0, 0, 0, 115, 116, 1, 0, 0, 0, 116, 117, 1, 0, 0, 0, 117,
+		118, 3, 26, 13, 0, 118, 19, 1, 0, 0, 0, 119, 120, 5, 24, 0, 0, 120, 125,
+		3, 22, 11, 0, 121, 122, 5, 33, 0, 0, 122, 124, 3, 22, 11, 0, 123, 121,
+		1, 0, 0, 0, 124, 127, 1, 0, 0, 0, 125, 123, 1, 0, 0, 0, 125, 126, 1, 0,
+		0, 0, 126, 128, 1, 0, 0, 0, 127, 125, 1, 0, 0, 0, 128, 129, 5, 34, 0, 0,
+		129, 21, 1, 0, 0, 0, 130, 142, 3, 28, 14, 0, 131, 132, 3, 28, 14, 0, 132,
+		133, 5, 30, 0, 0, 133, 138, 3, 28, 14, 0, 134, 135, 5, 31, 0, 0, 135, 137,
+		3, 28, 14, 0, 136, 134, 1, 0, 0, 0, 137, 140, 1, 0, 0, 0, 138, 136, 1,
+		0, 0, 0, 138, 139, 1, 0, 0, 0, 139, 142, 1, 0, 0, 0, 140, 138, 1, 0, 0,
+		0, 141, 130, 1, 0, 0, 0, 141, 131, 1, 0, 0, 0, 142, 23, 1, 0, 0, 0, 143,
+		145, 5, 14, 0, 0, 144, 146, 3, 26, 13, 0, 145, 144, 1, 0, 0, 0, 145, 146,
+		1, 0, 0, 0, 146, 152, 1, 0, 0, 0, 147, 148, 3, 32, 16, 0, 148, 149, 3,
+		26, 13, 0, 149, 151, 1, 0, 0, 0, 150, 147, 1, 0, 0, 0, 151, 154, 1, 0,
+		0, 0, 152, 150, 1, 0, 0, 0, 152, 153, 1, 0, 0, 0, 153, 155, 1, 0, 0, 0,
+		154, 152, 1, 0, 0, 0, 155, 156, 5, 23, 0, 0, 156, 25, 1, 0, 0, 0, 157,
+		160, 5, 26, 0, 0, 158, 159, 5, 22, 0, 0, 159, 161, 5, 26, 0, 0, 160, 158,
+		1, 0, 0, 0, 160, 161, 1, 0, 0, 0, 161, 27, 1, 0, 0, 0, 162, 165, 5, 35,
+		0, 0, 163, 164, 5, 32, 0, 0, 164, 166, 5, 35, 0, 0, 165, 163, 1, 0, 0,
+		0, 165, 166, 1, 0, 0, 0, 166, 29, 1, 0, 0, 0, 167, 170, 5, 12, 0, 0, 168,
+		169, 5, 10, 0, 0, 169, 171, 5, 13, 0, 0, 170, 168, 1, 0, 0, 0, 170, 171,
+		1, 0, 0, 0, 171, 31, 1, 0, 0, 0, 172, 173, 7, 0, 0, 0, 173, 33, 1, 0, 0,
+		0, 23, 35, 40, 50, 60, 65, 69, 77, 84, 87, 90, 96, 99, 103, 110, 115, 125,
+		138, 141, 145, 152, 160, 165, 170,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -205,21 +208,22 @@ const (
 // flowDslParser rules.
 const (
 	flowDslParserRULE_flows             = 0
-	flowDslParserRULE_imports           = 1
+	flowDslParserRULE_imp               = 1
 	flowDslParserRULE_flow              = 2
 	flowDslParserRULE_statement         = 3
 	flowDslParserRULE_statementMiddle   = 4
 	flowDslParserRULE_statementStart    = 5
 	flowDslParserRULE_statementEnd      = 6
-	flowDslParserRULE_component         = 7
-	flowDslParserRULE_componentTypeName = 8
-	flowDslParserRULE_plugin            = 9
-	flowDslParserRULE_pluginPart        = 10
-	flowDslParserRULE_data              = 11
-	flowDslParserRULE_packageIDI        = 12
-	flowDslParserRULE_packageIDP        = 13
-	flowDslParserRULE_port              = 14
-	flowDslParserRULE_dataSep           = 15
+	flowDslParserRULE_arrowComponent    = 7
+	flowDslParserRULE_component         = 8
+	flowDslParserRULE_componentTypeName = 9
+	flowDslParserRULE_plugin            = 10
+	flowDslParserRULE_pluginPart        = 11
+	flowDslParserRULE_data              = 12
+	flowDslParserRULE_packageIDI        = 13
+	flowDslParserRULE_packageIDP        = 14
+	flowDslParserRULE_port              = 15
+	flowDslParserRULE_dataSep           = 16
 )
 
 // IFlowsContext is an interface to support dynamic dispatch.
@@ -229,8 +233,27 @@ type IFlowsContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetImport returns the Import rule contexts.
+	GetImport() IImpContext
+
+	// Get_flow returns the _flow rule contexts.
+	Get_flow() IFlowContext
+
+	// SetImport sets the Import rule contexts.
+	SetImport(IImpContext)
+
+	// Set_flow sets the _flow rule contexts.
+	Set_flow(IFlowContext)
+
+	// GetFlows returns the Flows rule context list.
+	GetFlows() []IFlowContext
+
+	// SetFlows sets the Flows rule context list.
+	SetFlows([]IFlowContext)
+
 	// Getter signatures
 	EOF() antlr.TerminalNode
+	Imp() IImpContext
 	AllFlow() []IFlowContext
 	Flow(i int) IFlowContext
 
@@ -241,6 +264,9 @@ type IFlowsContext interface {
 type FlowsContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
+	Import IImpContext
+	_flow  IFlowContext
+	Flows  []IFlowContext
 }
 
 func NewEmptyFlowsContext() *FlowsContext {
@@ -270,8 +296,36 @@ func NewFlowsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 
 func (s *FlowsContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *FlowsContext) GetImport() IImpContext { return s.Import }
+
+func (s *FlowsContext) Get_flow() IFlowContext { return s._flow }
+
+func (s *FlowsContext) SetImport(v IImpContext) { s.Import = v }
+
+func (s *FlowsContext) Set_flow(v IFlowContext) { s._flow = v }
+
+func (s *FlowsContext) GetFlows() []IFlowContext { return s.Flows }
+
+func (s *FlowsContext) SetFlows(v []IFlowContext) { s.Flows = v }
+
 func (s *FlowsContext) EOF() antlr.TerminalNode {
 	return s.GetToken(flowDslParserEOF, 0)
+}
+
+func (s *FlowsContext) Imp() IImpContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IImpContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IImpContext)
 }
 
 func (s *FlowsContext) AllFlow() []IFlowContext {
@@ -329,7 +383,24 @@ func (p *flowDslParser) Flows() (localctx IFlowsContext) {
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(33)
+	p.SetState(35)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == flowDslParserIMPORT {
+		{
+			p.SetState(34)
+
+			var _x = p.Imp()
+
+			localctx.(*FlowsContext).Import = _x
+		}
+
+	}
+	p.SetState(38)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -338,11 +409,15 @@ func (p *flowDslParser) Flows() (localctx IFlowsContext) {
 
 	for ok := true; ok; ok = _la == flowDslParserFLOW {
 		{
-			p.SetState(32)
-			p.Flow()
-		}
+			p.SetState(37)
 
-		p.SetState(35)
+			var _x = p.Flow()
+
+			localctx.(*FlowsContext)._flow = _x
+		}
+		localctx.(*FlowsContext).Flows = append(localctx.(*FlowsContext).Flows, localctx.(*FlowsContext)._flow)
+
+		p.SetState(40)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -350,7 +425,7 @@ func (p *flowDslParser) Flows() (localctx IFlowsContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(37)
+		p.SetState(42)
 		p.Match(flowDslParserEOF)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -371,102 +446,124 @@ errorExit:
 	goto errorExit // Trick to prevent compiler error if the label is not used
 }
 
-// IImportsContext is an interface to support dynamic dispatch.
-type IImportsContext interface {
+// IImpContext is an interface to support dynamic dispatch.
+type IImpContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// Get_STRING returns the _STRING token.
+	Get_STRING() antlr.Token
+
+	// Set_STRING sets the _STRING token.
+	Set_STRING(antlr.Token)
+
+	// GetImports returns the Imports token list.
+	GetImports() []antlr.Token
+
+	// SetImports sets the Imports token list.
+	SetImports([]antlr.Token)
+
 	// Getter signatures
 	IMPORT() antlr.TerminalNode
 	LBRACE() antlr.TerminalNode
 	RBRACE() antlr.TerminalNode
-	AllSTRING() []antlr.TerminalNode
-	STRING(i int) antlr.TerminalNode
 	AllSEMI() []antlr.TerminalNode
 	SEMI(i int) antlr.TerminalNode
+	AllSTRING() []antlr.TerminalNode
+	STRING(i int) antlr.TerminalNode
 
-	// IsImportsContext differentiates from other interfaces.
-	IsImportsContext()
+	// IsImpContext differentiates from other interfaces.
+	IsImpContext()
 }
 
-type ImportsContext struct {
+type ImpContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser  antlr.Parser
+	_STRING antlr.Token
+	Imports []antlr.Token
 }
 
-func NewEmptyImportsContext() *ImportsContext {
-	var p = new(ImportsContext)
+func NewEmptyImpContext() *ImpContext {
+	var p = new(ImpContext)
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = flowDslParserRULE_imports
+	p.RuleIndex = flowDslParserRULE_imp
 	return p
 }
 
-func InitEmptyImportsContext(p *ImportsContext) {
+func InitEmptyImpContext(p *ImpContext) {
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
-	p.RuleIndex = flowDslParserRULE_imports
+	p.RuleIndex = flowDslParserRULE_imp
 }
 
-func (*ImportsContext) IsImportsContext() {}
+func (*ImpContext) IsImpContext() {}
 
-func NewImportsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ImportsContext {
-	var p = new(ImportsContext)
+func NewImpContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ImpContext {
+	var p = new(ImpContext)
 
 	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = flowDslParserRULE_imports
+	p.RuleIndex = flowDslParserRULE_imp
 
 	return p
 }
 
-func (s *ImportsContext) GetParser() antlr.Parser { return s.parser }
+func (s *ImpContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *ImportsContext) IMPORT() antlr.TerminalNode {
+func (s *ImpContext) Get_STRING() antlr.Token { return s._STRING }
+
+func (s *ImpContext) Set_STRING(v antlr.Token) { s._STRING = v }
+
+func (s *ImpContext) GetImports() []antlr.Token { return s.Imports }
+
+func (s *ImpContext) SetImports(v []antlr.Token) { s.Imports = v }
+
+func (s *ImpContext) IMPORT() antlr.TerminalNode {
 	return s.GetToken(flowDslParserIMPORT, 0)
 }
 
-func (s *ImportsContext) LBRACE() antlr.TerminalNode {
+func (s *ImpContext) LBRACE() antlr.TerminalNode {
 	return s.GetToken(flowDslParserLBRACE, 0)
 }
 
-func (s *ImportsContext) RBRACE() antlr.TerminalNode {
+func (s *ImpContext) RBRACE() antlr.TerminalNode {
 	return s.GetToken(flowDslParserRBRACE, 0)
 }
 
-func (s *ImportsContext) AllSTRING() []antlr.TerminalNode {
-	return s.GetTokens(flowDslParserSTRING)
-}
-
-func (s *ImportsContext) STRING(i int) antlr.TerminalNode {
-	return s.GetToken(flowDslParserSTRING, i)
-}
-
-func (s *ImportsContext) AllSEMI() []antlr.TerminalNode {
+func (s *ImpContext) AllSEMI() []antlr.TerminalNode {
 	return s.GetTokens(flowDslParserSEMI)
 }
 
-func (s *ImportsContext) SEMI(i int) antlr.TerminalNode {
+func (s *ImpContext) SEMI(i int) antlr.TerminalNode {
 	return s.GetToken(flowDslParserSEMI, i)
 }
 
-func (s *ImportsContext) GetRuleContext() antlr.RuleContext {
+func (s *ImpContext) AllSTRING() []antlr.TerminalNode {
+	return s.GetTokens(flowDslParserSTRING)
+}
+
+func (s *ImpContext) STRING(i int) antlr.TerminalNode {
+	return s.GetToken(flowDslParserSTRING, i)
+}
+
+func (s *ImpContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *ImportsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *ImpContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (p *flowDslParser) Imports() (localctx IImportsContext) {
-	localctx = NewImportsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, flowDslParserRULE_imports)
+func (p *flowDslParser) Imp() (localctx IImpContext) {
+	localctx = NewImpContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 2, flowDslParserRULE_imp)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(39)
+		p.SetState(44)
 		p.Match(flowDslParserIMPORT)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -474,14 +571,14 @@ func (p *flowDslParser) Imports() (localctx IImportsContext) {
 		}
 	}
 	{
-		p.SetState(40)
+		p.SetState(45)
 		p.Match(flowDslParserLBRACE)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(43)
+	p.SetState(48)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -490,15 +587,19 @@ func (p *flowDslParser) Imports() (localctx IImportsContext) {
 
 	for ok := true; ok; ok = _la == flowDslParserSTRING {
 		{
-			p.SetState(41)
-			p.Match(flowDslParserSTRING)
+			p.SetState(46)
+
+			var _m = p.Match(flowDslParserSTRING)
+
+			localctx.(*ImpContext)._STRING = _m
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
+		localctx.(*ImpContext).Imports = append(localctx.(*ImpContext).Imports, localctx.(*ImpContext)._STRING)
 		{
-			p.SetState(42)
+			p.SetState(47)
 			p.Match(flowDslParserSEMI)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -506,7 +607,7 @@ func (p *flowDslParser) Imports() (localctx IImportsContext) {
 			}
 		}
 
-		p.SetState(45)
+		p.SetState(50)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -514,7 +615,7 @@ func (p *flowDslParser) Imports() (localctx IImportsContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(47)
+		p.SetState(52)
 		p.Match(flowDslParserRBRACE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -542,11 +643,29 @@ type IFlowContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetName returns the Name token.
+	GetName() antlr.Token
+
+	// SetName sets the Name token.
+	SetName(antlr.Token)
+
+	// Get_statement returns the _statement rule contexts.
+	Get_statement() IStatementContext
+
+	// Set_statement sets the _statement rule contexts.
+	Set_statement(IStatementContext)
+
+	// GetStatements returns the Statements rule context list.
+	GetStatements() []IStatementContext
+
+	// SetStatements sets the Statements rule context list.
+	SetStatements([]IStatementContext)
+
 	// Getter signatures
 	FLOW() antlr.TerminalNode
-	ID() antlr.TerminalNode
 	LBRACE() antlr.TerminalNode
 	RBRACE() antlr.TerminalNode
+	ID() antlr.TerminalNode
 	AllStatement() []IStatementContext
 	Statement(i int) IStatementContext
 
@@ -556,7 +675,10 @@ type IFlowContext interface {
 
 type FlowContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser     antlr.Parser
+	Name       antlr.Token
+	_statement IStatementContext
+	Statements []IStatementContext
 }
 
 func NewEmptyFlowContext() *FlowContext {
@@ -586,12 +708,20 @@ func NewFlowContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 
 func (s *FlowContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *FlowContext) GetName() antlr.Token { return s.Name }
+
+func (s *FlowContext) SetName(v antlr.Token) { s.Name = v }
+
+func (s *FlowContext) Get_statement() IStatementContext { return s._statement }
+
+func (s *FlowContext) Set_statement(v IStatementContext) { s._statement = v }
+
+func (s *FlowContext) GetStatements() []IStatementContext { return s.Statements }
+
+func (s *FlowContext) SetStatements(v []IStatementContext) { s.Statements = v }
+
 func (s *FlowContext) FLOW() antlr.TerminalNode {
 	return s.GetToken(flowDslParserFLOW, 0)
-}
-
-func (s *FlowContext) ID() antlr.TerminalNode {
-	return s.GetToken(flowDslParserID, 0)
 }
 
 func (s *FlowContext) LBRACE() antlr.TerminalNode {
@@ -600,6 +730,10 @@ func (s *FlowContext) LBRACE() antlr.TerminalNode {
 
 func (s *FlowContext) RBRACE() antlr.TerminalNode {
 	return s.GetToken(flowDslParserRBRACE, 0)
+}
+
+func (s *FlowContext) ID() antlr.TerminalNode {
+	return s.GetToken(flowDslParserID, 0)
 }
 
 func (s *FlowContext) AllStatement() []IStatementContext {
@@ -658,7 +792,7 @@ func (p *flowDslParser) Flow() (localctx IFlowContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(49)
+		p.SetState(54)
 		p.Match(flowDslParserFLOW)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -666,22 +800,25 @@ func (p *flowDslParser) Flow() (localctx IFlowContext) {
 		}
 	}
 	{
-		p.SetState(50)
-		p.Match(flowDslParserID)
+		p.SetState(55)
+
+		var _m = p.Match(flowDslParserID)
+
+		localctx.(*FlowContext).Name = _m
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
 	{
-		p.SetState(51)
+		p.SetState(56)
 		p.Match(flowDslParserLBRACE)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(53)
+	p.SetState(58)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -690,11 +827,15 @@ func (p *flowDslParser) Flow() (localctx IFlowContext) {
 
 	for ok := true; ok; ok = _la == flowDslParserNAME || _la == flowDslParserLBRACK {
 		{
-			p.SetState(52)
-			p.Statement()
-		}
+			p.SetState(57)
 
-		p.SetState(55)
+			var _x = p.Statement()
+
+			localctx.(*FlowContext)._statement = _x
+		}
+		localctx.(*FlowContext).Statements = append(localctx.(*FlowContext).Statements, localctx.(*FlowContext)._statement)
+
+		p.SetState(60)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -702,7 +843,7 @@ func (p *flowDslParser) Flow() (localctx IFlowContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(57)
+		p.SetState(62)
 		p.Match(flowDslParserRBRACE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -731,10 +872,10 @@ type IStatementContext interface {
 	GetParser() antlr.Parser
 
 	// Getter signatures
-	StatementStart() IStatementStartContext
 	StatementMiddle() IStatementMiddleContext
-	StatementEnd() IStatementEndContext
 	SEMI() antlr.TerminalNode
+	StatementStart() IStatementStartContext
+	StatementEnd() IStatementEndContext
 
 	// IsStatementContext differentiates from other interfaces.
 	IsStatementContext()
@@ -772,22 +913,6 @@ func NewStatementContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *StatementContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *StatementContext) StatementStart() IStatementStartContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IStatementStartContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IStatementStartContext)
-}
-
 func (s *StatementContext) StatementMiddle() IStatementMiddleContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
@@ -802,6 +927,26 @@ func (s *StatementContext) StatementMiddle() IStatementMiddleContext {
 	}
 
 	return t.(IStatementMiddleContext)
+}
+
+func (s *StatementContext) SEMI() antlr.TerminalNode {
+	return s.GetToken(flowDslParserSEMI, 0)
+}
+
+func (s *StatementContext) StatementStart() IStatementStartContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IStatementStartContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IStatementStartContext)
 }
 
 func (s *StatementContext) StatementEnd() IStatementEndContext {
@@ -820,10 +965,6 @@ func (s *StatementContext) StatementEnd() IStatementEndContext {
 	return t.(IStatementEndContext)
 }
 
-func (s *StatementContext) SEMI() antlr.TerminalNode {
-	return s.GetToken(flowDslParserSEMI, 0)
-}
-
 func (s *StatementContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -835,60 +976,48 @@ func (s *StatementContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 func (p *flowDslParser) Statement() (localctx IStatementContext) {
 	localctx = NewStatementContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, flowDslParserRULE_statement)
-	p.SetState(70)
+	var _la int
+
+	p.EnterOuterAlt(localctx, 1)
+	p.SetState(65)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
+	_la = p.GetTokenStream().LA(1)
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 3, p.GetParserRuleContext()) {
-	case 1:
-		p.EnterOuterAlt(localctx, 1)
-		{
-			p.SetState(59)
-			p.StatementStart()
-		}
-		{
-			p.SetState(60)
-			p.StatementMiddle()
-		}
-		{
-			p.SetState(61)
-			p.StatementEnd()
-		}
-
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(63)
-			p.StatementStart()
-		}
+	if _la == flowDslParserNAME {
 		{
 			p.SetState(64)
-			p.StatementMiddle()
-		}
-		{
-			p.SetState(65)
-			p.Match(flowDslParserSEMI)
-			if p.HasError() {
-				// Recognition error - abort rule
-				goto errorExit
-			}
+			p.StatementStart()
 		}
 
-	case 3:
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(67)
-			p.StatementMiddle()
-		}
+	}
+	{
+		p.SetState(67)
+		p.StatementMiddle()
+	}
+	p.SetState(69)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&20736) != 0 {
 		{
 			p.SetState(68)
 			p.StatementEnd()
 		}
 
-	case antlr.ATNInvalidAltNumber:
-		goto errorExit
+	}
+	{
+		p.SetState(71)
+		p.Match(flowDslParserSEMI)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
 	}
 
 errorExit:
@@ -911,15 +1040,28 @@ type IStatementMiddleContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetComponent returns the Component rule contexts.
+	GetComponent() IComponentContext
+
+	// Get_arrowComponent returns the _arrowComponent rule contexts.
+	Get_arrowComponent() IArrowComponentContext
+
+	// SetComponent sets the Component rule contexts.
+	SetComponent(IComponentContext)
+
+	// Set_arrowComponent sets the _arrowComponent rule contexts.
+	Set_arrowComponent(IArrowComponentContext)
+
+	// GetArrowComponents returns the ArrowComponents rule context list.
+	GetArrowComponents() []IArrowComponentContext
+
+	// SetArrowComponents sets the ArrowComponents rule context list.
+	SetArrowComponents([]IArrowComponentContext)
+
 	// Getter signatures
-	AllComponent() []IComponentContext
-	Component(i int) IComponentContext
-	AllARROW() []antlr.TerminalNode
-	ARROW(i int) antlr.TerminalNode
-	AllPort() []IPortContext
-	Port(i int) IPortContext
-	AllData() []IDataContext
-	Data(i int) IDataContext
+	Component() IComponentContext
+	AllArrowComponent() []IArrowComponentContext
+	ArrowComponent(i int) IArrowComponentContext
 
 	// IsStatementMiddleContext differentiates from other interfaces.
 	IsStatementMiddleContext()
@@ -927,7 +1069,10 @@ type IStatementMiddleContext interface {
 
 type StatementMiddleContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser          antlr.Parser
+	Component       IComponentContext
+	_arrowComponent IArrowComponentContext
+	ArrowComponents []IArrowComponentContext
 }
 
 func NewEmptyStatementMiddleContext() *StatementMiddleContext {
@@ -957,37 +1102,30 @@ func NewStatementMiddleContext(parser antlr.Parser, parent antlr.ParserRuleConte
 
 func (s *StatementMiddleContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *StatementMiddleContext) AllComponent() []IComponentContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(IComponentContext); ok {
-			len++
-		}
-	}
+func (s *StatementMiddleContext) GetComponent() IComponentContext { return s.Component }
 
-	tst := make([]IComponentContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(IComponentContext); ok {
-			tst[i] = t.(IComponentContext)
-			i++
-		}
-	}
-
-	return tst
+func (s *StatementMiddleContext) Get_arrowComponent() IArrowComponentContext {
+	return s._arrowComponent
 }
 
-func (s *StatementMiddleContext) Component(i int) IComponentContext {
+func (s *StatementMiddleContext) SetComponent(v IComponentContext) { s.Component = v }
+
+func (s *StatementMiddleContext) Set_arrowComponent(v IArrowComponentContext) { s._arrowComponent = v }
+
+func (s *StatementMiddleContext) GetArrowComponents() []IArrowComponentContext {
+	return s.ArrowComponents
+}
+
+func (s *StatementMiddleContext) SetArrowComponents(v []IArrowComponentContext) {
+	s.ArrowComponents = v
+}
+
+func (s *StatementMiddleContext) Component() IComponentContext {
 	var t antlr.RuleContext
-	j := 0
 	for _, ctx := range s.GetChildren() {
 		if _, ok := ctx.(IComponentContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
+			t = ctx.(antlr.RuleContext)
+			break
 		}
 	}
 
@@ -998,28 +1136,20 @@ func (s *StatementMiddleContext) Component(i int) IComponentContext {
 	return t.(IComponentContext)
 }
 
-func (s *StatementMiddleContext) AllARROW() []antlr.TerminalNode {
-	return s.GetTokens(flowDslParserARROW)
-}
-
-func (s *StatementMiddleContext) ARROW(i int) antlr.TerminalNode {
-	return s.GetToken(flowDslParserARROW, i)
-}
-
-func (s *StatementMiddleContext) AllPort() []IPortContext {
+func (s *StatementMiddleContext) AllArrowComponent() []IArrowComponentContext {
 	children := s.GetChildren()
 	len := 0
 	for _, ctx := range children {
-		if _, ok := ctx.(IPortContext); ok {
+		if _, ok := ctx.(IArrowComponentContext); ok {
 			len++
 		}
 	}
 
-	tst := make([]IPortContext, len)
+	tst := make([]IArrowComponentContext, len)
 	i := 0
 	for _, ctx := range children {
-		if t, ok := ctx.(IPortContext); ok {
-			tst[i] = t.(IPortContext)
+		if t, ok := ctx.(IArrowComponentContext); ok {
+			tst[i] = t.(IArrowComponentContext)
 			i++
 		}
 	}
@@ -1027,11 +1157,11 @@ func (s *StatementMiddleContext) AllPort() []IPortContext {
 	return tst
 }
 
-func (s *StatementMiddleContext) Port(i int) IPortContext {
+func (s *StatementMiddleContext) ArrowComponent(i int) IArrowComponentContext {
 	var t antlr.RuleContext
 	j := 0
 	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IPortContext); ok {
+		if _, ok := ctx.(IArrowComponentContext); ok {
 			if j == i {
 				t = ctx.(antlr.RuleContext)
 				break
@@ -1044,48 +1174,7 @@ func (s *StatementMiddleContext) Port(i int) IPortContext {
 		return nil
 	}
 
-	return t.(IPortContext)
-}
-
-func (s *StatementMiddleContext) AllData() []IDataContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(IDataContext); ok {
-			len++
-		}
-	}
-
-	tst := make([]IDataContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(IDataContext); ok {
-			tst[i] = t.(IDataContext)
-			i++
-		}
-	}
-
-	return tst
-}
-
-func (s *StatementMiddleContext) Data(i int) IDataContext {
-	var t antlr.RuleContext
-	j := 0
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IDataContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IDataContext)
+	return t.(IArrowComponentContext)
 }
 
 func (s *StatementMiddleContext) GetRuleContext() antlr.RuleContext {
@@ -1099,88 +1188,43 @@ func (s *StatementMiddleContext) ToStringTree(ruleNames []string, recog antlr.Re
 func (p *flowDslParser) StatementMiddle() (localctx IStatementMiddleContext) {
 	localctx = NewStatementMiddleContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, flowDslParserRULE_statementMiddle)
-	var _la int
-
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(72)
-		p.Component()
+		p.SetState(73)
+
+		var _x = p.Component()
+
+		localctx.(*StatementMiddleContext).Component = _x
 	}
-	p.SetState(86)
+	p.SetState(77)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
-	_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 7, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 6, p.GetParserRuleContext())
 	if p.HasError() {
 		goto errorExit
 	}
 	for _alt != 1 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1+1 {
-			p.SetState(74)
-			p.GetErrorHandler().Sync(p)
-			if p.HasError() {
-				goto errorExit
-			}
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == flowDslParserNAME {
-				{
-					p.SetState(73)
-					p.Port()
-				}
-
-			}
-			p.SetState(77)
-			p.GetErrorHandler().Sync(p)
-			if p.HasError() {
-				goto errorExit
-			}
-			_la = p.GetTokenStream().LA(1)
-
-			if _la == flowDslParserLPAREN {
-				{
-					p.SetState(76)
-					p.Data()
-				}
-
-			}
 			{
-				p.SetState(79)
-				p.Match(flowDslParserARROW)
-				if p.HasError() {
-					// Recognition error - abort rule
-					goto errorExit
-				}
-			}
-			p.SetState(81)
-			p.GetErrorHandler().Sync(p)
-			if p.HasError() {
-				goto errorExit
-			}
-			_la = p.GetTokenStream().LA(1)
+				p.SetState(74)
 
-			if _la == flowDslParserNAME {
-				{
-					p.SetState(80)
-					p.Port()
-				}
+				var _x = p.ArrowComponent()
 
+				localctx.(*StatementMiddleContext)._arrowComponent = _x
 			}
-			{
-				p.SetState(83)
-				p.Component()
-			}
+			localctx.(*StatementMiddleContext).ArrowComponents = append(localctx.(*StatementMiddleContext).ArrowComponents, localctx.(*StatementMiddleContext)._arrowComponent)
 
 		}
-		p.SetState(88)
+		p.SetState(79)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
 		}
-		_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 7, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 6, p.GetParserRuleContext())
 		if p.HasError() {
 			goto errorExit
 		}
@@ -1206,11 +1250,29 @@ type IStatementStartContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetStartPort returns the StartPort rule contexts.
+	GetStartPort() IPortContext
+
+	// GetAllStartData returns the AllStartData rule contexts.
+	GetAllStartData() IDataContext
+
+	// GetDstPort returns the DstPort rule contexts.
+	GetDstPort() IPortContext
+
+	// SetStartPort sets the StartPort rule contexts.
+	SetStartPort(IPortContext)
+
+	// SetAllStartData sets the AllStartData rule contexts.
+	SetAllStartData(IDataContext)
+
+	// SetDstPort sets the DstPort rule contexts.
+	SetDstPort(IPortContext)
+
 	// Getter signatures
+	ARROW() antlr.TerminalNode
 	AllPort() []IPortContext
 	Port(i int) IPortContext
 	Data() IDataContext
-	ARROW() antlr.TerminalNode
 
 	// IsStatementStartContext differentiates from other interfaces.
 	IsStatementStartContext()
@@ -1218,7 +1280,10 @@ type IStatementStartContext interface {
 
 type StatementStartContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser       antlr.Parser
+	StartPort    IPortContext
+	AllStartData IDataContext
+	DstPort      IPortContext
 }
 
 func NewEmptyStatementStartContext() *StatementStartContext {
@@ -1247,6 +1312,22 @@ func NewStatementStartContext(parser antlr.Parser, parent antlr.ParserRuleContex
 }
 
 func (s *StatementStartContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *StatementStartContext) GetStartPort() IPortContext { return s.StartPort }
+
+func (s *StatementStartContext) GetAllStartData() IDataContext { return s.AllStartData }
+
+func (s *StatementStartContext) GetDstPort() IPortContext { return s.DstPort }
+
+func (s *StatementStartContext) SetStartPort(v IPortContext) { s.StartPort = v }
+
+func (s *StatementStartContext) SetAllStartData(v IDataContext) { s.AllStartData = v }
+
+func (s *StatementStartContext) SetDstPort(v IPortContext) { s.DstPort = v }
+
+func (s *StatementStartContext) ARROW() antlr.TerminalNode {
+	return s.GetToken(flowDslParserARROW, 0)
+}
 
 func (s *StatementStartContext) AllPort() []IPortContext {
 	children := s.GetChildren()
@@ -1305,10 +1386,6 @@ func (s *StatementStartContext) Data() IDataContext {
 	return t.(IDataContext)
 }
 
-func (s *StatementStartContext) ARROW() antlr.TerminalNode {
-	return s.GetToken(flowDslParserARROW, 0)
-}
-
 func (s *StatementStartContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1324,22 +1401,28 @@ func (p *flowDslParser) StatementStart() (localctx IStatementStartContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(89)
-		p.Port()
+		p.SetState(80)
+
+		var _x = p.Port()
+
+		localctx.(*StatementStartContext).StartPort = _x
 	}
 	{
-		p.SetState(90)
-		p.Data()
+		p.SetState(81)
+
+		var _x = p.Data()
+
+		localctx.(*StatementStartContext).AllStartData = _x
 	}
 	{
-		p.SetState(91)
+		p.SetState(82)
 		p.Match(flowDslParserARROW)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(93)
+	p.SetState(84)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1348,8 +1431,11 @@ func (p *flowDslParser) StatementStart() (localctx IStatementStartContext) {
 
 	if _la == flowDslParserNAME {
 		{
-			p.SetState(92)
-			p.Port()
+			p.SetState(83)
+
+			var _x = p.Port()
+
+			localctx.(*StatementStartContext).DstPort = _x
 		}
 
 	}
@@ -1374,11 +1460,28 @@ type IStatementEndContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetSrcPort returns the SrcPort rule contexts.
+	GetSrcPort() IPortContext
+
+	// GetAllEndData returns the AllEndData rule contexts.
+	GetAllEndData() IDataContext
+
+	// GetEndPort returns the EndPort rule contexts.
+	GetEndPort() IPortContext
+
+	// SetSrcPort sets the SrcPort rule contexts.
+	SetSrcPort(IPortContext)
+
+	// SetAllEndData sets the AllEndData rule contexts.
+	SetAllEndData(IDataContext)
+
+	// SetEndPort sets the EndPort rule contexts.
+	SetEndPort(IPortContext)
+
 	// Getter signatures
 	ARROW() antlr.TerminalNode
 	AllPort() []IPortContext
 	Port(i int) IPortContext
-	SEMI() antlr.TerminalNode
 	Data() IDataContext
 
 	// IsStatementEndContext differentiates from other interfaces.
@@ -1387,7 +1490,10 @@ type IStatementEndContext interface {
 
 type StatementEndContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser     antlr.Parser
+	SrcPort    IPortContext
+	AllEndData IDataContext
+	EndPort    IPortContext
 }
 
 func NewEmptyStatementEndContext() *StatementEndContext {
@@ -1416,6 +1522,18 @@ func NewStatementEndContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 }
 
 func (s *StatementEndContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *StatementEndContext) GetSrcPort() IPortContext { return s.SrcPort }
+
+func (s *StatementEndContext) GetAllEndData() IDataContext { return s.AllEndData }
+
+func (s *StatementEndContext) GetEndPort() IPortContext { return s.EndPort }
+
+func (s *StatementEndContext) SetSrcPort(v IPortContext) { s.SrcPort = v }
+
+func (s *StatementEndContext) SetAllEndData(v IDataContext) { s.AllEndData = v }
+
+func (s *StatementEndContext) SetEndPort(v IPortContext) { s.EndPort = v }
 
 func (s *StatementEndContext) ARROW() antlr.TerminalNode {
 	return s.GetToken(flowDslParserARROW, 0)
@@ -1462,10 +1580,6 @@ func (s *StatementEndContext) Port(i int) IPortContext {
 	return t.(IPortContext)
 }
 
-func (s *StatementEndContext) SEMI() antlr.TerminalNode {
-	return s.GetToken(flowDslParserSEMI, 0)
-}
-
 func (s *StatementEndContext) Data() IDataContext {
 	var t antlr.RuleContext
 	for _, ctx := range s.GetChildren() {
@@ -1496,6 +1610,254 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
+	p.SetState(87)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == flowDslParserNAME {
+		{
+			p.SetState(86)
+
+			var _x = p.Port()
+
+			localctx.(*StatementEndContext).SrcPort = _x
+		}
+
+	}
+	p.SetState(90)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == flowDslParserLPAREN {
+		{
+			p.SetState(89)
+
+			var _x = p.Data()
+
+			localctx.(*StatementEndContext).AllEndData = _x
+		}
+
+	}
+	{
+		p.SetState(92)
+		p.Match(flowDslParserARROW)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(93)
+
+		var _x = p.Port()
+
+		localctx.(*StatementEndContext).EndPort = _x
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IArrowComponentContext is an interface to support dynamic dispatch.
+type IArrowComponentContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// GetSrcPort returns the SrcPort rule contexts.
+	GetSrcPort() IPortContext
+
+	// GetAllData returns the AllData rule contexts.
+	GetAllData() IDataContext
+
+	// GetDstPort returns the DstPort rule contexts.
+	GetDstPort() IPortContext
+
+	// GetDstComponent returns the DstComponent rule contexts.
+	GetDstComponent() IComponentContext
+
+	// SetSrcPort sets the SrcPort rule contexts.
+	SetSrcPort(IPortContext)
+
+	// SetAllData sets the AllData rule contexts.
+	SetAllData(IDataContext)
+
+	// SetDstPort sets the DstPort rule contexts.
+	SetDstPort(IPortContext)
+
+	// SetDstComponent sets the DstComponent rule contexts.
+	SetDstComponent(IComponentContext)
+
+	// Getter signatures
+	ARROW() antlr.TerminalNode
+	Component() IComponentContext
+	AllPort() []IPortContext
+	Port(i int) IPortContext
+	Data() IDataContext
+
+	// IsArrowComponentContext differentiates from other interfaces.
+	IsArrowComponentContext()
+}
+
+type ArrowComponentContext struct {
+	antlr.BaseParserRuleContext
+	parser       antlr.Parser
+	SrcPort      IPortContext
+	AllData      IDataContext
+	DstPort      IPortContext
+	DstComponent IComponentContext
+}
+
+func NewEmptyArrowComponentContext() *ArrowComponentContext {
+	var p = new(ArrowComponentContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = flowDslParserRULE_arrowComponent
+	return p
+}
+
+func InitEmptyArrowComponentContext(p *ArrowComponentContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = flowDslParserRULE_arrowComponent
+}
+
+func (*ArrowComponentContext) IsArrowComponentContext() {}
+
+func NewArrowComponentContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ArrowComponentContext {
+	var p = new(ArrowComponentContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = flowDslParserRULE_arrowComponent
+
+	return p
+}
+
+func (s *ArrowComponentContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *ArrowComponentContext) GetSrcPort() IPortContext { return s.SrcPort }
+
+func (s *ArrowComponentContext) GetAllData() IDataContext { return s.AllData }
+
+func (s *ArrowComponentContext) GetDstPort() IPortContext { return s.DstPort }
+
+func (s *ArrowComponentContext) GetDstComponent() IComponentContext { return s.DstComponent }
+
+func (s *ArrowComponentContext) SetSrcPort(v IPortContext) { s.SrcPort = v }
+
+func (s *ArrowComponentContext) SetAllData(v IDataContext) { s.AllData = v }
+
+func (s *ArrowComponentContext) SetDstPort(v IPortContext) { s.DstPort = v }
+
+func (s *ArrowComponentContext) SetDstComponent(v IComponentContext) { s.DstComponent = v }
+
+func (s *ArrowComponentContext) ARROW() antlr.TerminalNode {
+	return s.GetToken(flowDslParserARROW, 0)
+}
+
+func (s *ArrowComponentContext) Component() IComponentContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IComponentContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IComponentContext)
+}
+
+func (s *ArrowComponentContext) AllPort() []IPortContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IPortContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IPortContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IPortContext); ok {
+			tst[i] = t.(IPortContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *ArrowComponentContext) Port(i int) IPortContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IPortContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IPortContext)
+}
+
+func (s *ArrowComponentContext) Data() IDataContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IDataContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IDataContext)
+}
+
+func (s *ArrowComponentContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ArrowComponentContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (p *flowDslParser) ArrowComponent() (localctx IArrowComponentContext) {
+	localctx = NewArrowComponentContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 14, flowDslParserRULE_arrowComponent)
+	var _la int
+
+	p.EnterOuterAlt(localctx, 1)
 	p.SetState(96)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
@@ -1506,7 +1868,10 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 	if _la == flowDslParserNAME {
 		{
 			p.SetState(95)
-			p.Port()
+
+			var _x = p.Port()
+
+			localctx.(*ArrowComponentContext).SrcPort = _x
 		}
 
 	}
@@ -1520,7 +1885,10 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 	if _la == flowDslParserLPAREN {
 		{
 			p.SetState(98)
-			p.Data()
+
+			var _x = p.Data()
+
+			localctx.(*ArrowComponentContext).AllData = _x
 		}
 
 	}
@@ -1532,17 +1900,29 @@ func (p *flowDslParser) StatementEnd() (localctx IStatementEndContext) {
 			goto errorExit
 		}
 	}
-	{
-		p.SetState(102)
-		p.Port()
+	p.SetState(103)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == flowDslParserNAME {
+		{
+			p.SetState(102)
+
+			var _x = p.Port()
+
+			localctx.(*ArrowComponentContext).DstPort = _x
+		}
+
 	}
 	{
-		p.SetState(103)
-		p.Match(flowDslParserSEMI)
-		if p.HasError() {
-			// Recognition error - abort rule
-			goto errorExit
-		}
+		p.SetState(105)
+
+		var _x = p.Component()
+
+		localctx.(*ArrowComponentContext).DstComponent = _x
 	}
 
 errorExit:
@@ -1565,10 +1945,22 @@ type IComponentContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetCore returns the Core rule contexts.
+	GetCore() IComponentTypeNameContext
+
+	// GetAllPlugins returns the AllPlugins rule contexts.
+	GetAllPlugins() IPluginContext
+
+	// SetCore sets the Core rule contexts.
+	SetCore(IComponentTypeNameContext)
+
+	// SetAllPlugins sets the AllPlugins rule contexts.
+	SetAllPlugins(IPluginContext)
+
 	// Getter signatures
 	LBRACK() antlr.TerminalNode
-	ComponentTypeName() IComponentTypeNameContext
 	RBRACK() antlr.TerminalNode
+	ComponentTypeName() IComponentTypeNameContext
 	Plugin() IPluginContext
 
 	// IsComponentContext differentiates from other interfaces.
@@ -1577,7 +1969,9 @@ type IComponentContext interface {
 
 type ComponentContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser     antlr.Parser
+	Core       IComponentTypeNameContext
+	AllPlugins IPluginContext
 }
 
 func NewEmptyComponentContext() *ComponentContext {
@@ -1607,8 +2001,20 @@ func NewComponentContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 
 func (s *ComponentContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *ComponentContext) GetCore() IComponentTypeNameContext { return s.Core }
+
+func (s *ComponentContext) GetAllPlugins() IPluginContext { return s.AllPlugins }
+
+func (s *ComponentContext) SetCore(v IComponentTypeNameContext) { s.Core = v }
+
+func (s *ComponentContext) SetAllPlugins(v IPluginContext) { s.AllPlugins = v }
+
 func (s *ComponentContext) LBRACK() antlr.TerminalNode {
 	return s.GetToken(flowDslParserLBRACK, 0)
+}
+
+func (s *ComponentContext) RBRACK() antlr.TerminalNode {
+	return s.GetToken(flowDslParserRBRACK, 0)
 }
 
 func (s *ComponentContext) ComponentTypeName() IComponentTypeNameContext {
@@ -1625,10 +2031,6 @@ func (s *ComponentContext) ComponentTypeName() IComponentTypeNameContext {
 	}
 
 	return t.(IComponentTypeNameContext)
-}
-
-func (s *ComponentContext) RBRACK() antlr.TerminalNode {
-	return s.GetToken(flowDslParserRBRACK, 0)
 }
 
 func (s *ComponentContext) Plugin() IPluginContext {
@@ -1657,12 +2059,12 @@ func (s *ComponentContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 
 func (p *flowDslParser) Component() (localctx IComponentContext) {
 	localctx = NewComponentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, flowDslParserRULE_component)
+	p.EnterRule(localctx, 16, flowDslParserRULE_component)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(105)
+		p.SetState(107)
 		p.Match(flowDslParserLBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1670,10 +2072,13 @@ func (p *flowDslParser) Component() (localctx IComponentContext) {
 		}
 	}
 	{
-		p.SetState(106)
-		p.ComponentTypeName()
+		p.SetState(108)
+
+		var _x = p.ComponentTypeName()
+
+		localctx.(*ComponentContext).Core = _x
 	}
-	p.SetState(108)
+	p.SetState(110)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1682,13 +2087,16 @@ func (p *flowDslParser) Component() (localctx IComponentContext) {
 
 	if _la == flowDslParserLBRACKI {
 		{
-			p.SetState(107)
-			p.Plugin()
+			p.SetState(109)
+
+			var _x = p.Plugin()
+
+			localctx.(*ComponentContext).AllPlugins = _x
 		}
 
 	}
 	{
-		p.SetState(110)
+		p.SetState(112)
 		p.Match(flowDslParserRBRACK)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1716,6 +2124,18 @@ type IComponentTypeNameContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetName returns the Name token.
+	GetName() antlr.Token
+
+	// SetName sets the Name token.
+	SetName(antlr.Token)
+
+	// GetTyp returns the Typ rule contexts.
+	GetTyp() IPackageIDIContext
+
+	// SetTyp sets the Typ rule contexts.
+	SetTyp(IPackageIDIContext)
+
 	// Getter signatures
 	PackageIDI() IPackageIDIContext
 	IDI() antlr.TerminalNode
@@ -1727,6 +2147,8 @@ type IComponentTypeNameContext interface {
 type ComponentTypeNameContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
+	Name   antlr.Token
+	Typ    IPackageIDIContext
 }
 
 func NewEmptyComponentTypeNameContext() *ComponentTypeNameContext {
@@ -1755,6 +2177,14 @@ func NewComponentTypeNameContext(parser antlr.Parser, parent antlr.ParserRuleCon
 }
 
 func (s *ComponentTypeNameContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *ComponentTypeNameContext) GetName() antlr.Token { return s.Name }
+
+func (s *ComponentTypeNameContext) SetName(v antlr.Token) { s.Name = v }
+
+func (s *ComponentTypeNameContext) GetTyp() IPackageIDIContext { return s.Typ }
+
+func (s *ComponentTypeNameContext) SetTyp(v IPackageIDIContext) { s.Typ = v }
 
 func (s *ComponentTypeNameContext) PackageIDI() IPackageIDIContext {
 	var t antlr.RuleContext
@@ -1786,15 +2216,18 @@ func (s *ComponentTypeNameContext) ToStringTree(ruleNames []string, recog antlr.
 
 func (p *flowDslParser) ComponentTypeName() (localctx IComponentTypeNameContext) {
 	localctx = NewComponentTypeNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, flowDslParserRULE_componentTypeName)
+	p.EnterRule(localctx, 18, flowDslParserRULE_componentTypeName)
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(113)
+	p.SetState(115)
 	p.GetErrorHandler().Sync(p)
 
-	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 12, p.GetParserRuleContext()) == 1 {
+	if p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 14, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(112)
-			p.Match(flowDslParserIDI)
+			p.SetState(114)
+
+			var _m = p.Match(flowDslParserIDI)
+
+			localctx.(*ComponentTypeNameContext).Name = _m
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -1805,8 +2238,11 @@ func (p *flowDslParser) ComponentTypeName() (localctx IComponentTypeNameContext)
 		goto errorExit
 	}
 	{
-		p.SetState(115)
-		p.PackageIDI()
+		p.SetState(117)
+
+		var _x = p.PackageIDI()
+
+		localctx.(*ComponentTypeNameContext).Typ = _x
 	}
 
 errorExit:
@@ -1829,11 +2265,23 @@ type IPluginContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// Get_pluginPart returns the _pluginPart rule contexts.
+	Get_pluginPart() IPluginPartContext
+
+	// Set_pluginPart sets the _pluginPart rule contexts.
+	Set_pluginPart(IPluginPartContext)
+
+	// GetPluginGroups returns the PluginGroups rule context list.
+	GetPluginGroups() []IPluginPartContext
+
+	// SetPluginGroups sets the PluginGroups rule context list.
+	SetPluginGroups([]IPluginPartContext)
+
 	// Getter signatures
 	LBRACKI() antlr.TerminalNode
+	RBRACKP() antlr.TerminalNode
 	AllPluginPart() []IPluginPartContext
 	PluginPart(i int) IPluginPartContext
-	RBRACKP() antlr.TerminalNode
 	AllPIPEP() []antlr.TerminalNode
 	PIPEP(i int) antlr.TerminalNode
 
@@ -1843,7 +2291,9 @@ type IPluginContext interface {
 
 type PluginContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser       antlr.Parser
+	_pluginPart  IPluginPartContext
+	PluginGroups []IPluginPartContext
 }
 
 func NewEmptyPluginContext() *PluginContext {
@@ -1873,8 +2323,20 @@ func NewPluginContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 
 func (s *PluginContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *PluginContext) Get_pluginPart() IPluginPartContext { return s._pluginPart }
+
+func (s *PluginContext) Set_pluginPart(v IPluginPartContext) { s._pluginPart = v }
+
+func (s *PluginContext) GetPluginGroups() []IPluginPartContext { return s.PluginGroups }
+
+func (s *PluginContext) SetPluginGroups(v []IPluginPartContext) { s.PluginGroups = v }
+
 func (s *PluginContext) LBRACKI() antlr.TerminalNode {
 	return s.GetToken(flowDslParserLBRACKI, 0)
+}
+
+func (s *PluginContext) RBRACKP() antlr.TerminalNode {
+	return s.GetToken(flowDslParserRBRACKP, 0)
 }
 
 func (s *PluginContext) AllPluginPart() []IPluginPartContext {
@@ -1918,10 +2380,6 @@ func (s *PluginContext) PluginPart(i int) IPluginPartContext {
 	return t.(IPluginPartContext)
 }
 
-func (s *PluginContext) RBRACKP() antlr.TerminalNode {
-	return s.GetToken(flowDslParserRBRACKP, 0)
-}
-
 func (s *PluginContext) AllPIPEP() []antlr.TerminalNode {
 	return s.GetTokens(flowDslParserPIPEP)
 }
@@ -1940,12 +2398,12 @@ func (s *PluginContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 
 func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 	localctx = NewPluginContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, flowDslParserRULE_plugin)
+	p.EnterRule(localctx, 20, flowDslParserRULE_plugin)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(117)
+		p.SetState(119)
 		p.Match(flowDslParserLBRACKI)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -1953,10 +2411,14 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 		}
 	}
 	{
-		p.SetState(118)
-		p.PluginPart()
+		p.SetState(120)
+
+		var _x = p.PluginPart()
+
+		localctx.(*PluginContext)._pluginPart = _x
 	}
-	p.SetState(123)
+	localctx.(*PluginContext).PluginGroups = append(localctx.(*PluginContext).PluginGroups, localctx.(*PluginContext)._pluginPart)
+	p.SetState(125)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1965,7 +2427,7 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 
 	for _la == flowDslParserPIPEP {
 		{
-			p.SetState(119)
+			p.SetState(121)
 			p.Match(flowDslParserPIPEP)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -1973,11 +2435,15 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 			}
 		}
 		{
-			p.SetState(120)
-			p.PluginPart()
-		}
+			p.SetState(122)
 
-		p.SetState(125)
+			var _x = p.PluginPart()
+
+			localctx.(*PluginContext)._pluginPart = _x
+		}
+		localctx.(*PluginContext).PluginGroups = append(localctx.(*PluginContext).PluginGroups, localctx.(*PluginContext)._pluginPart)
+
+		p.SetState(127)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1985,7 +2451,7 @@ func (p *flowDslParser) Plugin() (localctx IPluginContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(126)
+		p.SetState(128)
 		p.Match(flowDslParserRBRACKP)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2013,6 +2479,24 @@ type IPluginPartContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetInterface returns the Interface rule contexts.
+	GetInterface() IPackageIDPContext
+
+	// Get_packageIDP returns the _packageIDP rule contexts.
+	Get_packageIDP() IPackageIDPContext
+
+	// SetInterface sets the Interface rule contexts.
+	SetInterface(IPackageIDPContext)
+
+	// Set_packageIDP sets the _packageIDP rule contexts.
+	Set_packageIDP(IPackageIDPContext)
+
+	// GetPlugins returns the Plugins rule context list.
+	GetPlugins() []IPackageIDPContext
+
+	// SetPlugins sets the Plugins rule context list.
+	SetPlugins([]IPackageIDPContext)
+
 	// Getter signatures
 	AllPackageIDP() []IPackageIDPContext
 	PackageIDP(i int) IPackageIDPContext
@@ -2026,7 +2510,10 @@ type IPluginPartContext interface {
 
 type PluginPartContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser      antlr.Parser
+	Interface   IPackageIDPContext
+	_packageIDP IPackageIDPContext
+	Plugins     []IPackageIDPContext
 }
 
 func NewEmptyPluginPartContext() *PluginPartContext {
@@ -2055,6 +2542,18 @@ func NewPluginPartContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 }
 
 func (s *PluginPartContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *PluginPartContext) GetInterface() IPackageIDPContext { return s.Interface }
+
+func (s *PluginPartContext) Get_packageIDP() IPackageIDPContext { return s._packageIDP }
+
+func (s *PluginPartContext) SetInterface(v IPackageIDPContext) { s.Interface = v }
+
+func (s *PluginPartContext) Set_packageIDP(v IPackageIDPContext) { s._packageIDP = v }
+
+func (s *PluginPartContext) GetPlugins() []IPackageIDPContext { return s.Plugins }
+
+func (s *PluginPartContext) SetPlugins(v []IPackageIDPContext) { s.Plugins = v }
 
 func (s *PluginPartContext) AllPackageIDP() []IPackageIDPContext {
 	children := s.GetChildren()
@@ -2119,31 +2618,37 @@ func (s *PluginPartContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 
 func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 	localctx = NewPluginPartContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, flowDslParserRULE_pluginPart)
+	p.EnterRule(localctx, 22, flowDslParserRULE_pluginPart)
 	var _la int
 
-	p.SetState(139)
+	p.SetState(141)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
 	}
 
-	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 15, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.BaseParser, p.GetTokenStream(), 17, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(128)
-			p.PackageIDP()
+			p.SetState(130)
+
+			var _x = p.PackageIDP()
+
+			localctx.(*PluginPartContext).Interface = _x
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(129)
-			p.PackageIDP()
+			p.SetState(131)
+
+			var _x = p.PackageIDP()
+
+			localctx.(*PluginPartContext).Interface = _x
 		}
 		{
-			p.SetState(130)
+			p.SetState(132)
 			p.Match(flowDslParserASSIGN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2151,10 +2656,14 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 			}
 		}
 		{
-			p.SetState(131)
-			p.PackageIDP()
+			p.SetState(133)
+
+			var _x = p.PackageIDP()
+
+			localctx.(*PluginPartContext)._packageIDP = _x
 		}
-		p.SetState(136)
+		localctx.(*PluginPartContext).Plugins = append(localctx.(*PluginPartContext).Plugins, localctx.(*PluginPartContext)._packageIDP)
+		p.SetState(138)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2163,7 +2672,7 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 
 		for _la == flowDslParserCOMMAP {
 			{
-				p.SetState(132)
+				p.SetState(134)
 				p.Match(flowDslParserCOMMAP)
 				if p.HasError() {
 					// Recognition error - abort rule
@@ -2171,11 +2680,15 @@ func (p *flowDslParser) PluginPart() (localctx IPluginPartContext) {
 				}
 			}
 			{
-				p.SetState(133)
-				p.PackageIDP()
-			}
+				p.SetState(135)
 
-			p.SetState(138)
+				var _x = p.PackageIDP()
+
+				localctx.(*PluginPartContext)._packageIDP = _x
+			}
+			localctx.(*PluginPartContext).Plugins = append(localctx.(*PluginPartContext).Plugins, localctx.(*PluginPartContext)._packageIDP)
+
+			p.SetState(140)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -2207,13 +2720,25 @@ type IDataContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// Get_packageIDI returns the _packageIDI rule contexts.
+	Get_packageIDI() IPackageIDIContext
+
+	// Set_packageIDI sets the _packageIDI rule contexts.
+	Set_packageIDI(IPackageIDIContext)
+
+	// GetDatas returns the Datas rule context list.
+	GetDatas() []IPackageIDIContext
+
+	// SetDatas sets the Datas rule context list.
+	SetDatas([]IPackageIDIContext)
+
 	// Getter signatures
 	LPAREN() antlr.TerminalNode
-	AllPackageIDI() []IPackageIDIContext
-	PackageIDI(i int) IPackageIDIContext
 	RPAREN() antlr.TerminalNode
 	AllDataSep() []IDataSepContext
 	DataSep(i int) IDataSepContext
+	AllPackageIDI() []IPackageIDIContext
+	PackageIDI(i int) IPackageIDIContext
 
 	// IsDataContext differentiates from other interfaces.
 	IsDataContext()
@@ -2221,7 +2746,9 @@ type IDataContext interface {
 
 type DataContext struct {
 	antlr.BaseParserRuleContext
-	parser antlr.Parser
+	parser      antlr.Parser
+	_packageIDI IPackageIDIContext
+	Datas       []IPackageIDIContext
 }
 
 func NewEmptyDataContext() *DataContext {
@@ -2251,49 +2778,16 @@ func NewDataContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 
 func (s *DataContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *DataContext) Get_packageIDI() IPackageIDIContext { return s._packageIDI }
+
+func (s *DataContext) Set_packageIDI(v IPackageIDIContext) { s._packageIDI = v }
+
+func (s *DataContext) GetDatas() []IPackageIDIContext { return s.Datas }
+
+func (s *DataContext) SetDatas(v []IPackageIDIContext) { s.Datas = v }
+
 func (s *DataContext) LPAREN() antlr.TerminalNode {
 	return s.GetToken(flowDslParserLPAREN, 0)
-}
-
-func (s *DataContext) AllPackageIDI() []IPackageIDIContext {
-	children := s.GetChildren()
-	len := 0
-	for _, ctx := range children {
-		if _, ok := ctx.(IPackageIDIContext); ok {
-			len++
-		}
-	}
-
-	tst := make([]IPackageIDIContext, len)
-	i := 0
-	for _, ctx := range children {
-		if t, ok := ctx.(IPackageIDIContext); ok {
-			tst[i] = t.(IPackageIDIContext)
-			i++
-		}
-	}
-
-	return tst
-}
-
-func (s *DataContext) PackageIDI(i int) IPackageIDIContext {
-	var t antlr.RuleContext
-	j := 0
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IPackageIDIContext); ok {
-			if j == i {
-				t = ctx.(antlr.RuleContext)
-				break
-			}
-			j++
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IPackageIDIContext)
 }
 
 func (s *DataContext) RPAREN() antlr.TerminalNode {
@@ -2341,6 +2835,47 @@ func (s *DataContext) DataSep(i int) IDataSepContext {
 	return t.(IDataSepContext)
 }
 
+func (s *DataContext) AllPackageIDI() []IPackageIDIContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IPackageIDIContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IPackageIDIContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IPackageIDIContext); ok {
+			tst[i] = t.(IPackageIDIContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *DataContext) PackageIDI(i int) IPackageIDIContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IPackageIDIContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IPackageIDIContext)
+}
+
 func (s *DataContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -2351,23 +2886,37 @@ func (s *DataContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 
 func (p *flowDslParser) Data() (localctx IDataContext) {
 	localctx = NewDataContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, flowDslParserRULE_data)
+	p.EnterRule(localctx, 24, flowDslParserRULE_data)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(141)
+		p.SetState(143)
 		p.Match(flowDslParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	{
-		p.SetState(142)
-		p.PackageIDI()
+	p.SetState(145)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
 	}
-	p.SetState(148)
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == flowDslParserIDI {
+		{
+			p.SetState(144)
+
+			var _x = p.PackageIDI()
+
+			localctx.(*DataContext)._packageIDI = _x
+		}
+		localctx.(*DataContext).Datas = append(localctx.(*DataContext).Datas, localctx.(*DataContext)._packageIDI)
+
+	}
+	p.SetState(152)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2376,15 +2925,19 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 
 	for _la == flowDslParserCOMMA || _la == flowDslParserPIPE {
 		{
-			p.SetState(143)
+			p.SetState(147)
 			p.DataSep()
 		}
 		{
-			p.SetState(144)
-			p.PackageIDI()
-		}
+			p.SetState(148)
 
-		p.SetState(150)
+			var _x = p.PackageIDI()
+
+			localctx.(*DataContext)._packageIDI = _x
+		}
+		localctx.(*DataContext).Datas = append(localctx.(*DataContext).Datas, localctx.(*DataContext)._packageIDI)
+
+		p.SetState(154)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2392,7 +2945,7 @@ func (p *flowDslParser) Data() (localctx IDataContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(151)
+		p.SetState(155)
 		p.Match(flowDslParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2420,6 +2973,18 @@ type IPackageIDIContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetID1 returns the ID1 token.
+	GetID1() antlr.Token
+
+	// GetID2 returns the ID2 token.
+	GetID2() antlr.Token
+
+	// SetID1 sets the ID1 token.
+	SetID1(antlr.Token)
+
+	// SetID2 sets the ID2 token.
+	SetID2(antlr.Token)
+
 	// Getter signatures
 	AllIDI() []antlr.TerminalNode
 	IDI(i int) antlr.TerminalNode
@@ -2432,6 +2997,8 @@ type IPackageIDIContext interface {
 type PackageIDIContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
+	ID1    antlr.Token
+	ID2    antlr.Token
 }
 
 func NewEmptyPackageIDIContext() *PackageIDIContext {
@@ -2461,6 +3028,14 @@ func NewPackageIDIContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *PackageIDIContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *PackageIDIContext) GetID1() antlr.Token { return s.ID1 }
+
+func (s *PackageIDIContext) GetID2() antlr.Token { return s.ID2 }
+
+func (s *PackageIDIContext) SetID1(v antlr.Token) { s.ID1 = v }
+
+func (s *PackageIDIContext) SetID2(v antlr.Token) { s.ID2 = v }
+
 func (s *PackageIDIContext) AllIDI() []antlr.TerminalNode {
 	return s.GetTokens(flowDslParserIDI)
 }
@@ -2483,19 +3058,22 @@ func (s *PackageIDIContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 
 func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 	localctx = NewPackageIDIContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, flowDslParserRULE_packageIDI)
+	p.EnterRule(localctx, 26, flowDslParserRULE_packageIDI)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(153)
-		p.Match(flowDslParserIDI)
+		p.SetState(157)
+
+		var _m = p.Match(flowDslParserIDI)
+
+		localctx.(*PackageIDIContext).ID1 = _m
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(156)
+	p.SetState(160)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2504,7 +3082,7 @@ func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 
 	if _la == flowDslParserDOTI {
 		{
-			p.SetState(154)
+			p.SetState(158)
 			p.Match(flowDslParserDOTI)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2512,8 +3090,11 @@ func (p *flowDslParser) PackageIDI() (localctx IPackageIDIContext) {
 			}
 		}
 		{
-			p.SetState(155)
-			p.Match(flowDslParserIDI)
+			p.SetState(159)
+
+			var _m = p.Match(flowDslParserIDI)
+
+			localctx.(*PackageIDIContext).ID2 = _m
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -2542,6 +3123,18 @@ type IPackageIDPContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetID1 returns the ID1 token.
+	GetID1() antlr.Token
+
+	// GetID2 returns the ID2 token.
+	GetID2() antlr.Token
+
+	// SetID1 sets the ID1 token.
+	SetID1(antlr.Token)
+
+	// SetID2 sets the ID2 token.
+	SetID2(antlr.Token)
+
 	// Getter signatures
 	AllIDP() []antlr.TerminalNode
 	IDP(i int) antlr.TerminalNode
@@ -2554,6 +3147,8 @@ type IPackageIDPContext interface {
 type PackageIDPContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
+	ID1    antlr.Token
+	ID2    antlr.Token
 }
 
 func NewEmptyPackageIDPContext() *PackageIDPContext {
@@ -2583,6 +3178,14 @@ func NewPackageIDPContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 
 func (s *PackageIDPContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *PackageIDPContext) GetID1() antlr.Token { return s.ID1 }
+
+func (s *PackageIDPContext) GetID2() antlr.Token { return s.ID2 }
+
+func (s *PackageIDPContext) SetID1(v antlr.Token) { s.ID1 = v }
+
+func (s *PackageIDPContext) SetID2(v antlr.Token) { s.ID2 = v }
+
 func (s *PackageIDPContext) AllIDP() []antlr.TerminalNode {
 	return s.GetTokens(flowDslParserIDP)
 }
@@ -2605,19 +3208,22 @@ func (s *PackageIDPContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 
 func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 	localctx = NewPackageIDPContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, flowDslParserRULE_packageIDP)
+	p.EnterRule(localctx, 28, flowDslParserRULE_packageIDP)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(158)
-		p.Match(flowDslParserIDP)
+		p.SetState(162)
+
+		var _m = p.Match(flowDslParserIDP)
+
+		localctx.(*PackageIDPContext).ID1 = _m
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(161)
+	p.SetState(165)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2626,7 +3232,7 @@ func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 
 	if _la == flowDslParserDOTP {
 		{
-			p.SetState(159)
+			p.SetState(163)
 			p.Match(flowDslParserDOTP)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2634,8 +3240,11 @@ func (p *flowDslParser) PackageIDP() (localctx IPackageIDPContext) {
 			}
 		}
 		{
-			p.SetState(160)
-			p.Match(flowDslParserIDP)
+			p.SetState(164)
+
+			var _m = p.Match(flowDslParserIDP)
+
+			localctx.(*PackageIDPContext).ID2 = _m
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -2664,6 +3273,18 @@ type IPortContext interface {
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
+	// GetName returns the Name token.
+	GetName() antlr.Token
+
+	// GetNum returns the Num token.
+	GetNum() antlr.Token
+
+	// SetName sets the Name token.
+	SetName(antlr.Token)
+
+	// SetNum sets the Num token.
+	SetNum(antlr.Token)
+
 	// Getter signatures
 	NAME() antlr.TerminalNode
 	COLON() antlr.TerminalNode
@@ -2676,6 +3297,8 @@ type IPortContext interface {
 type PortContext struct {
 	antlr.BaseParserRuleContext
 	parser antlr.Parser
+	Name   antlr.Token
+	Num    antlr.Token
 }
 
 func NewEmptyPortContext() *PortContext {
@@ -2705,6 +3328,14 @@ func NewPortContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 
 func (s *PortContext) GetParser() antlr.Parser { return s.parser }
 
+func (s *PortContext) GetName() antlr.Token { return s.Name }
+
+func (s *PortContext) GetNum() antlr.Token { return s.Num }
+
+func (s *PortContext) SetName(v antlr.Token) { s.Name = v }
+
+func (s *PortContext) SetNum(v antlr.Token) { s.Num = v }
+
 func (s *PortContext) NAME() antlr.TerminalNode {
 	return s.GetToken(flowDslParserNAME, 0)
 }
@@ -2727,19 +3358,22 @@ func (s *PortContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 
 func (p *flowDslParser) Port() (localctx IPortContext) {
 	localctx = NewPortContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, flowDslParserRULE_port)
+	p.EnterRule(localctx, 30, flowDslParserRULE_port)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(163)
-		p.Match(flowDslParserNAME)
+		p.SetState(167)
+
+		var _m = p.Match(flowDslParserNAME)
+
+		localctx.(*PortContext).Name = _m
 		if p.HasError() {
 			// Recognition error - abort rule
 			goto errorExit
 		}
 	}
-	p.SetState(166)
+	p.SetState(170)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2748,7 +3382,7 @@ func (p *flowDslParser) Port() (localctx IPortContext) {
 
 	if _la == flowDslParserCOLON {
 		{
-			p.SetState(164)
+			p.SetState(168)
 			p.Match(flowDslParserCOLON)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2756,8 +3390,11 @@ func (p *flowDslParser) Port() (localctx IPortContext) {
 			}
 		}
 		{
-			p.SetState(165)
-			p.Match(flowDslParserINT)
+			p.SetState(169)
+
+			var _m = p.Match(flowDslParserINT)
+
+			localctx.(*PortContext).Num = _m
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
@@ -2844,12 +3481,12 @@ func (s *DataSepContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 
 func (p *flowDslParser) DataSep() (localctx IDataSepContext) {
 	localctx = NewDataSepContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, flowDslParserRULE_dataSep)
+	p.EnterRule(localctx, 32, flowDslParserRULE_dataSep)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(168)
+		p.SetState(172)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == flowDslParserCOMMA || _la == flowDslParserPIPE) {

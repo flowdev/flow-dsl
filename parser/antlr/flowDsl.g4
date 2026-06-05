@@ -1,41 +1,45 @@
 grammar flowDsl;
 options { tokenVocab=flowDslLexer; }
 
-flows: flow+ EOF;
+flows: Import=imp? Flows+=flow+ EOF;
 
-imports: IMPORT LBRACE (STRING SEMI)+ RBRACE;
+imp: IMPORT LBRACE (Imports+=STRING SEMI)+ RBRACE;
 
-flow: FLOW ID LBRACE statement+ RBRACE;
+flow: FLOW Name=ID LBRACE (Statements+=statement)+ RBRACE;
 
 statement:
-	statementStart statementMiddle statementEnd
-	| statementStart statementMiddle SEMI
-	| statementMiddle statementEnd;
+	statementStart? statementMiddle statementEnd? SEMI;
+//	statementStart statementMiddle statementEnd
+//	| statementStart statementMiddle SEMI
+//	| statementMiddle statementEnd
+//	| statementMiddle SEMI;
 
 statementMiddle:
-	component (port? data? ARROW port? component)*?;
+	Component=component ArrowComponents+=arrowComponent*?;
 
 statementStart:
-	port data ARROW port?;
+	StartPort=port AllStartData=data ARROW DstPort=port?;
 
-statementEnd: port? data? ARROW port SEMI;
+statementEnd: SrcPort=port? AllEndData=data? ARROW EndPort=port; // SEMI;
 
-component: LBRACK componentTypeName plugin? RBRACK;
+arrowComponent: SrcPort=port? AllData=data? ARROW DstPort=port? DstComponent=component;
 
-componentTypeName: IDI? packageIDI;
+component: LBRACK Core=componentTypeName AllPlugins=plugin? RBRACK;
 
-plugin: LBRACKI pluginPart (PIPEP pluginPart)* RBRACKP;
+componentTypeName: Name=IDI? Typ=packageIDI;
+
+plugin: LBRACKI PluginGroups+=pluginPart (PIPEP PluginGroups+=pluginPart)* RBRACKP;
 
 pluginPart:
-	packageIDP
-	| packageIDP ASSIGN packageIDP (COMMAP packageIDP)*;
+	Interface=packageIDP
+	| Interface=packageIDP ASSIGN Plugins+=packageIDP (COMMAP Plugins+=packageIDP)*;
 
-data: LPAREN packageIDI (dataSep packageIDI)* RPAREN;
+data: LPAREN Datas+=packageIDI? (dataSep Datas+=packageIDI)* RPAREN;
 
-packageIDI: IDI (DOTI IDI)?;
+packageIDI: ID1=IDI (DOTI ID2=IDI)?;
 
-packageIDP: IDP (DOTP IDP)?;
+packageIDP: ID1=IDP (DOTP ID2=IDP)?;
 
-port: NAME (COLON INT)?;
+port: Name=NAME (COLON Num=INT)?;
 
 dataSep: PIPE | COMMA;

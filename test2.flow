@@ -1,0 +1,23 @@
+...1 (data)-> [comp] ;
+
+i (data)-> [component1] (data)-> [component2] (data)-> o ;
+
+in (data1, data2, data3)-> [component1] (data4 | data5 | data6)-> [
+  component2] (data1, data3 | data5, data6)-> out;
+in2 -> [component1] -> [component2] -> out2 ;
+ 
+in (localDataType, ExportedLocalDataType | otherpackage.ExportedDataType)-> [
+ component1] (ExportedLocalDataType | descriptiveNameForString)-> out ;
+ 
+in (data)-> myInPort [component1] out (data)-> arrayIn:1 [component2] arrayOut:1 (data)-> out;
+[component1] specialOut (data)-> arrayIn:2 [component2] arrayOut:2 (data)-> extraOut ;
+
+in (data)-> [component1] -> ...1
+...1 (data)-> [component2] -> ...2
+...2 (data)-> [component3];
+
+in (data)-> [component1] (data)-> [Component2] (data)-> out;
+in2 (data)-> [package.Component3] (data)-> [explicitName Component4] (data)-> out2;
+in (data)-> [component [plugin]] (data)-> out;
+in (data)-> [component [pluginType = package.Plugin1, plugin2, Plugin3]] (data)-> out;
+

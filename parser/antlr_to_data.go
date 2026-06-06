@@ -21,7 +21,9 @@ type dataConverter struct {
 }
 
 type compLink struct {
-	statIdx, compIdx int
+	stmtIdx,
+	compIdx int
+	isLoop bool
 }
 
 func (dc *dataConverter) convertImportsToData(imports IImportsContext) []string {
@@ -66,7 +68,7 @@ func (dc *dataConverter) convertStatementToData(antlrStatement IStatementContext
 	dc.compLinkTable[stmtIdx] = make([]*compLink, 0, 32)
 	dataStartComp := &data.StartComp{}
 	dc.convertStatementStartToData(antlrStatement.StatementStart(), dataStartComp)
-	dataEndComp := dc.convertStatementMiddleToData(antlrStatement.StatementMiddle(), dataStartComp)
+	dataEndComp := dc.convertStatementMiddleToData(antlrStatement.StatementMiddle(), dataStartComp, stmtIdx)
 	dc.convertStatementEndToData(antlrStatement.StatementEnd(), dataEndComp)
 	return dataStartComp
 }
@@ -81,26 +83,28 @@ func (dc *dataConverter) convertStatementStartToData(antlrStatementStart IStatem
 	}
 }
 
-func (dc *dataConverter) convertStatementMiddleToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp) (dataEndComp *data.EndComp) {
-	dataComp := dc.convertComponentToData(antlrMidComp.GetFirstComponent())
+func (dc *dataConverter) convertStatementMiddleToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp, stmtIdx int) (dataEndComp *data.EndComp) {
+	dataComp := dc.convertComponentToData(antlrMidComp.GetFirstComponent(), stmtIdx, 0)
 	dataStartComp.Comp = dataComp
 	dataEndComp = &data.EndComp{Comp: dataComp}
 	dataStartComp.Arrow.DstComp = dataEndComp
 	antlrArrComps := antlrMidComp.GetArrowComponents()
+	compIdx := 1
 	for _, antlrArrComp := range antlrArrComps {
-		dataEndComp = dc.convertArrowComponent(dataEndComp, antlrArrComp)
+		dataEndComp = dc.convertArrowComponent(dataEndComp, antlrArrComp, stmtIdx, compIdx)
+		compIdx++
 	}
 	return dataEndComp
 }
 
-func (dc *dataConverter) convertArrowComponent(dataSrcComp *data.EndComp, antlrArrComp IArrowComponentContext) *data.EndComp {
+func (dc *dataConverter) convertArrowComponent(dataSrcComp *data.EndComp, antlrArrComp IArrowComponentContext, stmtIdx, compIdx int) *data.EndComp {
 	dataArrow := &data.Arrow{}
 	dataArrow.SrcComp = &data.StartComp{Comp: dataSrcComp.Comp}
 	dataSrcComp.Comp.Outputs = append(dataSrcComp.Comp.Outputs, dataArrow)
 	dataArrow.SrcPort = antlrArrComp.GetSrcPort().GetText()
 	dataArrow.DataTypes = dc.convertArrowDataToData(antlrArrComp.GetAllArrData())
 	dataArrow.DstPort = antlrArrComp.GetDstPort().GetText()
-	dataDstComp := dc.convertComponentToData(antlrArrComp.Component())
+	dataDstComp := dc.convertComponentToData(antlrArrComp.Component(), stmtIdx, compIdx)
 	dataArrow.DstComp = &data.EndComp{Comp: dataDstComp}
 	dataDstComp.Inputs = append(dataDstComp.Inputs, dataArrow)
 	return dataArrow.DstComp
@@ -121,8 +125,36 @@ func (dc *dataConverter) convertStatementEndToData(antlrStatementEnd IStatementE
 	}
 }
 
-func (dc *dataConverter) convertComponentToData(context IComponentContext) *data.Comp {
-	panic("unimplemented")
+func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stmtIdx, compIdx int) *data.Comp {
+	dataComp := &data.Comp{}
+	antlrCompCore := antlrComp.GetCore()
+	dataComp.Name = antlrCompCore.GetName().GetText()
+	dataComp.Typ = convertPackageTypeToString(antlrCompCore.GetTypPack(), antlrCompCore.GetTypName())
+	dc.compLinkTable[stmtIdx] = append(dc.compLinkTable[stmtIdx], nil)
+	dataComp.PluginGroups = dc.convertAllPluginGroupsToData(antlrComp.GetAllPlugins())
+
+	// TODO: check for (link to) existing component and for loop
+	return dataComp
+}
+
+func (dc *dataConverter) convertAllPluginGroupsToData(antlrAllPluginGroups IPluginContext) []data.PluginGroup {
+	antlrPluginGroups := antlrAllPluginGroups.GetPluginGroups()
+	dataPluginGroups := make([]data.PluginGroup, len(antlrPluginGroups))
+	for i := 0; i < len(antlrAllPluginGroups.GetPluginGroups()); i++ {
+		dataPluginGroups[i] = dc.convertPluginGroup(antlrPluginGroups[i])
+	}
+	return dataPluginGroups
+}
+
+func (dc *dataConverter) convertPluginGroup(antlrPluginGroup IPluginPartContext) data.PluginGroup {
+	dataPluginGroup := data.PluginGroup{}
+	dataPluginGroup.Interface = convertPackageTypeToString(antlrPluginGroup.GetInterface().GetID1(), antlrPluginGroup.GetInterface().GetID2())
+	dataPluginGroup.Plugins = make([]data.Plugin, len(antlrPluginGroup.GetPlugins()))
+	for i := 0; i < len(antlrPluginGroup.GetPlugins()); i++ {
+		antlrPlugin := antlrPluginGroup.GetPlugins()[i]
+		dataPluginGroup.Plugins[i] = data.Plugin{Typ: convertPackageTypeToString(antlrPlugin.GetID1(), antlrPlugin.GetID2())}
+	}
+	return dataPluginGroup
 }
 
 func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) []data.DataType {
@@ -136,6 +168,22 @@ func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) 
 func (dc *dataConverter) convertDataToData(antlrData IDataContext) data.DataType {
 	return data.DataType{
 		Name: antlrData.GetName().GetText(),
-		Typ:  antlrData.GetTypPack().GetText() + "." + antlrData.GetTypName().GetText(),
+		Typ:  convertPackageTypeToString(antlrData.GetTypPack(), antlrData.GetTypName()),
 	}
+}
+
+func convertPackageTypeToString(antlrPackage, antlrType antlr.Token) string {
+	dataPackage := ""
+	dataType := ""
+	if antlrPackage != nil {
+		dataPackage = antlrPackage.GetText()
+		if antlrType != nil {
+			dataType = antlrType.GetText()
+		}
+	}
+
+	if dataPackage != "" && dataType != "" {
+		return dataPackage + "." + dataType
+	}
+	return dataPackage // this is really the type
 }

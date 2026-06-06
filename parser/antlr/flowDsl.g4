@@ -22,7 +22,7 @@ arrowComponent: SrcPort=PORT? AllArrData=allData? ARROW DstPort=PORT? DstCompone
 
 component: LBRACK Core=componentTypeName AllPlugins=plugin? RBRACK;
 
-componentTypeName: Name=IDI TypPack=IDI? (DOTI TypName=IDI)?;
+componentTypeName: Name=IDI (TypPack=IDI (DOTI TypName=IDI)?)?;
 
 plugin: LBRACKI PluginGroups+=pluginPart (PIPEP PluginGroups+=pluginPart)* RBRACKP;
 

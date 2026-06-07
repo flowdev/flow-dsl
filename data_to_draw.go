@@ -46,8 +46,6 @@ func (dc *drawConverter) convertArrowToDraw(arr *data.Arrow) *draw.Arrow {
 		drawArr.AddDataType(dt.Name, dt.Typ, dt.Link)
 	}
 	switch {
-	case arr.DstComp.LoopName != "":
-		return drawArr.AddDestination(dc.convertLoopToDraw(arr.DstComp.LoopName, arr.DstComp.LoopPort, arr.DstComp.LoopLink))
 	case arr.DstComp.PortName != "":
 		if arr.DstPort != "" { // arr.DstPort MUST BE "" because we have got an EndPort
 			panic(fmt.Sprintf("arrow MUST NOT have a destination port '%s', if it has an end port '%s'", arr.DstPort, arr.DstComp.PortName))
@@ -58,10 +56,6 @@ func (dc *drawConverter) convertArrowToDraw(arr *data.Arrow) *draw.Arrow {
 	default:
 		panic("unsupported type of arrow destination (neiter Component nor EndPort nor Loop)")
 	}
-}
-
-func (dc *drawConverter) convertLoopToDraw(name, port, link string) draw.EndComp {
-	return draw.NewLoop(name, port, link)
 }
 
 func (dc *drawConverter) convertStartPortToDraw(name string, output *data.Arrow) draw.StartComp {
@@ -75,8 +69,15 @@ func (dc *drawConverter) convertEndPortToDraw(name string) draw.EndComp {
 	return draw.NewEndPort(name)
 }
 
-func (dc *drawConverter) convertCompToDraw(comp *data.Comp) *draw.Comp {
-	drawComp := draw.NewComp(comp.Name, comp.Typ, comp.Link, dc.registry)
+func (dc *drawConverter) convertCompToDraw(comp *data.Comp) draw.StartAndEndComp {
+	name := ""
+	if comp.Name != comp.Typ {
+		name = comp.Name
+	}
+	if comp.IsJump {
+		return dc.convertLoopToDraw(comp.Name, comp.JumpPort, comp.Link)
+	}
+	drawComp := draw.NewComp(name, comp.Typ, comp.Link, dc.registry)
 	for _, pg := range comp.PluginGroups {
 		drawComp.AddPluginGroup(dc.convertPluginGroupToDraw(pg))
 	}
@@ -84,6 +85,10 @@ func (dc *drawConverter) convertCompToDraw(comp *data.Comp) *draw.Comp {
 		drawComp.AddOutput(dc.convertArrowToDraw(arr))
 	}
 	return drawComp
+}
+
+func (dc *drawConverter) convertLoopToDraw(name, port, link string) draw.StartAndEndComp {
+	return draw.NewLoop(name, port, link)
 }
 
 func (dc *drawConverter) convertPluginGroupToDraw(pg data.PluginGroup) *draw.PluginGroup {

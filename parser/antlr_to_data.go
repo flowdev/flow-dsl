@@ -1,29 +1,33 @@
 package parser
 
 import (
+	"errors"
+	"fmt"
+
 	"github.com/antlr4-go/antlr/v4"
 	"github.com/flowdev/flow-dsl/data"
 )
 
 func ConvertFlowFileToData(flowFile IFlowFileContext) (*data.FlowFile, error) {
 	antlrFlows := flowFile.GetFlows()
-	dc := &dataConverter{compMap: make(map[string]*data.Comp), compLinkTable: make([][]*compLink, len(antlrFlows))}
+	dc := &dataConverter{compMap: make(map[string]compLink), compLinkTable: make([][]compLink, len(antlrFlows))}
 	dataFlowFile := &data.FlowFile{}
 	dataFlowFile.Imports = dc.convertImportsToData(flowFile.GetAllImports())
 	dataFlowFile.Flows = dc.convertFlowsToData(antlrFlows)
-
-	return nil, nil
+	return dataFlowFile, errors.Join(dc.errs...)
 }
 
 type dataConverter struct {
-	compMap       map[string]*data.Comp
-	compLinkTable [][]*compLink
+	compMap       map[string]compLink
+	compLinkTable [][]compLink
+	errs          []error
 }
 
 type compLink struct {
 	stmtIdx,
 	compIdx int
 	isLoop bool
+	comp   *data.Comp
 }
 
 func (dc *dataConverter) convertImportsToData(imports IImportsContext) []string {
@@ -130,11 +134,56 @@ func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stm
 	antlrCompCore := antlrComp.GetCore()
 	dataComp.Name = antlrCompCore.GetName().GetText()
 	dataComp.Typ = convertPackageTypeToString(antlrCompCore.GetTypPack(), antlrCompCore.GetTypName())
-	dc.compLinkTable[stmtIdx] = append(dc.compLinkTable[stmtIdx], nil)
 	dataComp.PluginGroups = dc.convertAllPluginGroupsToData(antlrComp.GetAllPlugins())
+	if dataComp.Typ == "" {
+		dataComp.Typ = dataComp.Name
+	}
 
-	// TODO: check for (link to) existing component and for loop
+	dc.compLinkTable[stmtIdx] = append(dc.compLinkTable[stmtIdx], compLink{})
+	newCompLink := compLink{stmtIdx: stmtIdx, compIdx: compIdx, comp: dataComp}
+	existingComp := dc.compMap[dataComp.Name]
+	if dataComp.Name != dataComp.Typ || len(dataComp.PluginGroups) > 0 { // must be a new component
+		if existingComp.comp != nil {
+			dc.errs = append(dc.errs, fmt.Errorf(
+				"component with name %q exists already at statement %d, component %d and now at statement %d, component %d",
+				dataComp.Name, existingComp.stmtIdx+1, existingComp.compIdx+1, stmtIdx+1, compIdx+1))
+		} else {
+			dc.compMap[dataComp.Name] = newCompLink
+		}
+	} else {
+		if existingComp.comp != nil {
+			if !dc.isJumpComponent(newCompLink, existingComp) {
+				dc.compLinkTable[stmtIdx][compIdx] = existingComp
+			} else {
+				// TODO: Change dataComp to Jump
+			}
+		} else {
+			dc.compMap[dataComp.Name] = newCompLink
+		}
+	}
+
 	return dataComp
+}
+
+func (dc *dataConverter) isJumpComponent(dataComp, existingComp compLink) bool {
+	if dataComp.stmtIdx <= existingComp.stmtIdx {
+		return true
+	}
+	// TODO: look for compExtensions in own and previous lines
+	//       - the higher they go (lower stmtIdx in link), the more important
+	//       - the later in the statement the compExtension, the more important
+	//       - these extensions form barriers we can't cross
+	return false
+}
+
+func (dc *dataConverter) findCompLinkMax(stmtIdx, maxCompIdx int) compLink {
+	compLinkRow := dc.compLinkTable[stmtIdx]
+	for i := maxCompIdx; i >= 0; i-- {
+		if compLinkRow[i].comp != nil {
+			return compLinkRow[i]
+		}
+	}
+	return compLink{stmtIdx: stmtIdx, compIdx: -1}
 }
 
 func (dc *dataConverter) convertAllPluginGroupsToData(antlrAllPluginGroups IPluginContext) []data.PluginGroup {

@@ -62,6 +62,11 @@ type EndComp interface {
 	minRestOfRowWidth(num int) int
 }
 
+type StartAndEndComp interface {
+	StartComp
+	EndComp
+}
+
 // drawData contains all data needed for positioning an element correctly.
 type drawData struct {
 	x0, y0         int

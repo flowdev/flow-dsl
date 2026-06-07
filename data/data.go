@@ -31,7 +31,7 @@ type Arrow struct {
 // ----------------------------
 // StartPort| Yes   | No  | No
 // EndPort  | No    | No  | Yes
-// Loop     | No    | No  | Yes
+// Jump     | Yes   | Yes | Yes
 // Comp     | Yes   | Yes | Yes
 // BreakEnd | Yes   | No  | No  // inserted automatically by draw package
 // BreakStart No    | No  | Yes // inserted automatically by draw package
@@ -43,9 +43,6 @@ type StartComp struct {
 }
 
 type EndComp struct {
-	LoopName string
-	LoopPort string
-	LoopLink string
 	PortName string
 	Arrow    *Arrow
 	Comp     *Comp
@@ -53,6 +50,8 @@ type EndComp struct {
 
 type Comp struct {
 	Name         string
+	IsJump       bool
+	JumpPort     string
 	Typ          string
 	Link         string
 	PluginGroups []PluginGroup

@@ -7,6 +7,7 @@ type Loop struct {
 	link   string
 	goLink bool
 	input  *Arrow
+	output *Arrow
 }
 
 func NewLoop(name, port, link string) *Loop {
@@ -25,6 +26,11 @@ func (loop *Loop) GoLink() *Loop {
 func (loop *Loop) addInput(arr *Arrow) {
 	loop.input = arr
 	arr.dstComp = loop
+}
+
+func (loop *Loop) addOutput(arr *Arrow) {
+	loop.output = arr
+	arr.srcComp = loop
 }
 
 func (loop *Loop) switchInput(oldArr, newArr *Arrow) {

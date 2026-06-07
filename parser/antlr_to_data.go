@@ -4,17 +4,18 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/antlr4-go/antlr/v4"
 	"github.com/flowdev/flow-dsl/data"
+
+	"github.com/antlr4-go/antlr/v4"
 )
 
 func ConvertFlowFileToData(flowFile IFlowFileContext) (*data.FlowFile, error) {
 	antlrFlows := flowFile.GetFlows()
-	dc := &dataConverter{compMap: make(map[string]compLink), compLinkTable: make([][]compLink, len(antlrFlows))}
 	dataFlowFile := &data.FlowFile{}
-	dataFlowFile.Imports = dc.convertImportsToData(flowFile.GetAllImports())
-	dataFlowFile.Flows = dc.convertFlowsToData(antlrFlows)
-	return dataFlowFile, errors.Join(dc.errs...)
+	dataFlowFile.Imports = convertImportsToData(flowFile.GetAllImports())
+	dataFlows, err := convertFlowsToData(antlrFlows, dataFlowFile.Imports)
+	dataFlowFile.Flows = dataFlows
+	return dataFlowFile, err
 }
 
 type dataConverter struct {
@@ -26,42 +27,58 @@ type dataConverter struct {
 type compLink struct {
 	stmtIdx,
 	compIdx int
-	isLoop bool
-	comp   *data.Comp
+	comp *data.Comp
 }
 
-func (dc *dataConverter) convertImportsToData(imports IImportsContext) []string {
+func convertImportsToData(imports IImportsContext) []string {
+	if imports == nil {
+		return nil
+	}
 	antlrImports := imports.GetImports()
 	dataImports := make([]string, len(antlrImports))
 	for i := 0; i < len(antlrImports); i++ {
-		dataImports[i] = dc.convertImportToData(antlrImports[i])
+		dataImports[i] = convertImportToData(antlrImports[i])
 	}
 	return dataImports
 }
 
-func (dc *dataConverter) convertImportToData(imp antlr.Token) string {
+func convertImportToData(imp antlr.Token) string {
 	fullImp := imp.GetText()
 	l := len(fullImp)
-	return fullImp[1 : l-1] // cut of leading and trailing quote (")
+	return fullImp[1 : l-1] // cut off leading and trailing quote (")
 }
 
-func (dc *dataConverter) convertFlowsToData(antlrFlows []IFlowContext) []*data.Flow {
+func convertFlowsToData(antlrFlows []IFlowContext, dataImports []string) ([]*data.Flow, error) {
+	dc := &dataConverter{}
 	dataFlows := make([]*data.Flow, len(antlrFlows))
-	for i := 0; i < len(antlrFlows); i++ {
-		dataFlows[i] = dc.convertFlowToData(antlrFlows[i])
+	for i, antlrFlow := range antlrFlows {
+		dataFlows[i] = dc.convertFlowToData(antlrFlow)
 	}
-	return dataFlows
+	return dataFlows, errors.Join(dc.errs...)
 }
 
 func (dc *dataConverter) convertFlowToData(antlrFlow IFlowContext) *data.Flow {
 	dataFlow := &data.Flow{}
 	dataFlow.Name = dc.convertFlowNameToData(antlrFlow.GetName())
 	antlrStatements := antlrFlow.GetStatements()
+	dc.compMap = make(map[string]compLink)
+	dc.compLinkTable = make([][]compLink, len(antlrStatements))
 	dataFlow.StatementStarts = make([]*data.StartComp, len(antlrStatements))
 	for i := 0; i < len(antlrStatements); i++ {
 		dataFlow.StatementStarts[i] = dc.convertStatementToData(antlrStatements[i], i)
 	}
+	dataFlow.StatementStarts = cleanFlowStatements(dataFlow.StatementStarts)
 	return dataFlow
+}
+
+func cleanFlowStatements(stmts []*data.StartComp) []*data.StartComp {
+	cleanStmts := make([]*data.StartComp, 0, len(stmts))
+	for _, stmt := range stmts {
+		if stmt.Arrow != nil || stmt.Comp != nil {
+			cleanStmts = append(cleanStmts, stmt)
+		}
+	}
+	return cleanStmts
 }
 
 func (dc *dataConverter) convertFlowNameToData(antlrFlowName antlr.Token) string {
@@ -69,7 +86,7 @@ func (dc *dataConverter) convertFlowNameToData(antlrFlowName antlr.Token) string
 }
 
 func (dc *dataConverter) convertStatementToData(antlrStatement IStatementContext, stmtIdx int) *data.StartComp {
-	dc.compLinkTable[stmtIdx] = make([]*compLink, 0, 32)
+	dc.compLinkTable[stmtIdx] = make([]compLink, 0, 32)
 	dataStartComp := &data.StartComp{}
 	dc.convertStatementStartToData(antlrStatement.StatementStart(), dataStartComp)
 	dataEndComp := dc.convertStatementMiddleToData(antlrStatement.StatementMiddle(), dataStartComp, stmtIdx)
@@ -78,20 +95,27 @@ func (dc *dataConverter) convertStatementToData(antlrStatement IStatementContext
 }
 
 func (dc *dataConverter) convertStatementStartToData(antlrStatementStart IStatementStartContext, dataStartComp *data.StartComp) {
-	if antlrStatementStart != nil {
-		dataStartComp.PortName = antlrStatementStart.GetStartPort().GetText()
-		dataArrow := &data.Arrow{}
-		dataArrow.DstPort = antlrStatementStart.GetDstPort().GetText()
-		dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementStart.GetAllArrData())
-		dataStartComp.Arrow = dataArrow
+	if antlrStatementStart == nil {
+		return
 	}
+	dataStartComp.PortName = antlrStatementStart.GetStartPort().GetText()
+	dataArrow := &data.Arrow{}
+	if antlrStatementStart.GetDstPort() != nil {
+		dataArrow.DstPort = antlrStatementStart.GetDstPort().GetText()
+	}
+	dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementStart.GetAllArrData())
+	dataStartComp.Arrow = dataArrow
 }
 
 func (dc *dataConverter) convertStatementMiddleToData(antlrMidComp IStatementMiddleContext, dataStartComp *data.StartComp, stmtIdx int) (dataEndComp *data.EndComp) {
 	dataComp := dc.convertComponentToData(antlrMidComp.GetFirstComponent(), stmtIdx, 0)
-	dataStartComp.Comp = dataComp
 	dataEndComp = &data.EndComp{Comp: dataComp}
-	dataStartComp.Arrow.DstComp = dataEndComp
+	if dataStartComp.Arrow != nil {
+		dataStartComp.Arrow.DstComp = dataEndComp
+		dataComp.Inputs = append(dataComp.Inputs, dataStartComp.Arrow)
+	} else if dc.compLinkTable[stmtIdx][0].comp == nil {
+		dataStartComp.Comp = dataComp
+	}
 	antlrArrComps := antlrMidComp.GetArrowComponents()
 	compIdx := 1
 	for _, antlrArrComp := range antlrArrComps {
@@ -105,9 +129,13 @@ func (dc *dataConverter) convertArrowComponent(dataSrcComp *data.EndComp, antlrA
 	dataArrow := &data.Arrow{}
 	dataArrow.SrcComp = &data.StartComp{Comp: dataSrcComp.Comp}
 	dataSrcComp.Comp.Outputs = append(dataSrcComp.Comp.Outputs, dataArrow)
-	dataArrow.SrcPort = antlrArrComp.GetSrcPort().GetText()
+	if antlrArrComp.GetSrcPort() != nil {
+		dataArrow.SrcPort = antlrArrComp.GetSrcPort().GetText()
+	}
 	dataArrow.DataTypes = dc.convertArrowDataToData(antlrArrComp.GetAllArrData())
-	dataArrow.DstPort = antlrArrComp.GetDstPort().GetText()
+	if antlrArrComp.GetDstPort() != nil {
+		dataArrow.DstPort = antlrArrComp.GetDstPort().GetText()
+	}
 	dataDstComp := dc.convertComponentToData(antlrArrComp.Component(), stmtIdx, compIdx)
 	dataArrow.DstComp = &data.EndComp{Comp: dataDstComp}
 	dataDstComp.Inputs = append(dataDstComp.Inputs, dataArrow)
@@ -115,18 +143,21 @@ func (dc *dataConverter) convertArrowComponent(dataSrcComp *data.EndComp, antlrA
 }
 
 func (dc *dataConverter) convertStatementEndToData(antlrStatementEnd IStatementEndContext, dataEndComp *data.EndComp) {
-	if antlrStatementEnd != nil {
-		dataLastComp := dataEndComp.Comp
-		dataEndComp = &data.EndComp{} // we create a new end
-		dataEndComp.PortName = antlrStatementEnd.GetEndPort().GetText()
-		dataArrow := &data.Arrow{}
-		dataArrow.SrcPort = antlrStatementEnd.GetSrcPort().GetText()
-		dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementEnd.GetAllArrData())
-		dataArrow.SrcComp = &data.StartComp{Comp: dataLastComp}
-		dataArrow.DstComp = dataEndComp
-		dataEndComp.Arrow = dataArrow
-		dataLastComp.Outputs = append(dataLastComp.Outputs, dataArrow)
+	if antlrStatementEnd == nil {
+		return
 	}
+	dataLastComp := dataEndComp.Comp
+	dataEndComp = &data.EndComp{} // we create a new end
+	dataEndComp.PortName = antlrStatementEnd.GetEndPort().GetText()
+	dataArrow := &data.Arrow{}
+	if antlrStatementEnd.GetSrcPort() != nil {
+		dataArrow.SrcPort = antlrStatementEnd.GetSrcPort().GetText()
+	}
+	dataArrow.DataTypes = dc.convertArrowDataToData(antlrStatementEnd.GetAllArrData())
+	dataArrow.SrcComp = &data.StartComp{Comp: dataLastComp}
+	dataLastComp.Outputs = append(dataLastComp.Outputs, dataArrow)
+	dataArrow.DstComp = dataEndComp
+	dataEndComp.Arrow = dataArrow
 }
 
 func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stmtIdx, compIdx int) *data.Comp {
@@ -152,10 +183,12 @@ func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stm
 		}
 	} else {
 		if existingComp.comp != nil {
-			if !dc.isJumpComponent(newCompLink, existingComp) {
-				dc.compLinkTable[stmtIdx][compIdx] = existingComp
+			if dc.isJumpComponent(newCompLink, existingComp) {
+				dataComp.IsJump = true
+				dataComp.JumpPort = "" // TODO: fill port from arrow
 			} else {
-				// TODO: Change dataComp to Jump
+				dc.compLinkTable[stmtIdx][compIdx] = existingComp
+				dataComp = existingComp.comp
 			}
 		} else {
 			dc.compMap[dataComp.Name] = newCompLink
@@ -187,6 +220,9 @@ func (dc *dataConverter) findCompLinkMax(stmtIdx, maxCompIdx int) compLink {
 }
 
 func (dc *dataConverter) convertAllPluginGroupsToData(antlrAllPluginGroups IPluginContext) []data.PluginGroup {
+	if antlrAllPluginGroups == nil {
+		return nil
+	}
 	antlrPluginGroups := antlrAllPluginGroups.GetPluginGroups()
 	dataPluginGroups := make([]data.PluginGroup, len(antlrPluginGroups))
 	for i := 0; i < len(antlrAllPluginGroups.GetPluginGroups()); i++ {
@@ -207,6 +243,9 @@ func (dc *dataConverter) convertPluginGroup(antlrPluginGroup IPluginPartContext)
 }
 
 func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) []data.DataType {
+	if antlrArrowData == nil {
+		return nil
+	}
 	dataArrowData := make([]data.DataType, len(antlrArrowData.GetDatas()))
 	for i := 0; i < len(antlrArrowData.GetDatas()); i++ {
 		dataArrowData[i] = dc.convertDataToData(antlrArrowData.GetDatas()[i])

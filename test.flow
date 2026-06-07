@@ -6,18 +6,11 @@ import {
 */
 
 flow bigTestFlow {
-  in (data Data)-> [Xa MiSo] special (data Data)->
-    in [To [semantics=TextSemantics | subParser=LiteralParser, NaturalParser]] out (bigData BigDataType)->
-    in1 [bigMerge] (data MergedData)-> [postMerge PostMerge] (data MergedData)->
-    [Split1] (md1 MergedData)-> [lastMerge] -> error;
-
-  [postMerge] longNamedOutputPort (data MergedData)-> inputPort [Split2] (md2 MergedData)-> [lastMerge];
-
-  [Xa] out (data Data)-> in [Mla Blue] (data2 Data2)-> in [bla2 Blue] out (data Data)-> in2 [bigMerge]
-
+  in (data Data)-> [Xa MiSo] special (data Data)-> in [To [semantics=TextSemantics | subParser=LiteralParser, NaturalParser]] out (bigData BigDataType)-> in1 [bigMerge] (data MergedData)-> [postMerge PostMerge] (data MergedData)-> [Split1] (md1 MergedData)---------------------> [lastMerge] -> error;
+                   [Xa] out (data Data)-> in [Mla Blue] (data2 Data2)-> in [bla2 Blue] out (data Data)--------------------------------------------------> in2 [bigMerge];
+                                                                                                                                                                                             [postMerge] longNamedOutputPort (data MergedData)-> inputPort [Split2] (md2 MergedData)-> [lastMerge];
   in2 (data3 Data3)->
-    in [megaParser MegaParser [semantics=TextSemantics | subParser=LiteralParser, NaturalParser]] out (data Data, data2 Data2, data3 Data3)->
-    in3 [bigMerge];
+    in [megaParser MegaParser [semantics=TextSemantics | subParser=LiteralParser, NaturalParser]] out (data Data, data2 Data2, data3 Data3)-------------> in3 [bigMerge];
 
 
   // It's recursive if it goes back to a component earlier in the same statement,

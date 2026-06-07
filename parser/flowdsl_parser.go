@@ -33,7 +33,7 @@ var FlowDslParserStaticData struct {
 func flowdslParserInit() {
 	staticData := &FlowDslParserStaticData
 	staticData.LiteralNames = []string{
-		"", "", "'import'", "'flow'", "'{'", "", "", "", "", "'->'", "", "':'",
+		"", "", "'import'", "'flow'", "'{'", "", "", "", "", "", "", "':'",
 		"", "", "'('", "", "'}'", "", "", "", "", "", "", "')'", "", "", "",
 		"", "", "", "'='",
 	}

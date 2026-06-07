@@ -23,7 +23,7 @@ WS:
 
 mode F;
 
-ARROW: '->';
+ARROW: '-'+ '>';
 
 SEMIF: ';';
 

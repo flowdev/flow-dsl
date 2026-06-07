@@ -7,7 +7,8 @@ import (
 	"github.com/flowdev/flow-dsl/draw"
 )
 
-func ConvertFlowsToDraw(flows []data.Flow) []*draw.Flow {
+func ConvertFlowsToDraw(flowFile *data.FlowFile) []*draw.Flow {
+	flows := flowFile.Flows
 	drawFlows := make([]*draw.Flow, len(flows))
 	for i := 0; i < len(flows); i++ {
 		drawFlows[i] = convertFlowToDraw(flows[i])
@@ -19,7 +20,7 @@ type drawConverter struct {
 	registry draw.CompRegistry
 }
 
-func convertFlowToDraw(flow data.Flow) *draw.Flow {
+func convertFlowToDraw(flow *data.Flow) *draw.Flow {
 	drawFlow := draw.NewFlow(flow.Name, draw.FlowModeNoLinks, 1500, false)
 	dc := &drawConverter{registry: drawFlow}
 
@@ -52,9 +53,12 @@ func (dc *drawConverter) convertArrowToDraw(arr *data.Arrow) *draw.Arrow {
 		}
 		return drawArr.AddDestination(dc.convertEndPortToDraw(arr.DstComp.PortName))
 	case arr.DstComp.Comp != nil:
+		if arr.DstComp.Comp.Inputs[0] != arr {
+			return drawArr.MustLinkComp(arr.DstComp.Comp.Name, dc.registry)
+		}
 		return drawArr.AddDestination(dc.convertCompToDraw(arr.DstComp.Comp))
 	default:
-		panic("unsupported type of arrow destination (neiter Component nor EndPort nor Loop)")
+		panic("unsupported type of arrow destination (neiter Component nor EndPort nor Jump)")
 	}
 }
 

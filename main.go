@@ -25,9 +25,9 @@ func main() {
 	drawFlows := ConvertFlowsToDraw(flowFile)
 	flowFileExt := path.Ext(flowFileName)
 	baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
-	mdFile := baseFlowFile + "-flow"
-	flowMode := draw.FlowModeNoLinks
-	// flowMode := draw.FlowModeMDLinks
+	mdFile := baseFlowFile + "-links"
+	// flowMode := draw.FlowModeNoLinks
+	flowMode := draw.FlowModeMDLinks
 	width := 1900
 	darkMode := false
 

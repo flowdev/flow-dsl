@@ -3,7 +3,7 @@ options { tokenVocab=flowDslLexer; }
 
 flowFile: AllImports=imports? Flows+=flow+ EOF;
 
-imports: IMPORT LBRACE (Imports+=STRING SEMI)+ RBRACE;
+imports: IMPORT LBRACE (Imports+=STRING SEMIF)+ RBRACE;
 
 flow: FLOW Name=ID LBRACE (Statements+=statement)+ RBRACE;
 

@@ -79,7 +79,7 @@ func flowdslParserInit() {
 		1, 0, 0, 0, 35, 37, 3, 4, 2, 0, 36, 35, 1, 0, 0, 0, 37, 38, 1, 0, 0, 0,
 		38, 36, 1, 0, 0, 0, 38, 39, 1, 0, 0, 0, 39, 40, 1, 0, 0, 0, 40, 41, 5,
 		0, 0, 1, 41, 1, 1, 0, 0, 0, 42, 43, 5, 2, 0, 0, 43, 46, 5, 4, 0, 0, 44,
-		45, 5, 12, 0, 0, 45, 47, 5, 1, 0, 0, 46, 44, 1, 0, 0, 0, 47, 48, 1, 0,
+		45, 5, 12, 0, 0, 45, 47, 5, 10, 0, 0, 46, 44, 1, 0, 0, 0, 47, 48, 1, 0,
 		0, 0, 48, 46, 1, 0, 0, 0, 48, 49, 1, 0, 0, 0, 49, 50, 1, 0, 0, 0, 50, 51,
 		5, 16, 0, 0, 51, 3, 1, 0, 0, 0, 52, 53, 5, 3, 0, 0, 53, 54, 5, 5, 0, 0,
 		54, 56, 5, 4, 0, 0, 55, 57, 3, 6, 3, 0, 56, 55, 1, 0, 0, 0, 57, 58, 1,
@@ -465,8 +465,8 @@ type IImportsContext interface {
 	IMPORT() antlr.TerminalNode
 	LBRACE() antlr.TerminalNode
 	RBRACE() antlr.TerminalNode
-	AllSEMI() []antlr.TerminalNode
-	SEMI(i int) antlr.TerminalNode
+	AllSEMIF() []antlr.TerminalNode
+	SEMIF(i int) antlr.TerminalNode
 	AllSTRING() []antlr.TerminalNode
 	STRING(i int) antlr.TerminalNode
 
@@ -528,12 +528,12 @@ func (s *ImportsContext) RBRACE() antlr.TerminalNode {
 	return s.GetToken(flowDslParserRBRACE, 0)
 }
 
-func (s *ImportsContext) AllSEMI() []antlr.TerminalNode {
-	return s.GetTokens(flowDslParserSEMI)
+func (s *ImportsContext) AllSEMIF() []antlr.TerminalNode {
+	return s.GetTokens(flowDslParserSEMIF)
 }
 
-func (s *ImportsContext) SEMI(i int) antlr.TerminalNode {
-	return s.GetToken(flowDslParserSEMI, i)
+func (s *ImportsContext) SEMIF(i int) antlr.TerminalNode {
+	return s.GetToken(flowDslParserSEMIF, i)
 }
 
 func (s *ImportsContext) AllSTRING() []antlr.TerminalNode {
@@ -596,7 +596,7 @@ func (p *flowDslParser) Imports() (localctx IImportsContext) {
 		localctx.(*ImportsContext).Imports = append(localctx.(*ImportsContext).Imports, localctx.(*ImportsContext)._STRING)
 		{
 			p.SetState(45)
-			p.Match(flowDslParserSEMI)
+			p.Match(flowDslParserSEMIF)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit

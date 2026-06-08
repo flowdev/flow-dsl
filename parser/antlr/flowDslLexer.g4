@@ -29,7 +29,7 @@ SEMIF: ';';
 
 COLON: ':';
 
-STRING: '"' .*? '"';
+STRING: '"' ( ~["\r\n] )+ '"' ;
 
 PORT: [a-z] [a-zA-Z0-9]*;
 

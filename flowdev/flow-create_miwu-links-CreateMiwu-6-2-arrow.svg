@@ -4,7 +4,7 @@
     <rect fill="rgb(255,255,255)" fill-opacity="1" width="112" height="24" x="1181" y="48"/>
 
 
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1189" y="66" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1195" y="66" textLength="24" lengthAdjust="spacingAndGlyphs">err</text>
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1227" y="66" textLength="46" lengthAdjust="spacingAndGlyphs">error)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1189" y="66" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1195" y="66" textLength="24" lengthAdjust="spacingAndGlyphs">err</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1227" y="66" textLength="46" lengthAdjust="spacingAndGlyphs">error)</text>
 </svg>

@@ -10,13 +10,24 @@ import (
 	"github.com/flowdev/flow-dsl/parser"
 )
 
+type linkGenerator struct {
+	baseDir string
+}
+
+func (lg linkGenerator) GenerateLink(imprt, lastImportPart, typ string, isData bool) (link string, isLinkToFlow bool) {
+	if isData {
+		return "https://github.com/flowdev/flow-dsl/src-file.go", false
+	}
+	return "https://github.com/flowdev/flow-dsl/flow-file.md", true
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		log.Println("FATAL: Flow file needed as input")
 		os.Exit(1)
 	}
 	flowFileName := os.Args[1]
-	flowFile, err := parser.ParseFile(flowFileName)
+	flowFile, err := parser.ParseFile(flowFileName, &linkGenerator{baseDir: "."})
 	if err != nil {
 		log.Printf("ERROR: Can't convert to data format: %v", err)
 		os.Exit(2)

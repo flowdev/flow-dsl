@@ -3,22 +3,30 @@ package parser
 import (
 	"errors"
 	"fmt"
+	"strings"
+	"unicode"
 
 	"github.com/flowdev/flow-dsl/data"
 
 	"github.com/antlr4-go/antlr/v4"
 )
 
-func ConvertFlowFileToData(flowFile IFlowFileContext) (*data.FlowFile, error) {
+type LinkGenerator interface {
+	GenerateLink(imprt, lastImportPart, typ string, isData bool) (link string, isLinkToFlow bool)
+}
+
+func ConvertFlowFileToData(flowFile IFlowFileContext, linkGenerator LinkGenerator) (*data.FlowFile, error) {
 	antlrFlows := flowFile.GetFlows()
 	dataFlowFile := &data.FlowFile{}
 	dataFlowFile.Imports = convertImportsToData(flowFile.GetAllImports())
-	dataFlows, err := convertFlowsToData(antlrFlows, dataFlowFile.Imports)
+	dataFlows, err := convertFlowsToData(antlrFlows, dataFlowFile.Imports, linkGenerator)
 	dataFlowFile.Flows = dataFlows
 	return dataFlowFile, err
 }
 
 type dataConverter struct {
+	linkGenerator LinkGenerator
+	imports       map[string]string
 	compMap       map[string]compLink
 	compLinkTable [][]compLink
 	errs          []error
@@ -48,13 +56,32 @@ func convertImportToData(imp antlr.Token) string {
 	return fullImp[1 : l-1] // cut off leading and trailing quote (")
 }
 
-func convertFlowsToData(antlrFlows []IFlowContext, dataImports []string) ([]*data.Flow, error) {
-	dc := &dataConverter{}
+func convertFlowsToData(antlrFlows []IFlowContext, dataImports []string, linkGenerator LinkGenerator) ([]*data.Flow, error) {
+	dc := &dataConverter{linkGenerator: linkGenerator}
+	dc.imports = dc.convertDataImportsToMap(dataImports)
 	dataFlows := make([]*data.Flow, len(antlrFlows))
 	for i, antlrFlow := range antlrFlows {
 		dataFlows[i] = dc.convertFlowToData(antlrFlow)
 	}
 	return dataFlows, errors.Join(dc.errs...)
+}
+
+func (dc *dataConverter) convertDataImportsToMap(dataImports []string) map[string]string {
+	importMap := make(map[string]string)
+	for _, dataImport := range dataImports {
+		i := strings.LastIndexFunc(dataImport, func(r rune) bool {
+			return !unicode.IsLetter(r) && !unicode.IsNumber(r)
+		})
+		key := dataImport
+		if i >= len(dataImport)-1 {
+			key = "missingImportPart"
+			dc.errs = append(dc.errs, fmt.Errorf("import is missing a final part: %q", dataImport))
+		} else if i >= 0 {
+			key = dataImport[i+1:]
+		}
+		importMap[key] = dataImport
+	}
+	return importMap
 }
 
 func (dc *dataConverter) convertFlowToData(antlrFlow IFlowContext) *data.Flow {
@@ -165,6 +192,7 @@ func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stm
 	antlrCompCore := antlrComp.GetCore()
 	dataComp.Name = antlrCompCore.GetName().GetText()
 	dataComp.Typ = convertPackageTypeToString(antlrCompCore.GetTypPack(), antlrCompCore.GetTypName())
+	dataComp.Link, _ = dc.createLink(dataComp.Typ, false)
 	dataComp.PluginGroups = dc.convertAllPluginGroupsToData(antlrComp.GetAllPlugins())
 	if dataComp.Typ == "" {
 		dataComp.Typ = dataComp.Name
@@ -254,10 +282,25 @@ func (dc *dataConverter) convertArrowDataToData(antlrArrowData IAllDataContext) 
 }
 
 func (dc *dataConverter) convertDataToData(antlrData IDataContext) data.DataType {
-	return data.DataType{
+	dataData := data.DataType{
 		Name: antlrData.GetName().GetText(),
 		Typ:  convertPackageTypeToString(antlrData.GetTypPack(), antlrData.GetTypName()),
 	}
+	dataData.Link, _ = dc.createLink(dataData.Typ, true)
+	return dataData
+}
+
+func (dc *dataConverter) createLink(typ string, isData bool) (link string, isFlowLink bool) {
+	lastImportPart := ""
+	dotIdx := strings.IndexByte(typ, '.')
+	if dotIdx > 0 {
+		lastImportPart = typ[:dotIdx]
+	}
+	imprt := ""
+	if lastImportPart != "" {
+		imprt = dc.imports[lastImportPart]
+	}
+	return dc.linkGenerator.GenerateLink(imprt, lastImportPart, typ, isData)
 }
 
 func convertPackageTypeToString(antlrPackage, antlrType antlr.Token) string {

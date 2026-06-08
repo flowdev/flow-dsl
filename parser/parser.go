@@ -6,7 +6,7 @@ import (
 	"github.com/antlr4-go/antlr/v4"
 )
 
-func ParseFile(fileName string) (*data.FlowFile, error) {
+func ParseFile(fileName string, linkGenerator LinkGenerator) (*data.FlowFile, error) {
 	input, err := antlr.NewFileStream(fileName)
 	if err != nil {
 		return nil, err
@@ -17,5 +17,5 @@ func ParseFile(fileName string) (*data.FlowFile, error) {
 	p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 	flowFile := p.FlowFile()
 
-	return ConvertFlowFileToData(flowFile)
+	return ConvertFlowFileToData(flowFile, linkGenerator)
 }

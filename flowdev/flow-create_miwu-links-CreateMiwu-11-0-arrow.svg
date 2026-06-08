@@ -4,7 +4,7 @@
     <rect fill="rgb(255,255,255)" fill-opacity="1" width="216" height="24" x="1390" y="0"/>
 
 
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1398" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1404" y="18" textLength="64" lengthAdjust="spacingAndGlyphs">response</text>
-    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="16" x="1476" y="18" textLength="110" lengthAdjust="spacingAndGlyphs">http.Response)</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1398" y="18" textLength="6" lengthAdjust="spacingAndGlyphs">(</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1404" y="18" textLength="64" lengthAdjust="spacingAndGlyphs">response</text>
+    <text fill="rgb(32,48,128)" fill-opacity="1.0" font-size="16" x="1476" y="18" textLength="110" lengthAdjust="spacingAndGlyphs">http.Response)</text>
 </svg>

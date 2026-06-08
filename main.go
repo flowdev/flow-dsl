@@ -31,8 +31,8 @@ func main() {
 	width := 1900
 	darkMode := false
 
-	for i, drawFlow := range drawFlows {
-		imdFile := fmt.Sprintf("%s-%d", mdFile, i+1)
+	for _, drawFlow := range drawFlows {
+		imdFile := fmt.Sprintf("%s-%s", mdFile, drawFlow.Name)
 		drawFlow.ChangeConfig(imdFile, flowMode, width, darkMode)
 		svgContents, mdContent, err := drawFlow.Draw()
 		if err != nil {

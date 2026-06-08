@@ -207,13 +207,13 @@ func flowToSVGs(f *Flow) *svgMDFlow {
 	smf := &svgMDFlow{
 		svgs:          make(map[string]*svgFlow, 256),
 		md:            newMDFlow(),
-		svgFilePrefix: filepath.Join(".", "flowdev", "flow-"+f.name),
+		svgFilePrefix: filepath.Join(".", "flowdev", "flow-"+f.Name),
 	}
 	fd := f.getDrawData()
 
 	if f.mode != FlowModeMDLinks {
 		smf.md.Flow = svgLink{
-			Name: f.name,
+			Name: f.Name,
 			SVG:  smf.svgFilePrefix + ".svg",
 		}
 		svg := newSVGFlow(0, 0, fd.height, fd.width+1, bigDiagramSize)

@@ -203,7 +203,7 @@ func (cl *Cluster) toSVG(smf *svgMDFlow, line int, mode FlowMode) {
 
 type Flow struct {
 	withDrawData
-	name         string
+	Name         string
 	mode         FlowMode
 	width        int
 	dark         bool
@@ -214,7 +214,7 @@ type Flow struct {
 
 func NewFlow(name string, mode FlowMode, width int, dark bool) *Flow {
 	return &Flow{
-		name:         name,
+		Name:         name,
 		mode:         mode,
 		width:        width,
 		dark:         dark,
@@ -223,7 +223,7 @@ func NewFlow(name string, mode FlowMode, width int, dark bool) *Flow {
 }
 
 func (flow *Flow) ChangeConfig(name string, mode FlowMode, width int, dark bool) {
-	flow.name = name
+	flow.Name = name
 	flow.mode = mode
 	flow.width = width
 	flow.dark = dark
@@ -256,7 +256,7 @@ func (flow *Flow) Draw() (svgContents map[string][]byte, mdContent []byte, err e
 		delete(smf.svgs, "")
 		smf.md.FlowLines = append(smf.md.FlowLines, make([]*svgLink, 1))
 		smf.md.FlowLines[0][0] = &svgLink{
-			Name: flow.name,
+			Name: flow.Name,
 			SVG:  svgName,
 		}
 	}
@@ -268,7 +268,7 @@ func (flow *Flow) Draw() (svgContents map[string][]byte, mdContent []byte, err e
 	mdContent, err = mdFlowToBytes(smf.md)
 	if err != nil {
 		return nil, nil,
-			fmt.Errorf("unable to create MarkDown content for %q flow: %w", flow.name, err)
+			fmt.Errorf("unable to create MarkDown content for %q flow: %w", flow.Name, err)
 	}
 	return svgContents, mdContent, nil
 }

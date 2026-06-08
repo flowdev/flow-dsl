@@ -5,14 +5,14 @@ import {
 
 flow CreateMiwu {
     in (request http.Request)-> [ConvertCreateMiwuRequestToData] (miwu data.Miwu)-> [ValidateMiwu] -> [ConvertMiwuDataToDb] (dbMiwu db.Miwu)-> [CreateMiwuInDb] -> [ConvertDbMiwuToResponse] (response http.Response)-> out;
-                                [ConvertCreateMiwuRequestToData] error (err error)-> error;
-                                                                                    [ValidateMiwu] error (err error)-> error;
-                                                                                                                                               [CreateMiwuInDb] error (err error)-> error;
+                                [ConvertCreateMiwuRequestToData] (err error)-> error;
+                                                                                    [ValidateMiwu] (err error)-> error;
+                                                                                                                                               [CreateMiwuInDb] (err error)-> error;
 }
 
 flow ValidateMiwu {
     in (miwu data.Miwu)-> [CheckBasicMiwu] -> [CheckMiwuFeaturesExist] -> [CheckMiwuSetExists] -> out;
-                          [CheckBasicMiwu] error (err error)-> error;
-                                              [CheckMiwuFeaturesExist] error (err error)-> error;
-                                                                          [CheckMiwuSetExists] error (err error)-> error;
+                          [CheckBasicMiwu] (err error)-> error;
+                                              [CheckMiwuFeaturesExist] (err error)-> error;
+                                                                          [CheckMiwuSetExists] (err error)-> error;
 }

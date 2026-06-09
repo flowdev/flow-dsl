@@ -1,18 +1,13 @@
-import {
-    "http" ;
-    "github.com/seal/.../data";
+flow createMiwu {
+    in (request http.Request)-> [convertCreateMiwuRequestToData] (miwu data.Miwu)-> [validateMiwu] -> [convertMiwuToDb] (dbMiwu db.Miwu)-> [createMiwuInDb] -> [convertDbMiwuToResponse] (res http.Response)-> out;
+                                [convertCreateMiwuRequestToData] (err Error)-> error;
+                                                                                    [validateMiwu] (err Error)-> error;
+                                                                                                                                           [createMiwuInDb] (err Error)-> error;
 }
 
-flow CreateMiwu {
-    in (request http.Request)-> [ConvertCreateMiwuRequestToData] (miwu data.Miwu)-> [ValidateMiwu] -> [ConvertMiwuDataToDb] (dbMiwu db.Miwu)-> [CreateMiwuInDb] -> [ConvertDbMiwuToResponse] (response http.Response)-> out;
-                                [ConvertCreateMiwuRequestToData] (err error)-> error;
-                                                                                    [ValidateMiwu] (err error)-> error;
-                                                                                                                                               [CreateMiwuInDb] (err error)-> error;
-}
-
-flow ValidateMiwu {
-    in (miwu data.Miwu)-> [CheckBasicMiwu] -> [CheckMiwuFeaturesExist] -> [CheckMiwuSetExists] -> out;
-                          [CheckBasicMiwu] (err error)-> error;
-                                              [CheckMiwuFeaturesExist] (err error)-> error;
-                                                                          [CheckMiwuSetExists] (err error)-> error;
+flow validateMiwu {
+    in (miwu data.Miwu)-> [checkBasicMiwu] -> [checkMiwuFeaturesExist] -> [checkMiwuSetExists] -> out;
+                          [checkBasicMiwu] (err Error)-> error;
+                                              [checkMiwuFeaturesExist] (err Error)-> error;
+                                                                          [checkMiwuSetExists] (err Error)-> error;
 }

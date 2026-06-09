@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
-	"path"
 
 	"github.com/flowdev/flow-dsl/draw"
 	"github.com/flowdev/flow-dsl/parser"
@@ -16,9 +14,12 @@ type linkGenerator struct {
 
 func (lg linkGenerator) GenerateLink(imprt, lastImportPart, typ string, isData bool) (link string, isLinkToFlow bool) {
 	if isData {
-		return "https://github.com/flowdev/flow-dsl/src-file.go", false
+		return "", false
 	}
-	return "https://github.com/flowdev/flow-dsl/flow-file.md", true
+	if typ == "validateMiwu" {
+		return typ + ".md", true
+	}
+	return "lib/create_miwu.js", false
 }
 
 func main() {
@@ -34,16 +35,18 @@ func main() {
 	}
 
 	drawFlows := ConvertFlowsToDraw(flowFile)
-	flowFileExt := path.Ext(flowFileName)
-	baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
-	mdFile := baseFlowFile + "-links"
+	// flowFileExt := path.Ext(flowFileName)
+	// baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
+	// mdFile := baseFlowFile + "-links"
+
 	// flowMode := draw.FlowModeNoLinks
 	flowMode := draw.FlowModeMDLinks
 	width := 1900
 	darkMode := false
 
 	for _, drawFlow := range drawFlows {
-		imdFile := fmt.Sprintf("%s-%s", mdFile, drawFlow.Name)
+		// imdFile := fmt.Sprintf("%s-%s", mdFile, drawFlow.Name)
+		imdFile := drawFlow.Name
 		drawFlow.ChangeConfig(imdFile, flowMode, width, darkMode)
 		svgContents, mdContent, err := drawFlow.Draw()
 		if err != nil {

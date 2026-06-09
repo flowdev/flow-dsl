@@ -16,7 +16,9 @@ func (lg linkGenerator) GenerateLink(imprt, lastImportPart, typ string, isData b
 	if isData {
 		return "", false
 	}
+	// log.Printf("DEBUG: imprt: %q, lastImportPart: %q, typ: %q, isData: %t", imprt, lastImportPart, typ, isData)
 	if typ == "validateMiwu" {
+		// log.Printf("DEBUG: returning: %q + '.md', true", typ)
 		return typ + ".md", true
 	}
 	return "lib/create_miwu.js", false

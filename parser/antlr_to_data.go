@@ -70,7 +70,7 @@ func (dc *dataConverter) convertDataImportsToMap(dataImports []string) map[strin
 	importMap := make(map[string]string)
 	for _, dataImport := range dataImports {
 		i := strings.LastIndexFunc(dataImport, func(r rune) bool {
-			return !unicode.IsLetter(r) && !unicode.IsNumber(r)
+			return !unicode.IsLetter(r) && !unicode.IsNumber(r) && r != '_' && r != '-'
 		})
 		key := dataImport
 		if i >= len(dataImport)-1 {
@@ -192,7 +192,9 @@ func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stm
 	antlrCompCore := antlrComp.GetCore()
 	dataComp.Name = antlrCompCore.GetName().GetText()
 	dataComp.Typ = convertPackageTypeToString(antlrCompCore.GetTypPack(), antlrCompCore.GetTypName())
-	dataComp.Link, _ = dc.createLink(dataComp.Typ, false)
+	if dataComp.Typ == "" {
+		dataComp.Typ = dataComp.Name
+	}
 	dataComp.PluginGroups = dc.convertAllPluginGroupsToData(antlrComp.GetAllPlugins())
 	if dataComp.Typ == "" {
 		dataComp.Typ = dataComp.Name
@@ -208,18 +210,21 @@ func (dc *dataConverter) convertComponentToData(antlrComp IComponentContext, stm
 				dataComp.Name, existingComp.stmtIdx+1, existingComp.compIdx+1, stmtIdx+1, compIdx+1))
 		} else {
 			dc.compMap[dataComp.Name] = newCompLink
+			dataComp.Link, _ = dc.createLink(dataComp.Typ, false)
 		}
 	} else {
 		if existingComp.comp != nil {
 			if dc.isJumpComponent(newCompLink, existingComp) {
 				dataComp.IsJump = true
 				dataComp.JumpPort = "" // TODO: fill port from arrow
+				dataComp.Link, _ = dc.createLink(dataComp.Typ, false)
 			} else {
 				dc.compLinkTable[stmtIdx][compIdx] = existingComp
 				dataComp = existingComp.comp
 			}
 		} else {
 			dc.compMap[dataComp.Name] = newCompLink
+			dataComp.Link, _ = dc.createLink(dataComp.Typ, false)
 		}
 	}
 

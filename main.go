@@ -21,7 +21,7 @@ func (lg linkGenerator) GenerateLink(imprt, lastImportPart, typ string, isData b
 		return typ + ".md", true
 	}
 	// log.Printf("DEBUG: imprt: %q, lastImportPart: %q, typ: %q, isData: %t", imprt, lastImportPart, typ, isData)
-	file := "lib/create_miwu.js"
+	file := "create_miwu.go"
 	switch typ {
 	case "convertCreateMiwuRequestToData":
 		return file + "#L23-L26", false

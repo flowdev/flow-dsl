@@ -6,4 +6,7 @@
     <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="662" y1="56" x2="774" y2="56"/>
     <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="766" y1="48" x2="774" y2="56"/>
     <line stroke="rgb(0,0,0)" stroke-opacity="1.0" stroke-width="2" x1="766" y1="64" x2="774" y2="56"/>
+
+
+    <text fill="rgb(0,0,0)" fill-opacity="1.0" font-size="14" x="668" y="68" textLength="40" lengthAdjust="spacingAndGlyphs">error</text>
 </svg>

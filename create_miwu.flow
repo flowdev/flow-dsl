@@ -2,16 +2,16 @@ import {
     "net/http";
 }
 
-flow CreateMiwu {
-    in (request http.Request)-> [convertCreateMiwuRequestToData] (miwu data.Miwu)-> [validateMiwu] -> [convertMiwuToDb] (dbMiwu db.Miwu)-> [createMiwuInDb] -> [convertDbMiwuToResponse] (res http.Response)-> out;
-                                                                                                                                           [createMiwuInDb] error (err Error)-> [convertErrorToResponse] (res http.Response)-> out;
-                                                                                    [validateMiwu] error (err Error)----------------------------------------------------------> [convertErrorToResponse];
-                                [convertCreateMiwuRequestToData] error (err Error)--------------------------------------------------------------------------------------------> [convertErrorToResponse];
+flow CreateMIWU {
+    in (request http.Request)-> [convertCreateMIWURequestToData] (miwu data.MIWU)-> [validateMIWU] -> [convertMIWUToDb] (dbMIWU db.MIWU)-> [createMIWUInDb] -> [convertDbMIWUToResponse] (res http.Response)-> out;
+                                                                                                                                           [createMIWUInDb] error (err Error)-> [convertErrorToResponse] (res http.Response)-> out;
+                                                                                    [validateMIWU] error (err Error)----------------------------------------------------------> [convertErrorToResponse];
+                                [convertCreateMIWURequestToData] error (err Error)--------------------------------------------------------------------------------------------> [convertErrorToResponse];
 }
 
-flow validateMiwu {
-    in (miwu data.Miwu)-> [checkBasicMiwu] -> [checkMiwuFeaturesExist] -> [checkMiwuSetExists] -> out;
-                          [checkBasicMiwu] error (err Error)-> error;
-                                              [checkMiwuFeaturesExist] error (err Error)-> error;
-                                                                          [checkMiwuSetExists] error (err Error)-> error;
+flow validateMIWU {
+    in (miwu data.MIWU)-> [checkBasicMIWU] -> [checkMIWUFeaturesExist] -> [checkMIWUSetExists] -> out;
+                          [checkBasicMIWU] error (err Error)-> error;
+                                              [checkMIWUFeaturesExist] error (err Error)-> error;
+                                                                          [checkMIWUSetExists] error (err Error)-> error;
 }

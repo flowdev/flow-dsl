@@ -6,12 +6,12 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
 
 ### Why Use Flows For Solving Business Problems?
 
-- Business people think in terms of (work) flows.
-  So this helps a lot to remove the friction between problem and solution space (business side and technical side).
-  This enables product people to always be on the same page with the engineers.
-- No more: 'That requirement simply doesn't fit our design (or architecture).'
+- Business people think in terms of (work) flows. \
+  So this helps a lot to remove the friction between problem and solution space (business side and technical side). \
+  It enables product people to always be on the same page with the engineers.
+- No more: 'That requirement simply doesn't fit our design (or architecture).' \
   A small change in the problem domain always results in a small change in the solution domain
-  since the solution is structured like the problem.
+  since the solution is structured like the problem. \
   The solution can never be less complex than the problem it solves but it can easily be much more complex.
   This approach avoids this unnecessary complexity for all problems where it's a good fit.
 

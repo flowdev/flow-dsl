@@ -12,7 +12,7 @@ import (
 )
 
 type LinkGenerator interface {
-	GenerateLink(imprt, lastImportPart, typ string, isData bool) (link string, isLinkToFlow bool)
+	GenerateLink(imprt, typ string, isData bool) (link string, isLinkToFlow bool)
 }
 
 func ConvertFlowFileToData(flowFile IFlowFileContext, linkGenerator LinkGenerator) (*data.FlowFile, error) {
@@ -305,7 +305,7 @@ func (dc *dataConverter) createLink(typ string, isData bool) (link string, isFlo
 	if lastImportPart != "" {
 		imprt = dc.imports[lastImportPart]
 	}
-	return dc.linkGenerator.GenerateLink(imprt, lastImportPart, typ, isData)
+	return dc.linkGenerator.GenerateLink(imprt, typ, isData)
 }
 
 func convertPackageTypeToString(antlrPackage, antlrType antlr.Token) string {

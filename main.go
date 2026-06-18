@@ -13,7 +13,7 @@ type linkGenerator struct {
 	baseDir string
 }
 
-func (lg linkGenerator) GenerateLink(imprt, lastImportPart, typ string, isData bool) (link string, isLinkToFlow bool) {
+func (lg linkGenerator) GenerateLink(imprt, typ string, isData bool) (link string, isLinkToFlow bool) {
 	if isData {
 		if typ == "data.Data" {
 			return "data/data.go#L3-L8", true
@@ -43,7 +43,7 @@ func main() {
 		os.Exit(2)
 	}
 
-	drawFlows := ConvertFlowsToDraw(flowFile)
+	drawFlows := draw.ConvertFlowsToDraw(flowFile)
 	// flowFileExt := path.Ext(flowFileName)
 	// baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
 	// mdFile := baseFlowFile + "-links"

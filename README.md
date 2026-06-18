@@ -1,4 +1,4 @@
-# Convert a Simple Diagram DSL to Code and Documentation
+# Convert a Simple Flow Diagram DSL to Code and Documentation
 
 Read a DSL for flows and convert it to documentation (MarkDown containing SVG images) or source code.
 

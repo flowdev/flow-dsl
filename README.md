@@ -4,7 +4,7 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
 
 ## FAQ
 
-### Why Use Flows For Solving Business Problems?
+#### Why Use Flows For Solving Business Problems?
 
 - Business people think in terms of (work) flows. \
   So this helps a lot to remove the friction between problem and solution space (business side and technical side). \
@@ -15,7 +15,7 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
   The solution can never be less complex than the problem it solves but it can easily be much more complex.
   This approach avoids this unnecessary complexity for all problems where it's a good fit.
 
-### What Technical Advantages Do Flows Have?
+#### What Technical Advantages Do Flows Have?
 
 - They nest nicely. A flow can be a small part in another flow.
   This allows the construction of arbitrarily complex flows that can be easily followed in the documentation.
@@ -24,7 +24,7 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
   In fact many changes can be done without any change to any existing component at all
   by simply adding a new component.
 
-### When Shouldn't I Use Flows?
+#### When Shouldn't I Use Flows?
 
 In short: Whenever they aren't a good fit.
 

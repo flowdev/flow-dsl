@@ -35,6 +35,7 @@ var templateFile string
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "flow-dsl",
+	Version: "0.0.1",
 	Short: "Generate code or documentation from flow DSL files",
 	Long: `Generate code with the 'code' command or
 documentation with the 'doc' command

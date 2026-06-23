@@ -1,8 +1,9 @@
-package main
+package doc
 
 import (
 	// "fmt"
-	"log"
+	"errors"
+	"fmt"
 	"os"
 
 	"github.com/flowdev/flow-dsl/draw"
@@ -31,19 +32,24 @@ func (lg linkGenerator) GenerateLink(imprt, typ string, isData bool) (link strin
 	return "", false
 }
 
-func mainDoc() {
-	if len(os.Args) < 2 {
-		log.Println("FATAL: Flow file needed as input")
-		os.Exit(1)
+func DocumentFlows(flowFiles []string) error {
+	errs := make([]error, 0, len(flowFiles))
+	for _, flowFile := range flowFiles {
+		if err := documentFlow(flowFile); err != nil {
+			errs = append(errs, err)
+		}
 	}
-	flowFileName := os.Args[1]
+	return errors.Join(errs...)
+}
+
+func documentFlow(flowFileName string) error {
 	flowFile, err := parser.ParseFile(flowFileName, &linkGenerator{baseDir: "."})
 	if err != nil {
-		log.Printf("ERROR: Can't convert to data format: %v", err)
-		os.Exit(2)
+		fmt.Errorf("can't convert to data format: %w", err)
+		return err
 	}
 
-	drawFlows := draw.ConvertFlowsToDraw(flowFile)
+	drawFlows := ConvertFlowsToDraw(flowFile)
 	// flowFileExt := path.Ext(flowFileName)
 	// baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
 	// mdFile := baseFlowFile + "-links"
@@ -59,23 +65,24 @@ func mainDoc() {
 		drawFlow.ChangeConfig(imdFile, flowMode, width, darkMode)
 		svgContents, mdContent, err := drawFlow.Draw()
 		if err != nil {
-			log.Printf("unexpected draw error: %v", err)
-			os.Exit(3)
+			fmt.Errorf("unexpected draw error: %w", err)
+			return err
 		}
 
 		for svgFile, svgContent := range svgContents {
 			err = os.WriteFile(svgFile, svgContent, 0666)
 			if err != nil {
-				log.Printf("ERROR: unable to write file %q: %v", svgFile, err)
-				os.Exit(4)
+				fmt.Errorf("unable to write file %q: %w", svgFile, err)
+				return err
 			}
 		}
 
 		err = os.WriteFile(imdFile+".md", mdContent, 0666)
 		if err != nil {
-			log.Printf("ERROR: unable to write file %q: %v", imdFile+".md", err)
-			os.Exit(5)
+			fmt.Errorf("unable to write file %q: %w", imdFile+".md", err)
+			return err
 		}
 	}
+	return nil
 
 }

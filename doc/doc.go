@@ -1,10 +1,11 @@
 package doc
 
 import (
-	// "fmt"
+	"bytes"
 	"errors"
 	"fmt"
 	"os"
+	"text/template"
 
 	"github.com/flowdev/flow-dsl/draw"
 	"github.com/flowdev/flow-dsl/parser"
@@ -32,21 +33,21 @@ func (lg linkGenerator) GenerateLink(imprt, typ string, isData bool) (link strin
 	return "", false
 }
 
-func DocumentFlows(flowFiles []string) error {
+func DocumentFlows(flowFiles []string, links bool, width int, dark bool, docFileNameTpl *template.Template) error {
+	fmt.Printf("links: %t, width: %d, dark: %t\n", links, width, dark)
 	errs := make([]error, 0, len(flowFiles))
 	for _, flowFile := range flowFiles {
-		if err := documentFlow(flowFile); err != nil {
+		if err := documentFlow(flowFile, links, width, dark, docFileNameTpl); err != nil {
 			errs = append(errs, err)
 		}
 	}
 	return errors.Join(errs...)
 }
 
-func documentFlow(flowFileName string) error {
+func documentFlow(flowFileName string, links bool, width int, dark bool, docFileNameTpl *template.Template) error {
 	flowFile, err := parser.ParseFile(flowFileName, &linkGenerator{baseDir: "."})
 	if err != nil {
-		fmt.Errorf("can't convert to data format: %w", err)
-		return err
+		return fmt.Errorf("can't convert to data format: %w", err)
 	}
 
 	drawFlows := ConvertFlowsToDraw(flowFile)
@@ -54,33 +55,36 @@ func documentFlow(flowFileName string) error {
 	// baseFlowFile := flowFileName[0 : len(flowFileName)-len(flowFileExt)]
 	// mdFile := baseFlowFile + "-links"
 
-	// flowMode := draw.FlowModeNoLinks
-	flowMode := draw.FlowModeMDLinks
-	width := 1900
-	darkMode := false
+	flowMode := draw.FlowModeNoLinks
+	if links {
+		flowMode = draw.FlowModeMDLinks
+	}
 
 	for _, drawFlow := range drawFlows {
-		// imdFile := fmt.Sprintf("%s-no-links", drawFlow.Name)
 		imdFile := drawFlow.Name
-		drawFlow.ChangeConfig(imdFile, flowMode, width, darkMode)
+		if docFileNameTpl != nil {
+			buf := &bytes.Buffer{}
+			if err := docFileNameTpl.Execute(buf, drawFlow); err != nil {
+				return fmt.Errorf("unable to generate documentation file name: %w", err)
+			}
+			imdFile = buf.String()
+		}
+		drawFlow.ChangeConfig(imdFile, flowMode, width, dark)
 		svgContents, mdContent, err := drawFlow.Draw()
 		if err != nil {
-			fmt.Errorf("unexpected draw error: %w", err)
-			return err
+			return fmt.Errorf("unexpected draw error: %w", err)
 		}
 
 		for svgFile, svgContent := range svgContents {
 			err = os.WriteFile(svgFile, svgContent, 0666)
 			if err != nil {
-				fmt.Errorf("unable to write file %q: %w", svgFile, err)
-				return err
+				return fmt.Errorf("unable to write file %q: %w", svgFile, err)
 			}
 		}
 
 		err = os.WriteFile(imdFile+".md", mdContent, 0666)
 		if err != nil {
-			fmt.Errorf("unable to write file %q: %w", imdFile+".md", err)
-			return err
+			return fmt.Errorf("unable to write file %q: %w", imdFile+".md", err)
 		}
 	}
 	return nil

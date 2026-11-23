@@ -4,7 +4,7 @@
 flowchart LR
     user("UserOperation")
     dash("in!: Dashboard")
-    err(("Error""))
+    err(("Error"))
 
     user -- out1: (data1, data2) --> dash
     user -- err: error --> err

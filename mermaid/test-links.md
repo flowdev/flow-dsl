@@ -3,12 +3,12 @@
 ```mermaid
 flowchart LR
     user("UserOperation")
-    dash("in!: Dashboard")
+    dash("Dashboard")
     err(("Error"))
 
-    user -- out1: (data1, data2) --> dash
-    user -- err: error --> err
-    dash -- err: error --> err
+    user -- out1 : (data1, data2) : in1 --> dash
+    user -- err : error --> err
+    dash -- err : error --> err
 
     click dash "https://google.com" _blank
     click user "../README.md" _blank

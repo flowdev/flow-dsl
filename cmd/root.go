@@ -1,5 +1,5 @@
 /*
-Copyright © 2026 Ole Bulbuk ole108
+Copyright © 2026 FlowDev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

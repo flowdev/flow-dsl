@@ -3,7 +3,7 @@ package draw
 import (
 	"bytes"
 	"fmt"
-	"path/filepath"
+	"path"
 	"text/template"
 )
 
@@ -207,7 +207,7 @@ func flowToSVGs(f *Flow) *svgMDFlow {
 	smf := &svgMDFlow{
 		svgs:          make(map[string]*svgFlow, 256),
 		md:            newMDFlow(),
-		svgFilePrefix: filepath.Join(".", "flowdev", "flow-"+f.Name),
+		svgFilePrefix: path.Join(".", "flowdev", "flow-"+f.Name),
 	}
 	fd := f.getDrawData()
 

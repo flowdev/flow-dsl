@@ -1,6 +1,7 @@
-# Convert a Simple Flow Diagram DSL to Code and Documentation
+# Convert a Simple (Flow) Diagram DSL to Code and Documentation
 
 Read a DSL for flows and convert it to documentation (MarkDown containing SVG images) or source code.
+The next version will support datastructures and classes too.
 
 ## FAQ
 
@@ -12,7 +13,7 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
 - No more: 'That requirement simply doesn't fit our design (or architecture).' \
   A small change in the problem domain always results in a small change in the solution domain
   since the solution is structured like the problem. \
-  The solution can never be less complex than the problem it solves but it can easily be much more complex.
+  The solution can never be less complex than the problem it solves but it can easily become much more complex.
   This approach avoids this unnecessary complexity for all problems where it's a good fit.
 
 #### What Technical Advantages Do Flows Have?
@@ -26,7 +27,7 @@ Read a DSL for flows and convert it to documentation (MarkDown containing SVG im
 
 #### When Shouldn't I Use Flows?
 
-In short: Whenever they aren't a good fit.
+In short: Whenever they aren't a good fit. But we will support OOP in the next version.
 
 Flows usually fit business domains very well.
 They can also be a good fit for some technical domains (e.g. sound engineering).
